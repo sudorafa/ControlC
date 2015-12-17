@@ -244,7 +244,7 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CONSERTO (1) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26" height="26" > N. SERIE </td>
+			<td class="simples_2" width="90" height="26" > N. SERIE </td>
 			<td class="simples_2" width="300" height="26" > DEFEITO </td>
 			<td class="simples_2" width="50" height="26" > COLT. </td>
 		</tr>

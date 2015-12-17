@@ -82,6 +82,7 @@ year = year + 1900;
 		&nbsp; &nbsp;<b><a class="linkbanner" href="form_auditorias.php">AUDITORIAS</a>&nbsp; &nbsp; |
 		&nbsp; &nbsp;<b><a class="linkbanner" href="form_controles.php">CONTROLES</a>&nbsp; &nbsp; |
 		&nbsp; &nbsp;<b><a class="linkbanner" href="form_status_detalhado.php"> STATUS DETALHADO </a>&nbsp; &nbsp; |
+		&nbsp; &nbsp;<b><a class="linkbanner" href="form_conserto.php"> COLT. QUEBRADOS </a>&nbsp; &nbsp; |
 		</td>
 	</tr>	
 	</table>
