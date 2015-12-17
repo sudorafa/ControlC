@@ -27,14 +27,15 @@ session_start();
     <tr>
 	
 	<td	align="center"> 
+		<br>
 		&nbsp; &nbsp; &nbsp;
 		<label> <font color="336699"> Matricula: </label> &nbsp;
 		<label> <input name="matricula" type="text" size="10" maxlength="10" value="<?php echo $_POST[matricula]?>"></label> &nbsp; 
 		<input type="submit" name="ok" value="ok"> &nbsp; &nbsp; &nbsp;
 		<label> <font color="336699"> Coletor: </label> &nbsp;
-		<label> <input name="coletor" type="text" size="3" maxlength="3" value="<?php echo $_POST[coletor]?>" readonly="false"> </label>&nbsp; &nbsp; &nbsp;
+		<label> <input name="coletor" type="text" size="5" maxlength="3" value="<?php echo $_POST[coletor]?>" readonly="false"> </label>&nbsp; &nbsp; &nbsp;
 		<label> <font color="336699"> Restam: </label> &nbsp;
-		<label> <input name="setor" type="text" size="10" value="<?php echo $restamsetor[restamsetor]?>" readonly="false"> </label> 
+		<label> <input name="setor" type="text" size="3" value="<?php echo $restamsetor[restamsetor]?>" readonly="false"> </label> 
 		<br> <br>
 		<label> <font color="336699"> Nome: </label> &nbsp; 
 		<label> <input name="nome" type="text" size="50" value="<?php echo $usuario[nomusuario]?>" readonly="false"> </label> &nbsp; &nbsp; &nbsp;
@@ -47,6 +48,7 @@ session_start();
 		<label> OBS: </label> <br>
 		<textarea name="obs" cols="40" rows="4"></textarea> <br> <br>
 		<input type="submit" name="cadastrar" value="CONFIRMA">
+		<br> <br>
 	</td>
 	
 	</tr>

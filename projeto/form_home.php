@@ -15,6 +15,7 @@ session_start();
 						
 <html>
 <head>
+
 <link href="estilo.css" rel="stylesheet" type="text/css">
 </head>
 </head>
@@ -51,17 +52,222 @@ session_start();
 <br>
 <h2 align="center"> <font color="336699"> Status dos Equipamentos </font></h2> 
 
-<table cellpadding="0" border="1" width="40%" height="60" align="center">
-<tr>
-	<td class="simples_2" width="90"> MATRICULA </td>
-	<td class="simples_2" width="300"> NOME </td>
-	<td class="simples_2" width="50"> COLT. </td>
-</tr>
 
+<table cellpadding="0" border="0" width="80%" align="center">
 <tr>
-	<td color="336699" align="center" width="90"> 047000619 </td>
-	<td color="336699" align="center" width="300"> Rafael Eduardo Lima dos Santos</td>
-	<td color="336699" align="center" width="50"> SB52 </td>
+	<td align="center" > SETOR LOJA (0 / 22) </td>
+</tr>
+<tr> 
+	<td> 
+		<div style="float:left;" >
+		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<tr>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SAIDAS DA MANHA </td>
+		</tr>
+		<tr>
+			<td class="simples_2" width="90" height="26"> DATA</td>
+			<td class="simples_2" width="300" height="26"> NOME </td>
+			<td class="simples_2" width="50" height="26"> COLT. </td>
+		</tr>
+
+		<tr>
+			<td color="336699" align="center" width="90" height="26"> 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26"> Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>
+		<tr>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>		
+		
+		<tr>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>
+		</table>
+		
+		</div>
+
+		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<tr>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SAIDAS DA TARDE </td>
+		</tr>
+		<tr>
+			<td class="simples_2" width="90" height="26" height="26" > DATA</td>
+			<td class="simples_2" width="300" height="26" > NOME </td>
+			<td class="simples_2" width="50" height="26" > COLT. </td>
+		</tr>
+
+		<tr>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>
+		</table>
+		<br>
+	</td>
+</tr>
+</table>
+
+<br>
+
+<table cellpadding="0" border="0" width="80%" align="center">
+<tr> 
+	<td> 
+		<div style="float:left;" >
+		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<tr>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR PREVENCAO (0 / 4) </td>
+		</tr>
+		<tr>
+			<td class="simples_2" width="90" height="26"> DATA</td>
+			<td class="simples_2" width="300" height="26"> NOME </td>
+			<td class="simples_2" width="50" height="26"> COLT. </td>
+		</tr>
+
+		<tr>
+			<td color="336699" align="center" width="90" height="26"> 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26"> Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>
+		<tr>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>		
+		
+		<tr>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>
+		</table>
+		
+		</div>
+
+		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<tr>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR FRIOS (0 / 4) </td>
+		</tr>
+		<tr>
+			<td class="simples_2" width="90" height="26" height="26" > DATA</td>
+			<td class="simples_2" width="300" height="26" > NOME </td>
+			<td class="simples_2" width="50" height="26" > COLT. </td>
+		</tr>
+
+		<tr>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>
+		</table>
+		<br>
+	</td>
+</tr>
+</table>
+
+<br>
+
+<table cellpadding="0" border="0" width="80%" align="center">
+<tr> 
+	<td> 
+		<div style="float:left;" >
+		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<tr>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR F. CAIXA (0 / 3) </td>
+		</tr>
+		<tr>
+			<td class="simples_2" width="90" height="26"> DATA</td>
+			<td class="simples_2" width="300" height="26"> NOME </td>
+			<td class="simples_2" width="50" height="26"> COLT. </td>
+		</tr>
+
+		<tr>
+			<td color="336699" align="center" width="90" height="26"> 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26"> Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>
+		<tr>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>		
+		
+		<tr>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>
+		</table>
+		
+		</div>
+
+		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<tr>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR DEPOSITO (0 / 6) </td>
+		</tr>
+		<tr>
+			<td class="simples_2" width="90" height="26" height="26" > DATA</td>
+			<td class="simples_2" width="300" height="26" > NOME </td>
+			<td class="simples_2" width="50" height="26" > COLT. </td>
+		</tr>
+
+		<tr>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>
+		</table>
+		<br>
+	</td>
+</tr>
+</table>
+
+<br>
+
+<table cellpadding="0" border="0" width="80%" align="center">
+<tr> 
+	<td> 
+		<div style="float:left;" >
+		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<tr>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR GERENCIA (0 / 1) </td>
+		</tr>
+		<tr>
+			<td class="simples_2" width="90" height="26"> DATA</td>
+			<td class="simples_2" width="300" height="26"> NOME </td>
+			<td class="simples_2" width="50" height="26"> COLT. </td>
+		</tr>
+
+		<tr>
+			<td color="336699" align="center" width="90" height="26"> 2015-12-16 </td>
+			<td color="336699" align="center" width="300" height="26"> Rafael Eduardo Lima dos Santos</td>
+			<td color="336699" align="center" width="50" height="26" > SB52 </td>
+		</tr>
+		</table>
+		
+		</div>
+
+		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<tr>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CONSERTO (1) </td>
+		</tr>
+		<tr>
+			<td class="simples_2" width="90" height="26" height="26" > N. SERIE </td>
+			<td class="simples_2" width="300" height="26" > DEFEITO </td>
+			<td class="simples_2" width="50" height="26" > COLT. </td>
+		</tr>
+
+		<tr>
+			<td color="336699" align="center" width="90" height="26" > 445151518541 </td>
+			<td color="336699" align="center" width="300" height="26" > SHVBDWYAVBDSA </td>
+			<td color="336699" align="center" width="50" height="26" > SBXX </td>
+		</tr>
+		</table>
+		<br>
+	</td>
 </tr>
 </table>
 
