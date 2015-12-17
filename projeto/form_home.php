@@ -54,54 +54,52 @@ session_start();
 
 
 <table cellpadding="0" border="0" width="80%" align="center">
-<tr>
-	<td align="center" > SETOR LOJA (0 / 22) </td>
-</tr>
-<tr> 
 	<td> 
-		<div style="float:left;" >
-		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<table cellpadding="0" border="1" width="99%" height="26" >
+			<tr>
+				<td align="center" > SETOR LOJA (4 / 22) </td>
+			</tr>
+		</table >
+		<table cellpadding="0" border="1" width="49%" height="80" align="center" style="float:left;">
 		<tr>
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SAIDAS DA MANHA </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26"> DATA</td>
+			<td class="simples_2" width="90" height="26"> DATA | HORA</td>
 			<td class="simples_2" width="300" height="26"> NOME </td>
 			<td class="simples_2" width="50" height="26"> COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26"> 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26"> 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26"> Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>		
 		
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
 		</table>
 		
-		</div>
-
-		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<table cellpadding="0" border="1" width="49%" height="80" align="center">
 		<tr>
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SAIDAS DA TARDE </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26" height="26" > DATA</td>
+			<td class="simples_2" width="90" height="26" height="26" > DATA | HORA</td>
 			<td class="simples_2" width="300" height="26" > NOME </td>
 			<td class="simples_2" width="50" height="26" > COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
@@ -116,49 +114,46 @@ session_start();
 <table cellpadding="0" border="0" width="80%" align="center">
 <tr> 
 	<td> 
-		<div style="float:left;" >
-		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<table cellpadding="0" border="1" width="49%" height="80" align="center" style="float:left;">
 		<tr>
-			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR PREVENCAO (0 / 4) </td>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR PREVENCAO (3 / 4) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26"> DATA</td>
+			<td class="simples_2" width="90" height="26"> DATA | HORA</td>
 			<td class="simples_2" width="300" height="26"> NOME </td>
 			<td class="simples_2" width="50" height="26"> COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26"> 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26"> 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26"> Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>		
 		
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
 		</table>
 		
-		</div>
-
-		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<table cellpadding="0" border="1" width="49%" height="80" align="center">
 		<tr>
-			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR FRIOS (0 / 4) </td>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR FRIOS (1 / 4) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26" height="26" > DATA</td>
+			<td class="simples_2" width="90" height="26" height="26" > DATA | HORA</td>
 			<td class="simples_2" width="300" height="26" > NOME </td>
 			<td class="simples_2" width="50" height="26" > COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
@@ -172,50 +167,47 @@ session_start();
 
 <table cellpadding="0" border="0" width="80%" align="center">
 <tr> 
-	<td> 
-		<div style="float:left;" >
-		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+	<td>
+		<table cellpadding="0" border="1" width="49%" height="80" align="center" style="float:left;">
 		<tr>
-			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR F. CAIXA (0 / 3) </td>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR F. CAIXA (3 / 3) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26"> DATA</td>
+			<td class="simples_2" width="90" height="26"> DATA | HORA</td>
 			<td class="simples_2" width="300" height="26"> NOME </td>
 			<td class="simples_2" width="50" height="26"> COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26"> 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26"> 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26"> Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>		
 		
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
 		</table>
 		
-		</div>
-
-		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<table cellpadding="0" border="1" width="49%" height="80" align="center">
 		<tr>
-			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR DEPOSITO (0 / 6) </td>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR DEPOSITO (1 / 6) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26" height="26" > DATA</td>
+			<td class="simples_2" width="90" height="26" height="26" > DATA | HORA</td>
 			<td class="simples_2" width="300" height="26" > NOME </td>
 			<td class="simples_2" width="50" height="26" > COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
@@ -227,30 +219,27 @@ session_start();
 
 <br>
 
-<table cellpadding="0" border="0" width="80%" align="center">
+<table cellpadding="0" border="0" width="80%" align="center" >
 <tr> 
-	<td> 
-		<div style="float:left;" >
-		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+	<td>
+		<table cellpadding="0" border="1" width="49%" height="80" align="center"style="float:left;">
 		<tr>
-			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR GERENCIA (0 / 1) </td>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR GERENCIA (1 / 1) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26"> DATA</td>
+			<td class="simples_2" width="90" height="26"> DATA | HORA</td>
 			<td class="simples_2" width="300" height="26"> NOME </td>
 			<td class="simples_2" width="50" height="26"> COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26"> 2015-12-16 </td>
+			<td color="336699" align="center" width="90" height="26"> 2015-12-16 | 15:20 </td>
 			<td color="336699" align="center" width="300" height="26"> Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
 		</table>
 		
-		</div>
-
-		<table cellpadding="0" border="1" width="48%" height="80" align="center">
+		<table cellpadding="0" border="1" width="49%" height="80" align="center">
 		<tr>
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CONSERTO (1) </td>
 		</tr>
