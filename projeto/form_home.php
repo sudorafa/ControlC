@@ -65,24 +65,24 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SAIDAS DA MANHA </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26"> DATA | HORA</td>
+			<td class="simples_2" width="90" height="26"> DATA</td>
 			<td class="simples_2" width="300" height="26"> NOME </td>
 			<td class="simples_2" width="50" height="26"> COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26"> 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26"> 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26"> Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>		
 		
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
@@ -93,13 +93,13 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SAIDAS DA TARDE </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26" height="26" > DATA | HORA</td>
+			<td class="simples_2" width="90" height="26" height="26" > DATA</td>
 			<td class="simples_2" width="300" height="26" > NOME </td>
 			<td class="simples_2" width="50" height="26" > COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
@@ -119,24 +119,24 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR PREVENCAO (3 / 4) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26"> DATA | HORA</td>
+			<td class="simples_2" width="90" height="26"> DATA</td>
 			<td class="simples_2" width="300" height="26"> NOME </td>
 			<td class="simples_2" width="50" height="26"> COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26"> 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26"> 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26"> Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>		
 		
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
@@ -147,13 +147,13 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR FRIOS (1 / 4) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26" height="26" > DATA | HORA</td>
+			<td class="simples_2" width="90" height="26" height="26" > DATA</td>
 			<td class="simples_2" width="300" height="26" > NOME </td>
 			<td class="simples_2" width="50" height="26" > COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
@@ -173,24 +173,24 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR F. CAIXA (3 / 3) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26"> DATA | HORA</td>
+			<td class="simples_2" width="90" height="26"> DATA</td>
 			<td class="simples_2" width="300" height="26"> NOME </td>
 			<td class="simples_2" width="50" height="26"> COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26"> 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26"> 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26"> Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>		
 		
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
@@ -201,13 +201,13 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR DEPOSITO (1 / 6) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26" height="26" > DATA | HORA</td>
+			<td class="simples_2" width="90" height="26" height="26" > DATA</td>
 			<td class="simples_2" width="300" height="26" > NOME </td>
 			<td class="simples_2" width="50" height="26" > COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26" > 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26" > 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26" > Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>
@@ -227,13 +227,13 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR GERENCIA (1 / 1) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26"> DATA | HORA</td>
+			<td class="simples_2" width="90" height="26"> DATA</td>
 			<td class="simples_2" width="300" height="26"> NOME </td>
 			<td class="simples_2" width="50" height="26"> COLT. </td>
 		</tr>
 
 		<tr>
-			<td color="336699" align="center" width="90" height="26"> 2015-12-16 | 15:20 </td>
+			<td color="336699" align="center" width="90" height="26"> 2015-12-16 </td>
 			<td color="336699" align="center" width="300" height="26"> Rafael Eduardo Lima dos Santos</td>
 			<td color="336699" align="center" width="50" height="26" > SB52 </td>
 		</tr>

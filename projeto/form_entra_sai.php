@@ -23,6 +23,9 @@ session_start();
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
 
+<h2 align="center"> <font color="336699"> Registrando Entradas / Saidas </font></h2> 
+<br>
+
 <table border ="1" width="80%" height="250" align="center" cellpadding="0" cellspacing="0">
     <tr>
 	
