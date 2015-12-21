@@ -1,0 +1,11 @@
+
+mysql> desc coletores;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(4)      | NO   | PRI | NULL    | auto_increment |
+| nserie        | varchar(20) | YES  |     | NULL    |                |
+| descricao     | varchar(20) | YES  |     | NULL    |                |
+| identificador | varchar(20) | YES  |     | NULL    |                |
+| status        | varchar(30) | YES  |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+

@@ -8,7 +8,7 @@ include('altoriza.php');
 include("ip.php");
 
 $codusuario = $_SESSION["codusuario"];
-$nomusuario = mysql_fetch_array(mysql_query("select nomusuario from usuariosc where codusuario = '$codusuario'"));
+$nomusuario = mysql_fetch_array(mysql_query("select nomusuario from usuarios where codusuario = '$codusuario'"));
 
 ////////////////////////////////////////////////////////
 ?>
