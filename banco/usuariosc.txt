@@ -1,17 +1,14 @@
-create table usuariosc (codusuario int not null auto_increment primary key, nomusuario varchar(40) not null, datacadastro date not null, codsetor int(8) not null, matricula varchar(30) not null, login varchar(20) not null, senha varchar(10) not null, bloqueio char(1) not null, perfil int(8) not null )
-
-
 mysql> desc usuariosc;
 +--------------+-------------+------+-----+---------+----------------+
 | Field        | Type        | Null | Key | Default | Extra          |
 +--------------+-------------+------+-----+---------+----------------+
 | codusuario   | int(11)     | NO   | PRI | NULL    | auto_increment |
-| nomusuario   | varchar(40) | NO   |     | NULL    |                |
+| nomusuario   | varchar(50) | YES  |     | NULL    |                |
 | datacadastro | date        | NO   |     | NULL    |                |
-| codsetor     | int(8)      | NO   |     | NULL    |                |
 | matricula    | varchar(30) | NO   |     | NULL    |                |
-| login        | varchar(20) | NO   |     | NULL    |                |
+| user         | varchar(20) | YES  |     | NULL    |                |
 | senha        | varchar(10) | NO   |     | NULL    |                |
 | bloqueio     | char(1)     | NO   |     | NULL    |                |
-| perfil       | int(8)      | NO   |     | NULL    |                |
+| descsetor    | varchar(30) | NO   |     | NULL    |                |
 +--------------+-------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)

@@ -61,7 +61,7 @@ session_start();
 					<label> <input name="nserie" type="text" size="2" maxlength="2" readonly="false" </label> &nbsp; 
 				<br> <br>
 					<label> <font color="336699"> CONSERTO: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" readonly="false" </label> &nbsp;
+					<label> <input name="nserie" type="text" size="2" maxlength="2" </label> &nbsp;
 					<label> <font color="336699"> Qtd Atual: </label> &nbsp;
 					<label> <input name="nserie" type="text" size="2" maxlength="2" readonly="false" </label> &nbsp; 
 				<br> <br>
