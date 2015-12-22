@@ -5,7 +5,7 @@ session_start();
 			
 	include('altoriza.php');
 	
-	include('../conecta.php');
+	include('conecta.php');
 	
 	if ( $_SESSION[altoriza] == "ok" ){
 		include("index.php");

@@ -5,7 +5,7 @@ session_start();
 			
 	include('altoriza.php');
 	
-	include('../conecta.php');
+	include('conecta.php');
 	
 	if ( $_SESSION[altoriza] == "ok" ){
 		include("index.php");
@@ -53,7 +53,9 @@ session_start();
 				</td>
 				<tr>
 					<td	align="center">
-						<input align="center" type="submit" name="atualizar" value="atualizar/cadastrar">
+						<input align="center" type="submit" name="salvar" value="salvar">  &nbsp; &nbsp;
+						<input align="center" type="submit" name="salvar_novo" value="salvar novo"> &nbsp; &nbsp;
+						<input align="center" type="submit" name="apagar" value="apagar"> &nbsp; &nbsp;
 						<br> <br>
 					</td>
 				</tr>

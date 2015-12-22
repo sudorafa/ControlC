@@ -3,7 +3,7 @@
 //////////////  validando acesso de usuário
 //////////////////////////////////////////////////////
 session_start();
-include('../conecta.php');
+include('conecta.php');
 include('altoriza.php');
 include("ip.php");
 
@@ -36,11 +36,11 @@ $nomusuario = mysql_fetch_array(mysql_query("select nomusuario from usuariosc wh
     days = new Array(7)
     days[1] = "Domingo";
     days[2] = "Segunda-feira";
-    days[3] = "Terça-feira"; 
+    days[3] = "Terca-feira"; 
     days[4] = "Quarta-feira";
     days[5] = "Quinta-feira";
     days[6] = "Sexta-feira";
-    days[7] = "Sábado";
+    days[7] = "Sabado";
     months = new Array(12)
     months[1] = "Janeiro";
     months[2] = "Fevereiro";

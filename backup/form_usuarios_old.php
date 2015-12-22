@@ -6,7 +6,7 @@ session_start();
 			
 	include('altoriza.php');
 	
-	include('conecta.php');
+	include('../conecta.php');
 	
 	if ( $_SESSION[altoriza] == "ok" ){
 		
@@ -79,22 +79,18 @@ campo.value = campo.value + separador;
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
 
-<h2 align="center"> <font color="336699"> Alterar / Excluir Usuarios </font></h2> 
+<h2 align="center"> <font color="336699"> Cadastrar / Alterar Dados dos Usuarios </font></h2> 
 
 <table cellpadding="0" border="1" width="80%" align="center">
 
     <tr>
-	<form action="form_usuarios.php" method="post" name="cadastro" align="center">
+	<form action="form_usuarios.php" method="post" name="cadastro" >
 	<td	align="center"> 
 		<br>	
 		&nbsp; &nbsp; &nbsp;
 		<label> <font color="336699"> Usuario: </label> &nbsp;
 		<label> <input name="user" value="<?php echo $_POST["user"]; ?>" type="text" size="15" maxlength="15" </label> &nbsp; 
 		<input type="submit" name="buscar" value="buscar"> &nbsp; &nbsp; &nbsp;
-		<br> <br>
-	</td>
-	</form>
-	<form action="query_query_query_query_query_query_salvar_alteracao_usuario.php" method="post" name="cadastro" >
 		<?php 
 			$usuario = mysql_query("select * from usuariosc where user = '$user'");
 			$dados_usuario = mysql_fetch_array($usuario)
@@ -104,24 +100,24 @@ campo.value = campo.value + separador;
 			<td	align="center">
 			<br> <br>
 				<label> <font color="336699"> Nome: </label> &nbsp;
-				<input name="nomeusuaruio" type="text" size="50" maxlength="50" value="<?php echo $dados_usuario[nomusuario]?>	"> &nbsp; &nbsp; &nbsp;
+				<input name="nomeusuaruio" type="text" size="50" maxlength="40" value="<?php echo $dados_usuario[nomusuario]?>	"> &nbsp; &nbsp; &nbsp;
 				
 				<label> <font color="336699">  Setor: </label> &nbsp;
 				<?php
 					$setor= mysql_query("select * from setor"); 
 				?>
 				<select size="1" name="setor">
-				<option value="<?php echo $dados_usuario[descsetor]?>"> <?php echo $dados_usuario[descsetor]?></option>
+				<option value="<?php echo $dados_usuario[codsetor]?>"> <?php echo $dados_usuario[descsetor]?></option>
 				<option value="999"> --------------------------- </option>
 				<?php
 					while ($setor_1 = mysql_fetch_array($setor)){
 				?>
-					<option value="<?php echo $setor_1[descsetor]?>"> <?php echo $setor_1[descsetor]?></option>
+					<option value="<?php echo $setor_1[codsetor]?>"> <?php echo $setor_1[descsetor]?></option>
 				<?php }?>	
 				</select> &nbsp; &nbsp;
 			<br> <br> <br>
 				<label> <font color="336699">  Data Desta Atualizacao: </label> &nbsp;
-				<input name="datacadastro" type="text" size="10" maxlength="10" readonly="false" value="<?php echo date('Y-m-d') ?>"> &nbsp; &nbsp; 
+				<input name="datacadastro" type="text" size="10" maxlength="10" readonly="false" value="<?php echo date('Y/m/d') ?>"> &nbsp; &nbsp; 
 				
 				<label> <font color="336699">  Data Ultima Atualizacao: </label> &nbsp;
 				<input name="data_cadastro" type="text" size="10" maxlength="10" readonly="false" value="<?php echo $dados_usuario[datacadastro] ?>"> &nbsp; &nbsp; 
@@ -136,26 +132,39 @@ campo.value = campo.value + separador;
 				<label> <font color="336699">  Matricula (Bipar o Cracha): </label> &nbsp;
 				<input name="matricula" type="text" size="10" maxlength="10" value="<?php echo $dados_usuario[matricula] ?>"> &nbsp; &nbsp;
 			<br> <br> <br> <br>
-			
-			<input type="hidden" name="user1" value="<?php echo $dados_usuario[user]?>" >
-	
-			<table cellpadding="0" border="0" width="20%" align="center">
-			<tr align="center">
-				<td align="center"> 
-					<input align="center" type="submit" name="salvar" value="salvar"> 
+	</form>	
+
+			<table cellpadding="0" border="0" width="40%" align="center">
+			<tr align="center"> 
+				<td align="center">
+					<form action="salvar_novo_usuario.php" method="post" name="cadastro" >
+						<input align="center" type="submit" name="salvar" value="salvar">  &nbsp; &nbsp;
+					</form>
 				</td>
-	</form>
-				<form action="query_deletar_usuario.php" method="post" name="cadastro" align="center">
-				<td >
-					<input type="hidden" name="matricula1" value="<?php echo $dados_usuario[matricula]?>" >
-					<input align="center" type="submit" name="deletar" value="deletar">  
+				<td align="center">
+					<form action="salvar_novo_usuario.php" method="post" name="salvar_novo_usuario" > 
+						<input type="hidden" name="user1" value="<?php echo $_POST["user"]; ?>" >
+						<input type="hidden" name="nomeusuaruio1" value="<?php echo $_POST["nomeusuaruio"]; ?>" >
+						<input type="hidden" name="setor1" value="<?php echo $_POST["setor"]; ?>" >
+						<input type="hidden" name="datacadastro1" value="<?php echo $_POST["datacadastro"]; ?>" >
+						<input type="hidden" name="senha1" value="<?php echo $_POST["senha"]; ?>" >
+						<input type="hidden" name="bloqueio1" value="<?php echo $_POST["bloqueio"]; ?>" >
+						<input type="hidden" name="matricula1" value="<?php echo $_POST["matricula"]; ?>" >
+						<input align="center" type="submit" name="salvar_novo" value="salvar novo"> &nbsp; &nbsp;
+					</form>
 				</td>
-				</form>
+				<td align="center">
+					<form action="salvar_novo_usuario.php" method="post" name="cadastro" >
+						<input align="center" type="submit" name="apagar" value="apagar"> &nbsp; &nbsp;
+					</form>
+				</td>
 			</tr>
-			</table>
-			<br> <br>
+			</table>	
+			</td>
+		</tr>	
+		<br> <br>
 	</td>
-	</tr>
+	</tr>	
 </table> 
 
 </body>
