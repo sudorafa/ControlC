@@ -17,7 +17,7 @@ $query = "update usuariosc set nomusuario = '$nomeusuaruio1', datacadastro = '$d
 if( mysql_query($query))
 {
 	echo "<script>window.alert('Salvo com Sucesso !')</script>";
-	include("form_home.php"); 
+	include("form_usuarios.php"); 
 	
 }
 else
