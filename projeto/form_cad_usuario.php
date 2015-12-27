@@ -14,7 +14,7 @@ session_start();
 	header("Location:salvar_novo_usuario.php");
 } */
 include('conecta.php');
-include("index.php");
+//include("index.php");
 	
 	}
 ?>
@@ -48,11 +48,11 @@ function valida_dados (cadastro)
         return false;
     }
 
-    if (cadastro.senha.value=="")
+    /*if (cadastro.senha.value=="")
     {
         alert ("Por favor digite a senha.");
         return false;
-    }
+    }*/
 
 	if (cadastro.bloqueio.selectedIndex ==0)
     {
@@ -125,20 +125,18 @@ campo.value = campo.value + separador;
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
 
-<h2 align="center"> <font color="336699"> Cadastrar Novo Usuario </font></h2> 
-
 <table cellpadding="0" border="1" width="80%" align="center">
 
     <tr>
 	<form action="query_salvar_novo_usuario.php" method="post" name="cadastro" onSubmit="return valida_dados(this)">
-		<br>
+		<h2 align="center"> <font color="336699"> Cadastrar Novo Usuario </font></h2>	
 		<tr> 
 			<td	align="center">
 			<br> <br>
-				<label> <font color="336699"> Nome: </label> &nbsp;
+				<label> <font color="336699"> *Nome: </label> &nbsp;
 				<input name="nomeusuaruio" type="text" size="50" maxlength="50" > &nbsp; &nbsp; &nbsp;
 				
-				<label> <font color="336699">  Setor: </label> &nbsp;
+				<label> <font color="336699">  *Setor: </label> &nbsp;
 				<?php
 					$setor= mysql_query("select * from setorc where codsetor < '7'"); 
 				?>
@@ -151,24 +149,24 @@ campo.value = campo.value + separador;
 				<?php }?>	
 				</select> &nbsp; &nbsp;
 			<br> <br> <br>
-				<label> <font color="336699"> Usuario: </label> &nbsp;
-				<label> <input name="user" type="text" size="15" maxlength="15" </label> &nbsp; &nbsp;
+				<label> <font color="336699"> *Usuario: </label> &nbsp;
+				<label> <input name="user" readonly="false" value="<?php echo $_POST["username"]; ?>" type="text" size="15" maxlength="15" </label> &nbsp; &nbsp;
 				
-				<label> <font color="336699">  Data Cadastro: </label> &nbsp;
+				<label> <font color="336699">  *Data Cadastro: </label> &nbsp;
 				<input name="datacadastro" type="text" size="10" maxlength="10" readonly="false" value="<?php echo date('Y-m-d') ?>"> &nbsp; &nbsp; 
 				
 			<br> <br> <br>
 				<label> <font color="336699">  Senha (Acesso ao Portal): </label> &nbsp;
 				<input name="senha" type="password" size="10" maxlength="10" > &nbsp; &nbsp;
 				
-				<label> <font color="336699">  Bloqueio: </label> &nbsp;
+				<label> <font color="336699">  *Bloqueio: </label> &nbsp;
 				<select size="1" name="bloqueio">
 					<option> </option>
 					<option value="nao">nao</option>
 					<option value="sim">sim</option>
 				</select> &nbsp; &nbsp;
 				
-				<label> <font color="336699">  Matricula (Bipar o Cracha): </label> &nbsp;
+				<label> <font color="336699">  *Matricula (Bipar o Cracha): </label> &nbsp;
 				<input name="matricula" type="text" size="10" maxlength="10" > &nbsp; &nbsp;
 			<br> <br> <br> <br>
 			

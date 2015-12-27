@@ -1,15 +1,17 @@
 <?php
+
 session_start();
 	$codusuario = $_SESSION["codusuario"];
 	$mensagem = $_SESSION["mensagem"];
-			
+				
 	include('altoriza.php');
 	
 	include('conecta.php');
 	
 	if ( $_SESSION[altoriza] == "ok" ){
-		include("index.php");
 	
+		include('conecta.php');
+		include("index.php");
 	}
 ?>
 						
@@ -29,96 +31,115 @@ session_start();
 <table border ="1" width="80%" height="100" align="center" cellpadding="0" >
 	<tr>
 		
-		<td width="40%" align="center" >
-		<br>
-			<table cellpadding="0" border="0" width="270" height="100" align="center" >
-			<tr >
+		<td width="39%" align="center" height="100">
+		
+			<table cellpadding="0" border="0" width="60%" height="100" align="center" >
+			<tr>
 				<h2> <font color="336699"> Gerenciamento </font></h2> 
-				<td	colspan="2" align="right" >
-					<label> <font color="336699"> LOJA: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" </label> &nbsp;
-					<label> <font color="336699"> Qtd Atual: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" readonly="false" </label> &nbsp; 
-				<br> <br>
-					<label> <font color="336699"> PREVENCAO: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" </label> &nbsp;
-					<label> <font color="336699"> Qtd Atual: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" readonly="false" </label> &nbsp; 
-				<br> <br>
-					<label> <font color="336699"> F. CAIXA: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" </label> &nbsp;
-					<label> <font color="336699"> Qtd Atual: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" readonly="false" </label> &nbsp; 
-				<br> <br>
-					<label> <font color="336699"> DEPOSITO: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" </label> &nbsp;
-					<label> <font color="336699"> Qtd Atual: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" readonly="false" </label> &nbsp; 
-				<br> <br>
-					<label> <font color="336699"> GERENCIA: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" </label> &nbsp;
-					<label> <font color="336699"> Qtd Atual: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" readonly="false" </label> &nbsp; 
-				<br> <br>
-					<label> <font color="336699"> CONSERTO: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" </label> &nbsp;
-					<label> <font color="336699"> Qtd Atual: </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" readonly="false" </label> &nbsp; 
-				<br> <br>
-					<label> <font color="336699"> Total : </label> &nbsp;
-					<label> <input name="nserie" type="text" size="2" maxlength="2" readonly="false" </label> &nbsp; 
-				<tr input align="center">
-				<td>
-				<br> 
-					<input align="center" type="submit" name="atualizar" value="atualizar">
-					<br> <br> <br>
+			
+			<?php
+				$setorc = mysql_query("select * from setorc");
+															
+				if($setorc)
+				{
+				
+					while ($dados_setorc = mysql_fetch_array($setorc))
+					{
+			?>
+						
+					<tr height="30" >
+						<td align="right">
+							<label> <font color="336699"> <?php echo $dados_setorc[descsetor]?> </label> &nbsp;
+						</td>
+						<td>
+							<label> <input name="qtd_loja_total" value="<?php echo $dados_setorc[qtdtotal]?>" type="text" size="2" maxlength="2" </label> &nbsp;
+						</td>
+					</tr>
+			<?php
+					}
+				};
+			?>
+				
+			</tr>
+			<tr>
+				<td height="30" width="50%" align="right">
+					<label> <font color="336699"> Total </label> &nbsp;
 				</td>
-				</tr>
+				<td>
+					<label> <input name="qtd_loja_total" type="text" size="2" maxlength="2" readonly="false" </label> &nbsp;
+				</td>
+			
 			</tr>	
 			</table>
+			
+				<br> <br>
+					 &nbsp; &nbsp; &nbsp;
+					 <input align="center" type="submit" name="salvar" value="salvar">
+				<br> <br> <br>
+				
 			</td>
 		
 		</td>
 	
-	<td width="40%" height="100" align="center" >
+	<td width="50%" height="100" align="center" >
 		<br>
 		<h2> <font color="336699"> Alterar Status Conserto </font></h2>
-			<label> <font color="336699"> Coletor : &nbsp; </label> 		
-			<label>	<input name="coletor" type="text" size="4" maxlength="4" > </label> 
-			&nbsp; &nbsp; <input type="submit" name="buscar" value="buscar">
+			<form method="post" name="alterar" >
+			
+			<label> <font color="336699"> Identificador : &nbsp; </label>
+			<input name="ident" type="text" size="4" maxlength="4" value="<?php echo $_POST["ident"]?>" > &nbsp; &nbsp;
+			
+			<input align="center" type="submit" name="buscar" value="buscar">
+			
+			<?php 		
+				$coletor = mysql_query("select * from coletores where identificador = '$ident'");
+				$dados_coletor = mysql_fetch_array($coletor)
+			?>
+			
 			<br> <br> <br> <br>
+			
 		<table cellpadding="0" border="0" width="99%" height="100" align="center" >
 			<tr>
-			<td	align="right">
+			<td	align="center">
 				<br>
 				<label> <font color="336699"> Num Serie: </label> 
-				<label> <input name="nserie" type="text" size="20" maxlength="20" readonly="false" </label> &nbsp; 
+				<input name="nserie" value="<?php echo $dados_coletor[nserie] ?>" type="text" size="20" maxlength="20" readonly="false"> &nbsp; 
+				
 				<label> <font color="336699">  Descricao: </label> 
-				<label> <input name="descricao" type="text" size="10" maxlength="10" readonly="false" </label> &nbsp; 
+				<label> <input name="descricao" value="<?php echo $dados_coletor[descricao]?>" type="text" size="10" maxlength="10" readonly="false"> </label> &nbsp; 
+				
 			<br> <br>
-				<label> <font color="336699">  Status: </label> 
-				<select size="1" name="status">
-				<option value="cons/bom"> cons/bom </option>
-				</select> &nbsp; 
+			
+				<?php 		
+					$consertoc = mysql_query("select * from consertoc where identificador = '$ident'");
+					$dados_consertoc = mysql_fetch_array($consertoc)
+				?>
+
+				<label> <font color="336699">  Atualizacao: </label> &nbsp;
+				<input name="data_cadastro" type="text" size="10" maxlength="10" readonly="false" value="<?php echo date('Y-m-d') ?>"> &nbsp; &nbsp; &nbsp; 
+				
 				<label> <font color="336699">  RMA: </label> 
-				<label> <input name="rma" type="text" size=7" maxlength="7" </label> &nbsp; &nbsp; 
+				<label> <input name="rma" value="<?php echo $dados_consertoc[rma]?>" type="text" size=7" maxlength="7" </label> &nbsp; 
+				
 				<label> <font color="336699">  NFe: </label> 
-				<label> <input name="nfe" type="text" size="11" maxlength="11" </label> &nbsp; 
+				<label> <input name="nfe" value="<?php echo $dados_consertoc[nfe]?>" type="text" size="11" maxlength="11" </label> &nbsp; 
 			<br> <br>
 				<label> <font color="336699">  Defeito: </label> 
-				<label> <input name="defeito" type="text" size="25" maxlength="25" </label> &nbsp;
+				<label> <input name="defeito" value="<?php echo $dados_consertoc[defeito]?>" type="text" size="25" maxlength="25" </label> &nbsp;
+				
 				<label> <font color="336699">  Almox </label> 
-				<label> <input name="data_almox" type="text"  value="<?php echo  date('d/m/Y')?>" size=10 maxlength="10" > </label> &nbsp;
-			<br> <br> <br> <br> <br> <br>
-			</td>
+				<label> <input name="data_almox" value="<?php echo $dados_consertoc[almox]?>" type="text"  size=10 maxlength="10" > </label> &nbsp;
+			<br> <br> <br> <br> <br> <br> <br>
+			</td> 
 				<tr>
 					<td	align="center">
-						<input align="center" type="submit" name="atualizar" value="atualizar">
+						<input align="center" type="submit" name="salvar" value="salvar">
 						<br> <br> <br>
 					</td>
 				</tr>
-			</tr>	
-			</table>
+			</form>
+		</tr>	
+		</table>
 			
 	</td>
 	</tr>
@@ -127,4 +148,4 @@ session_start();
 <br> <br> <br>
 
 </body>
-</html>
+</html> 

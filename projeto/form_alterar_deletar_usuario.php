@@ -3,6 +3,7 @@
 session_start();
 	$codusuario = $_SESSION["codusuario"];
 	$mensagem = $_SESSION["mensagem"];
+	$username = $_POST["username"];
 			
 	include('altoriza.php');
 	
@@ -14,7 +15,7 @@ session_start();
 	header("Location:salvar_novo_usuario.php");
 } */
 include('conecta.php');
-include("index.php");
+//include("index.php");
 	
 	}
 ?>
@@ -37,11 +38,11 @@ function valida_dados_alterar (alterar)
         return false;
     }
 		
-	if (alterar.senha.value=="")
+	/*if (alterar.senha.value=="")
     {
         alert ("Por favor digite a senha do usuario.");
         return false;
-    }
+    }*/
 	
 	if (alterar.matricula.value=="")
     {
@@ -122,11 +123,10 @@ campo.value = campo.value + separador;
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
 
-<h2 align="center"> <font color="336699"> Alterar / Excluir Usuarios </font></h2> 
-
 <table cellpadding="0" border="1" width="80%" align="center">
 
     <tr>
+	<h2 align="center"> <font color="336699"> Alterar / Excluir Usuarios </font></h2> 
 	<form action="query_salvar_alteracao_usuario.php" method="post" name="alterar" onSubmit="return valida_dados_alterar(this)">
 		<?php 
 		
@@ -135,14 +135,13 @@ campo.value = campo.value + separador;
 			$dados_usuario = mysql_fetch_array($usuario)
 		
 		?>
-		<br>
 		<tr> 
 			<td	align="center">
 			<br> <br>
-				<label> <font color="336699"> Nome: </label> &nbsp;
+				<label> <font color="336699"> *Nome: </label> &nbsp;
 				<input name="nomeusuaruio" type="text" size="50" maxlength="50" value="<?php echo $dados_usuario[nomusuario]?>"> &nbsp; &nbsp; &nbsp;
 				
-				<label> <font color="336699">  Setor: </label> &nbsp;
+				<label> <font color="336699">  *Setor: </label> &nbsp;
 				<?php
 					$setor= mysql_query("select * from setorc where codsetor < '7'"); 
 				?>
@@ -157,24 +156,25 @@ campo.value = campo.value + separador;
 				</select> &nbsp; &nbsp;
 				
 			<br> <br> <br>
-				<label> <font color="336699">  Data Desta Atualizacao: </label> &nbsp;
+				<label> <font color="336699">  *Data Desta Atualizacao: </label> &nbsp;
 				<input name="datacadastro" type="text" size="10" maxlength="10" readonly="false" value="<?php echo date('Y-m-d') ?>"> &nbsp; &nbsp; 
 				
-				<label> <font color="336699">  Data Ultima Atualizacao: </label> &nbsp;
+				<label> <font color="336699">  *Data Ultima Atualizacao: </label> &nbsp;
 				<input name="data_cadastro" type="text" size="10" maxlength="10" readonly="false" value="<?php echo $dados_usuario[datacadastro] ?>"> &nbsp; &nbsp; 
 				
 			<br> <br> <br>
 				<label> <font color="336699">  Senha (Acesso ao Portal): </label> &nbsp;
 				<input name="senha" type="password" size="10" maxlength="10" value="<?php echo $dados_usuario[senha] ?>"> &nbsp; &nbsp;
 				
-				<label> <font color="336699">  Bloqueio: </label> &nbsp;
+				<label> <font color="336699">  *Bloqueio: </label> &nbsp;
 				<select size="1" name="bloqueio">
-				<option value="<?php echo $dados_usuario[bloqueio]?>"><?php echo $dados_usuario[bloqueio]?></option>
-				<option value="nada">-----</option>
-				<option value="nao">nao</option>
-				<option value="sim">sim</option> </select> &nbsp; &nbsp;
+					<option value="<?php echo $dados_usuario[bloqueio]?>"><?php echo $dados_usuario[bloqueio]?></option>
+					<option value="nada">-----</option>
+					<option value="nao">nao</option>
+					<option value="sim">sim</option>
+				</select> &nbsp; &nbsp;
 				
-				<label> <font color="336699">  Matricula (Bipar o Cracha): </label> &nbsp;
+				<label> <font color="336699">  *Matricula (Bipar o Cracha): </label> &nbsp;
 				<input name="matricula" type="text" size="10" maxlength="10" value="<?php echo $dados_usuario[matricula] ?>"> &nbsp; &nbsp;
 			<br> <br> <br> <br>
 			

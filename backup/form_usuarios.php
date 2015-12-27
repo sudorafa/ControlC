@@ -96,46 +96,38 @@ campo.value = campo.value + separador;
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
 
-<h2 align="center"> <font color="336699"> Buscar Usuario </font></h2>	
+<table cellpadding="0" border="0" width="80%" align="center">
+<tr align="center">
+	<td align="center">
+		<form action="form_cad_usuario.php" method="post" name="cadastrar" align="center" >
+			<input align="center" type="submit" name="novo" value="Cadastrar Novo Usuario">  
+		</form>
+	</td>
+</tr>
+</table>
+
+<h2 align="center"> <font color="336699"> Alterar / Excluir Usuarios </font></h2> 
 
 <table cellpadding="0" border="1" width="80%" align="center">
 <tr>
-	<form action="form_usuarios.php" method="post" name="buscar" align="center" onSubmit="return valida_dados(this)">
+	<form action="form_alterar_deletar_usuario.php" method="post" name="buscar" align="center" onSubmit="return valida_dados(this)">
 	<td	align="center"> 
 		<br>	
-		
 		&nbsp; &nbsp; &nbsp;
 		<label> <font color="336699"> Usuario: </label> &nbsp;
 		<label> <input name="username" value="<?php echo $_POST["username"]; ?>" type="text" size="15" maxlength="15" </label> &nbsp; 
 		<input type="submit" name="buscar" value="buscar"> &nbsp; &nbsp; &nbsp;
 		
+		<?php 
+		
+			$usuario = mysql_query("select * from usuariosc where user = '$username'");
+			$dados_usuario = mysql_fetch_array($usuario)
+		
+		?>
+		
 		<br> <br>
 	</td>
 	</form>
-	
-	<?php 
-		
-		$username = $_POST['username'];
- 
-		$consulta = mysql_query("select * from usuariosc where user = '$username'");
-		$linha = mysql_num_rows($consulta);
- 
-		if(($_POST[username]) or ($_POST[username] <> "") or ($_POST[username] <> 0)){
-			
-			if($linha == 1)
-			{
-				// o usuário existe;
-				include("form_alterar_deletar_usuario.php");
-			}
-			else
-			{
-				// o usuário não existe;
-				echo "<script>window.alert('Usuario nao existe, cadastre e salve !')</script>";
-				include("form_cad_usuario.php");
-			}
-		}
-		
-		?>
 </tr>
 </table>
 

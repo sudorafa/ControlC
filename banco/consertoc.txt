@@ -1,0 +1,12 @@
+mysql>  desc consertoc;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| identificador | varchar(4)  | NO   | PRI | NULL    |       |
+| rma           | varchar(7)  | YES  |     | NULL    |       |
+| nfe           | varchar(11) | YES  |     | NULL    |       |
+| defeito       | varchar(25) | YES  |     | NULL    |       |
+| almox         | date        | YES  |     | NULL    |       |
+| data          | date        | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
