@@ -1,11 +1,8 @@
- create table setorc (codsetor int(8) not null auto_increment primary key, descsetor varchar(30), qtdtotal int(2), qtduso int(2));
 mysql> desc setorc;
 +-----------+-------------+------+-----+---------+----------------+
 | Field     | Type        | Null | Key | Default | Extra          |
 +-----------+-------------+------+-----+---------+----------------+
 | codsetor  | int(8)      | NO   | PRI | NULL    | auto_increment |
 | descsetor | varchar(30) | YES  |     | NULL    |                |
-| qtdtotal  | int(2)      | YES  |     | NULL    |                |
-| qtduso    | int(2)      | YES  |     | NULL    |                |
 +-----------+-------------+------+-----+---------+----------------+
-4 rows in set (0.00 sec)
+2 rows in set (0.00 sec)

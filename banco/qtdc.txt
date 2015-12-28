@@ -1,0 +1,14 @@
+mysql> desc qtdc;
++--------------+--------+------+-----+---------+----------------+
+| Field        | Type   | Null | Key | Default | Extra          |
++--------------+--------+------+-----+---------+----------------+
+| id           | int(2) | NO   | PRI | NULL    | auto_increment |
+| qtd_loja     | int(2) | YES  |     | NULL    |                |
+| qtd_prev     | int(2) | YES  |     | NULL    |                |
+| qtd_fcx      | int(2) | YES  |     | NULL    |                |
+| qtd_deposito | int(2) | YES  |     | NULL    |                |
+| qtd_gerencia | int(2) | YES  |     | NULL    |                |
+| qtd_frios    | int(2) | YES  |     | NULL    |                |
+| qtd_conserto | int(2) | YES  |     | NULL    |                |
++--------------+--------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
