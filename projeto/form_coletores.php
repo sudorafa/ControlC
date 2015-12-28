@@ -23,50 +23,63 @@ session_start();
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
 
-<h2 align="center"> <font color="336699"> Cadastrar / Alterar Dados dos Coletrores </font></h2> 
+<!---------------------------------------------------------------------------------->
+<script language="javascript">
+<!-- chama a função (buscar) -->
+function valida_dados (buscar)
+{
+    if (buscar.identificador.value=="")
+    {
+        alert ("Por favor digite o usuario para buscar !");
+        return false;
+    }
+return true;
+}
+</script>
+
+<!---------------------------------------------------------------------------------->
+
+<h2 align="center"> <font color="336699"> Buscar Coletor </font></h2>	
 
 <table cellpadding="0" border="1" width="80%" align="center">
-    <tr>
-
+<tr>
+	<form action="form_coletores.php" method="post" name="buscar" align="center" onSubmit="return valida_dados(this)">
 	<td	align="center"> 
-		<br>
+		<br>	
+		
 		&nbsp; &nbsp; &nbsp;
 		<label> <font color="336699"> Identificador: </label> &nbsp;
-		<label> <input name="identificacao" type="text" size="5" maxlength="5" </label> &nbsp; 
+		<label> <input name="identificador" value="<?php echo $_POST["identificador"]; ?>" type="text" size="6" maxlength="6" </label> &nbsp; 
 		<input type="submit" name="buscar" value="buscar"> &nbsp; &nbsp; &nbsp;
-		<br> <br>
-		<tr>
-			<td	align="center"> 
-			<table cellpadding="0" border="0" width="270" height="100" align="center" >
-			<tr>
-				<td	align="right">
-				<br> 
-				<label> <font color="336699"> Numero de Serie: </label> &nbsp;
-				<label> <input name="nserie" type="text" size="20" maxlength="20" </label> &nbsp; 
-				<br> <br>
-				<label> <font color="336699">  Descricao: </label> &nbsp;
-				<label> <input name="descricao" type="text" size="20" maxlength="20" </label> &nbsp; 
-				<br> <br>
-				<label> <font color="336699">  Status: </label> &nbsp;
-				<label> <input name="status" type="text" size="20" maxlength="20" readonly="false" </label> &nbsp; 
-				<br> <br>
-				</td>
-				<tr>
-					<td	align="center">
-						<input align="center" type="submit" name="salvar" value="salvar">  &nbsp; &nbsp;
-						<input align="center" type="submit" name="salvar_novo" value="salvar novo"> &nbsp; &nbsp;
-						<input align="center" type="submit" name="apagar" value="apagar"> &nbsp; &nbsp;
-						<br> <br>
-					</td>
-				</tr>
-			</tr>	
-			</table>
-			</td>
-		</tr>
+		
 		<br> <br>
 	</td>
+	</form>
 	
-	</tr>
+	<?php 
+		
+		$identificador = $_POST['identificador'];
+ 
+		$consulta = mysql_query("select * from coletores where identificador = '$identificador'");
+		$linha = mysql_num_rows($consulta);
+ 
+		if(($_POST[identificador]) or ($_POST[identificador] <> "") or ($_POST[identificador] <> 0)){
+			
+			if($linha == 1)
+			{
+				// o usuário existe;
+				include("form_alterar_deletar_coletor.php");
+			}
+			else
+			{
+				// o usuário não existe;
+				echo "<script>window.alert('Coletor nao existe, cadastre e salve !')</script>";
+				include("form_cad_coletor.php");
+			}
+		}
+		
+		?>
+</tr>
 </table> 
 
 

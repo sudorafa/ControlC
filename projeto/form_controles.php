@@ -84,13 +84,29 @@ function soma()
 				$qtd = mysql_query("select * from qtdc");
 				$dados_qtd = mysql_fetch_array($qtd)
 			?>
-			<?php
-				$consulta = mysql_query("select * from consertoc where situacao = 'conserto'");
-				$linha = mysql_num_rows($consulta);
 			
+			<?php
+				$consulta_coletores = mysql_query("select * from coletores");
+				$linha_coletores = mysql_num_rows($consulta_coletores);
+				
+			?>
+			
+			<?php
+				$consulta_conserto = mysql_query("select * from consertoc where situacao = 'filial'");
+				$linha_filial = mysql_num_rows($consulta_conserto);
+				
+				$result_qtd_conserto = $linha_coletores - $linha_filial
+			?>
+			
+			<?php
+				$pesquisa = mysql_query("select sum(qtd_loja+qtd_prev+qtd_fcx+qtd_deposito+qtd_gerencia+qtd_frios+$result_qtd_conserto) as soma from qtdc where id = '1'");
+				$count = mysql_fetch_array($pesquisa);
+				
+				$total = $count[soma];
+				
 			?>
 				
-				<h2> <font color="336699"> Gerenciamento (40 / 40) </font></h2>  <br> 
+				<h2> <font color="336699"> Gerenciamento (<?php echo $total?> / <?php echo $linha_coletores?>) </font></h2>  <br> 
 				<tr>
 					<td align="right"> <br> 
 						<label> <font color="336699"> LOJA: </label> &nbsp;
@@ -124,7 +140,7 @@ function soma()
 				<tr>
 					<td align="right"> <br>
 						<label> <font color="336699"> CONSERTO: </label> &nbsp;
-						<label> <input readonly="false" value="<?php echo $linha?>" name="qtd_conserto_atual" type="text" size="2" maxlength="2" </label> &nbsp; 
+						<label> <input readonly="false" value="<?php echo $result_qtd_conserto?>" name="qtd_conserto_atual" type="text" size="2" maxlength="2" </label> &nbsp; 
 					</td>
 				</tr>
 			
@@ -163,7 +179,7 @@ function soma()
 			<td	align="center">
 			
 				<?php 		
-					$consertoc = mysql_query("select * from consertoc where identificador = '$ident'");
+					$consertoc = mysql_query("select * from consertoc where identificador = '$ident' order by id desc limit 1");
 					$dados_consertoc = mysql_fetch_array($consertoc)
 				?>
 				 
@@ -186,8 +202,13 @@ function soma()
 				<label> <font color="336699">  Atualizacao: </label> &nbsp;
 				<input name="data_banco" type="text" size="10" maxlength="10" readonly="false" value="<?php echo $dados_consertoc[atualizacao] ?>"> &nbsp; &nbsp; 
 				
+				<input type="hidden" name="situacao_banco" type="text" size="11" maxlength="11" readonly="false" value="<?php echo $dados_consertoc[situacao] ?>">
+				
 				<!-- data de hoje para salvar -->
 				<input type="hidden" name="data_atualizacao" type="text" size="10" maxlength="10" readonly="false" value="<?php echo date('Y-m-d') ?>">
+				<!-- id para salvar -->
+				<input type="hidden" name="id" type="text" size="11" maxlength="11" readonly="false" value="<?php echo $dados_consertoc[id] ?>">
+				
 				
 				<label> <font color="336699">  RMA: </label> &nbsp; 
 				<label> <input name="rma" value="<?php echo $dados_consertoc[rma]?>" type="text" size=7" maxlength="7" </label> &nbsp; &nbsp; &nbsp; 

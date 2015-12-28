@@ -1,4 +1,3 @@
-
 mysql> desc coletores;
 +---------------+-------------+------+-----+---------+----------------+
 | Field         | Type        | Null | Key | Default | Extra          |
@@ -9,3 +8,4 @@ mysql> desc coletores;
 | identificador | varchar(20) | YES  |     | NULL    |                |
 | status        | varchar(30) | YES  |     | NULL    |                |
 +---------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)

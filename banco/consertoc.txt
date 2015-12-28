@@ -1,13 +1,14 @@
 mysql> desc consertoc;
-+---------------+-------------+------+-----+---------+-------+
-| Field         | Type        | Null | Key | Default | Extra |
-+---------------+-------------+------+-----+---------+-------+
-| identificador | varchar(4)  | NO   | PRI | NULL    |       |
-| situacao      | varchar(11) | YES  |     | NULL    |       |
-| atualizacao   | date        | YES  |     | NULL    |       |
-| rma           | varchar(7)  | YES  |     | NULL    |       |
-| nfe           | varchar(11) | YES  |     | NULL    |       |
-| defeito       | varchar(25) | YES  |     | NULL    |       |
-| almox         | date        | YES  |     | NULL    |       |
-+---------------+-------------+------+-----+---------+-------+
-7 rows in set (0.00 sec)
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| identificador | varchar(4)  | NO   |     | NULL    |                |
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| situacao      | varchar(11) | YES  |     | NULL    |                |
+| atualizacao   | date        | YES  |     | NULL    |                |
+| rma           | varchar(7)  | YES  |     | NULL    |                |
+| nfe           | varchar(11) | YES  |     | NULL    |                |
+| defeito       | varchar(25) | YES  |     | NULL    |                |
+| almox         | date        | YES  |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
