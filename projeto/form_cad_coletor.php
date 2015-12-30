@@ -34,13 +34,13 @@ function valida_dados_alterar (cadastrar)
 {
     if (cadastrar.nserie.value=="")
     {
-        alert ("Por favor digite o nome de serie.");
+        alert ("Por favor digite o numero de serie !");
         return false;
     }
 	
 	if (cadastrar.descricao.value=="")
     {
-        alert ("Por favor digite a matricula do usuario.");
+        alert ("Por favor digite a descricao !");
         return false;
     }
 		
@@ -113,17 +113,17 @@ campo.value = campo.value + separador;
 		<tr> 
 			<td	align="center">
 			<br> <br>
-				<label> <font color="336699"> Numero de Serie: </label> &nbsp;
+				<label> <font color="336699"> *Numero de Serie: </label> &nbsp;
 				<label> <input name="nserie" type="text" size="20" maxlength="20" </label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 				
 				<br> <br>
 				
-				<label> <font color="336699">  Descricao: </label> &nbsp;
+				<label> <font color="336699">  *Descricao: </label> &nbsp;
 				<label> <input name="descricao"  type="text" size="20" maxlength="20" </label> &nbsp; 
 				
 				<br> <br> &nbsp; &nbsp; &nbsp; 
 				
-				<label> <font color="336699"> Identificador: </label> &nbsp;
+				<label> <font color="336699"> *Identificador: </label> &nbsp;
 				<label> <input name="identificador1" readonly="false" value="<?php echo $_POST["identificador"]; ?>" type="text" size="15" maxlength="15" </label> &nbsp; &nbsp;
 				
 				<br> <br> &nbsp; &nbsp; &nbsp; 

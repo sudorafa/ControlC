@@ -34,13 +34,13 @@ function valida_dados_alterar (alterar)
 {
     if (alterar.nserie.value=="")
     {
-        alert ("Por favor digite o nome de serie.");
+        alert ("Por favor digite o numero de serie !");
         return false;
     }
 	
 	if (alterar.descricao.value=="")
     {
-        alert ("Por favor digite a matricula do usuario.");
+        alert ("Por favor digite a descricao !");
         return false;
     }
 		
@@ -132,10 +132,10 @@ campo.value = campo.value + separador;
 		<tr> 
 			<td	align="center">
 			<br> <br>
-				<label> <font color="336699"> Numero de Serie: </label> &nbsp;
+				<label> <font color="336699"> *Numero de Serie: </label> &nbsp;
 				<label> <input name="nserie" value="<?php echo $dados_coletor[nserie]?>" type="text" size="20" maxlength="20" </label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 				<br> <br>
-				<label> <font color="336699">  Descricao: </label> &nbsp;
+				<label> <font color="336699">  *Descricao: </label> &nbsp;
 				<label> <input name="descricao" value="<?php echo $dados_coletor[descricao]?>" type="text" size="20" maxlength="20" </label> &nbsp; 
 				<br> <br> &nbsp; &nbsp; &nbsp; 
 				<label> <font color="336699">  Status: </label> &nbsp;

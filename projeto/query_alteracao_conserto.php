@@ -39,6 +39,18 @@ if($situacao1 == "filial")
 					}
 					else
 					{
+						echo "<script>window.alert('Algo Errado no Query ! ')</script>";
+						include("form_controles.php"); 
+						
+					}
+					$query1 = "update coletores set status = 'NO CPD' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
+				
+					if( mysql_query($query1))
+					{
+											
+					}
+					else
+					{
 							echo "<script>window.alert('Algo Errado no Query ! ')</script>";
 							include("form_controles.php"); 
 						
@@ -47,13 +59,26 @@ if($situacao1 == "filial")
 			}
 			else
 			{
-				$query = "update consertoc set situacao = '$situacao1',  atualizacao = '$data_atualizacao1', rma = '$rma1',  nfe = '$nfe1',  defeito = '$defeito1', almox = '$data_almox1', filial = '$filial_usuario_logado' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
+				$query = "update consertoc set situacao = '$situacao1',  atualizacao = '$data_atualizacao1', rma = '$rma1',  nfe = '$nfe1',  defeito = '$defeito1', almox = '$data_almox1' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
 				
 				if( mysql_query($query))
 				{
 					echo "<script>window.alert('Status Conserto Atualizados com Sucesso !')</script>";
 					include("form_controles.php"); 
 					
+				}
+				else
+				{
+						echo "<script>window.alert('Algo Errado no Query ! ')</script>";
+						include("form_controles.php"); 
+					
+				}
+				
+				$query1 = "update coletores set status = 'NO CONSERTO' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
+				
+				if( mysql_query($query1))
+				{
+										
 				}
 				else
 				{

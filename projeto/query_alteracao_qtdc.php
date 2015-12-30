@@ -16,7 +16,7 @@ $codusuario = $_SESSION["codusuario"];
 $dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
 $filial_usuario_logado = $dados_usuario_logado[filial];
 
-$query = "update qtdc set qtd_loja = '$qtd_loja_atual1',  qtd_prev = '$qtd_prev_atual1',  qtd_fcx = '$qtd_fcx_atual1',  qtd_deposito = '$qtd_deposito_atual1',  qtd_gerencia = '$qtd_gerencia_atual1', qtd_frios = '$qtd_frios_atual1', qtd_conserto = '$qtd_conserto_atual1', filial = '$filial_usuario_logado' where filial = '$filial_usuario_logado'"; 
+$query = "update qtdc set qtd_loja = '$qtd_loja_atual1',  qtd_prev = '$qtd_prev_atual1',  qtd_fcx = '$qtd_fcx_atual1',  qtd_deposito = '$qtd_deposito_atual1',  qtd_gerencia = '$qtd_gerencia_atual1', qtd_frios = '$qtd_frios_atual1', qtd_conserto = '$qtd_conserto_atual1' where filial = '$filial_usuario_logado'"; 
 
 if( mysql_query($query))
 {
