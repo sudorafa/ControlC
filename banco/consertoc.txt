@@ -4,6 +4,7 @@ mysql> desc consertoc;
 +---------------+-------------+------+-----+---------+----------------+
 | identificador | varchar(4)  | NO   |     | NULL    |                |
 | id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| filial        | varchar(30) | NO   |     | NULL    |                |
 | situacao      | varchar(11) | YES  |     | NULL    |                |
 | atualizacao   | date        | YES  |     | NULL    |                |
 | rma           | varchar(7)  | YES  |     | NULL    |                |
@@ -11,4 +12,4 @@ mysql> desc consertoc;
 | defeito       | varchar(25) | YES  |     | NULL    |                |
 | almox         | date        | YES  |     | NULL    |                |
 +---------------+-------------+------+-----+---------+----------------+
-8 rows in set (0.00 sec)
+9 rows in set (0.00 sec)

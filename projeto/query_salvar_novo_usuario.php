@@ -12,7 +12,11 @@ $user1			=	$_POST["user"];
 
 session_start();
 
-$query = "insert into usuariosc values(null, '$nomeusuaruio1', '$datacadastro1', '$matricula1', '$user1', '$senha1', '$bloqueio1', '$setor1')";
+$codusuario = $_SESSION["codusuario"];
+$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+$filial_usuario_logado = $dados_usuario_logado[filial];
+
+$query = "insert into usuariosc (filial, nomusuario, datacadastro, matricula, user, senha, bloqueio, descsetor) values ('$filial_usuario_logado', '$nomeusuaruio1', '$datacadastro1', '$matricula1', '$user1', '$senha1', '$bloqueio1', '$setor1')";
 
 if( mysql_query($query))
 {

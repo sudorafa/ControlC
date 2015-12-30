@@ -4,7 +4,7 @@ include('conecta.php');
 
 session_start();
 
-$query = "delete from usuariosc where matricula = '$matricula1'"; 
+$query = "delete from usuariosc where matricula = '$matricula1' and filial = '$filial_usuario_logado'";
 
 if( mysql_query($query))
 {

@@ -31,9 +31,20 @@ session_start();
 <tr align="center">
 	<td >
 	<br> <br>
+	
+	<?php 
+		$usuario = mysql_query("select * from usuariosc");
+	?>
+		
 		&nbsp; &nbsp; &nbsp;
 		<label> <font color="336699"> Nome: </label> &nbsp;
-		<select size="1" name="usuario"> <option value="user"> Rafael Eduardo Lima dos Santos </option>	</select> &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
+		<select size="1" name="usuario">
+			<?php
+				while ($dados_usuario = mysql_fetch_array($usuario)){
+			?>
+				<option value="<?php echo $dados_usuario[nomusuario]?>"> <?php echo $dados_usuario[nomusuario]?></option>
+			<?php }?>
+		</select> &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
 		<label> <font color="336699">  Data Inicio: </label> &nbsp;
 		<input name="data_inicio" type="text"  value="<?php echo  date('d/m/Y')?>" size=10 maxlength="10" > &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
 		<label> <font color="336699">  Data Fim: </label> &nbsp;

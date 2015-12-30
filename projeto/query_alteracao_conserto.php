@@ -1,6 +1,9 @@
 <?php
 
+session_start();
+
 include('conecta.php');
+include('altoriza.php');
 
 $ident_post1			=	$_POST["ident_post"];
 $situacao1				= 	$_POST["situacao"];
@@ -12,7 +15,10 @@ $data_almox1			= 	$_POST["data_almox"];
 $situacao_banco1		=	$_POST["situacao_banco"];
 $id1					=	$_POST["id"];
 
-session_start();
+$codusuario = $_SESSION["codusuario"];
+$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+$filial_usuario_logado = $dados_usuario_logado[filial];
+
 
 if($situacao1 == "filial")
 			{
@@ -24,7 +30,7 @@ if($situacao1 == "filial")
 				else
 				{
 					
-					$query = "insert into consertoc (identificador, situacao) values ('$ident_post1', 'filial')";
+					$query = "insert into consertoc (identificador, situacao, filial) values ('$ident_post1', 'filial', '$filial_usuario_logado')";
 					if( mysql_query($query))
 					{
 						echo "<script>window.alert('Finalizado Atualizacao de Status nos Registros deste Conserto !')</script>";
@@ -41,7 +47,7 @@ if($situacao1 == "filial")
 			}
 			else
 			{
-				$query = "update consertoc set situacao = '$situacao1',  atualizacao = '$data_atualizacao1', rma = '$rma1',  nfe = '$nfe1',  defeito = '$defeito1', almox = '$data_almox1' where identificador = '$ident_post1' and id = '$id1'"; 
+				$query = "update consertoc set situacao = '$situacao1',  atualizacao = '$data_atualizacao1', rma = '$rma1',  nfe = '$nfe1',  defeito = '$defeito1', almox = '$data_almox1', filial = '$filial_usuario_logado' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
 				
 				if( mysql_query($query))
 				{

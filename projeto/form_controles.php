@@ -222,7 +222,9 @@ function soma()
 				<label> <input name="defeito" value="<?php echo $dados_consertoc[defeito]?>" type="text" size="25" maxlength="25" </label> &nbsp;&nbsp; &nbsp; 
 				
 				<label> <font color="336699">  Almox </label> &nbsp; 
-				<label> <input name="data_almox" value="<?php echo $dados_consertoc[almox]?>" type="text"  size=10 maxlength="10" > </label> &nbsp;&nbsp; &nbsp; 
+				<label> <input name="data_almox" value="<?php echo date('Y-m-d') ?>" type="text" size=10 maxlength="10" > </label> &nbsp;&nbsp; &nbsp;
+
+				
 			    <br> 
 			</td> 
 				<tr>

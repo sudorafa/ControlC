@@ -8,7 +8,7 @@ include('altoriza.php');
 include("ip.php");
 
 $codusuario = $_SESSION["codusuario"];
-$nomusuario = mysql_fetch_array(mysql_query("select nomusuario from usuariosc where codusuario = '$codusuario'"));
+$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
 
 ////////////////////////////////////////////////////////
 ?>
@@ -27,8 +27,8 @@ $nomusuario = mysql_fetch_array(mysql_query("select nomusuario from usuariosc wh
 		</tr>
 		<td width="60%" align="right" valign="baseline" >
 		<font color="#006600" size="+3"> CONTROLE DE COLETORES </font><br>
-		<font color="#006600" size="-1"> <b> Informatica Atacadao Recife - Filial 47 <br>
-		<font color="#006600"> <B> Bem Vindo: <font color="#006600"> <u> <?php echo Strtoupper($nomusuario[nomusuario]) ?>  </font> | <a href="logout.php"> SAIR </a>	<br>
+		<font color="#006600" size="-1"> <b> Informatica Atacadao Filial <?php echo Strtoupper($dados_usuario_logado[filial]) ?> <br>
+		<font color="#006600"> <B> Bem Vindo: <font color="#006600"> <u> <?php echo Strtoupper($dados_usuario_logado[nomusuario]) ?>  </font> | <a href="logout.php"> SAIR </a>	<br>
 	
 		<script language="JavaScript">
 

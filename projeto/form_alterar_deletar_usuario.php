@@ -2,6 +2,7 @@
 
 session_start();
 	$codusuario = $_SESSION["codusuario"];
+	$filialusuario = $_SESSION["filial"];
 	$mensagem = $_SESSION["mensagem"];
 	$username = $_POST["username"];
 			
@@ -143,11 +144,11 @@ campo.value = campo.value + separador;
 				
 				<label> <font color="336699">  *Setor: </label> &nbsp;
 				<?php
-					$setor= mysql_query("select * from setorc where codsetor < '7'"); 
+					$setor= mysql_query("select * from setorc where codsetor < '8'"); 
 				?>
 				<select size="1" name="setor">
 				<option value="<?php echo $dados_usuario[descsetor]?>"> <?php echo $dados_usuario[descsetor]?></option>
-				<option value="999"> --------------------------- </option>
+				<option value="999"> - </option>
 				<?php
 					while ($setor_1 = mysql_fetch_array($setor)){
 				?>
@@ -155,11 +156,28 @@ campo.value = campo.value + separador;
 				<?php }?>	
 				</select> &nbsp; &nbsp;
 				
+				<!--
+				<label> <font color="336699">  *Filial: </label> &nbsp;
+				<?php
+					$busca_filial= mysql_query("select * from filialc"); 
+				?>
+				<select size="1" name="filial">
+				<option value="<?php echo $dados_usuario[filial]?>"> <?php echo $dados_usuario[filial]?></option>
+				<option value="999" align = "center"> - </option>
+				<?php
+					while ($dados_filial = mysql_fetch_array($busca_filial)){
+				?>
+					<option value="<?php echo $dados_filial[filial]?>"> <?php echo $dados_filial[filial]?></option>
+				<?php }?>	
+				</select> &nbsp; &nbsp;
+				-->
+				
 			<br> <br> <br>
-				<label> <font color="336699">  *Data Desta Atualizacao: </label> &nbsp;
+			
+				<label> <font color="336699">  Data Desta Atualizacao: </label> &nbsp;
 				<input name="datacadastro" type="text" size="10" maxlength="10" readonly="false" value="<?php echo date('Y-m-d') ?>"> &nbsp; &nbsp; 
 				
-				<label> <font color="336699">  *Data Ultima Atualizacao: </label> &nbsp;
+				<label> <font color="336699">  Data Ultima Atualizacao: </label> &nbsp;
 				<input name="data_cadastro" type="text" size="10" maxlength="10" readonly="false" value="<?php echo $dados_usuario[datacadastro] ?>"> &nbsp; &nbsp; 
 				
 			<br> <br> <br>

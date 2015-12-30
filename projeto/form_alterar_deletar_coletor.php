@@ -32,24 +32,18 @@ include('conecta.php');
 <!-- chama a função (alterar) -->
 function valida_dados_alterar (alterar)
 {
-    if (alterar.nomeusuaruio.value=="")
+    if (alterar.nserie.value=="")
     {
-        alert ("Por favor digite o nome do usuario.");
+        alert ("Por favor digite o nome de serie.");
         return false;
     }
-		
-	/*if (alterar.senha.value=="")
-    {
-        alert ("Por favor digite a senha do usuario.");
-        return false;
-    }*/
 	
-	if (alterar.matricula.value=="")
+	if (alterar.descricao.value=="")
     {
         alert ("Por favor digite a matricula do usuario.");
         return false;
     }
-	
+		
 return true;
 }
 </script>
@@ -60,9 +54,9 @@ return true;
 <!-- chama a função (deletar)-->
 function valida_dados_deletar (deletar)
 {
-    if (deletar.matricula1.value=="")
+    if (deletar.identificador1.value=="")
     {
-        alert ("Por favor digite o usuario para deletar.");
+        alert ("Por favor digite o identificador para deletar.");
         return false;
     }
 
@@ -127,28 +121,28 @@ campo.value = campo.value + separador;
 
     <tr>
 	<h2 align="center"> <font color="336699"> Alterar / Excluir Coletor </font></h2> 
-	<form action="query_salvar_alteracao_usuario.php" method="post" name="alterar" onSubmit="return valida_dados_alterar(this)">
+	<form action="query_salvar_alteracao_coletor.php" method="post" name="alterar" onSubmit="return valida_dados_alterar(this)">
 		<?php 
 		
 		
-			$usuario = mysql_query("select * from usuariosc where user = '$username'");
-			$dados_usuario = mysql_fetch_array($usuario)
+			$coletor = mysql_query("select * from coletores where identificador = '$identificador'");
+			$dados_coletor = mysql_fetch_array($coletor)
 		
 		?>
 		<tr> 
 			<td	align="center">
 			<br> <br>
 				<label> <font color="336699"> Numero de Serie: </label> &nbsp;
-				<label> <input name="nserie" type="text" size="20" maxlength="20" </label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<label> <input name="nserie" value="<?php echo $dados_coletor[nserie]?>" type="text" size="20" maxlength="20" </label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 				<br> <br>
 				<label> <font color="336699">  Descricao: </label> &nbsp;
-				<label> <input name="descricao" type="text" size="20" maxlength="20" </label> &nbsp; 
+				<label> <input name="descricao" value="<?php echo $dados_coletor[descricao]?>" type="text" size="20" maxlength="20" </label> &nbsp; 
 				<br> <br> &nbsp; &nbsp; &nbsp; 
 				<label> <font color="336699">  Status: </label> &nbsp;
-				<label> <input name="status" type="text" size="20" maxlength="20" readonly="false" </label> &nbsp; 
+				<label> <input name="status" value="<?php echo $dados_coletor[status]?>" type="text" size="20" maxlength="20" readonly="false" </label> &nbsp; 
 				<br> <br>
 
-			<input type="hidden" name="user1" value="<?php echo $dados_usuario[user]?>" >
+			<input type="hidden" name="identificador1" value="<?php echo $dados_coletor[identificador]?>" >
 			
 			<table cellpadding="0" border="0" width="30%" align="center">
 			<tr align="center">
@@ -159,7 +153,7 @@ campo.value = campo.value + separador;
 	</form>
 				<form action="query_deletar_coletor.php" method="post" name="deletar" align="center" onSubmit="return valida_dados_deletar(this)">
 				<td >
-					<input type="hidden" name="matricula1" value="<?php echo $dados_usuario[matricula]?>" >
+					<input type="hidden" name="identificador1" value="<?php echo $dados_coletor[identificador]?>" >
 					<input align="center" type="submit" name="deletar" value="deletar">  
 				</td>
 				</form>

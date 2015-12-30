@@ -14,7 +14,7 @@ if ($user <> "" and  $passwd <> "" ){
 					$sql = "select * from usuariosc where user = '$user' and senha = '$passwd' ";
 					$sql_2 = mysql_fetch_array(mysql_query($sql));
 			
-					if ($sql_2[descsetor] == "CPD" or $sql_2[descsetor] == "GERENCIA"){
+					if ($sql_2[descsetor] == "CPD"){
 								$_SESSION[codusuario] = $sql_2[codusuario];
 								$_SESSION[altoriza] = "ok";
 								header("Location:form_home.php");

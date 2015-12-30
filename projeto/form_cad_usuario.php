@@ -3,6 +3,7 @@
 session_start();
 	$codusuario = $_SESSION["codusuario"];
 	$mensagem = $_SESSION["mensagem"];
+	$filialusuario = $_SESSION["filial"];
 			
 	include('altoriza.php');
 	
@@ -35,10 +36,10 @@ function valida_dados (cadastro)
         alert ("Por favor digite o nome do usuarios.");
         return false;
     }
-
-    if (cadastro.setor.selectedIndex ==0)
+	
+	if (cadastro.filial.selectedIndex ==0)
     {
-        alert ("Por favor selecione o setor.");
+        alert ("Por favor selecione a filial.");
         return false;
     }
     
@@ -141,13 +142,29 @@ campo.value = campo.value + separador;
 					$setor= mysql_query("select * from setorc where codsetor < '7'"); 
 				?>
 				<select size="1" name="setor">
-				<option value="0"> --------------------------- </option>
+				<option value="0"> - </option>
 				<?php
 					while ($setor_1 = mysql_fetch_array($setor)){
 				?>
 					<option value="<?php echo $setor_1[descsetor]?>"> <?php echo $setor_1[descsetor]?></option>
 				<?php }?>	
 				</select> &nbsp; &nbsp;
+				
+				<!--
+				<label> <font color="336699">  *Filial: </label> &nbsp;
+				<?php
+					$busca_filial= mysql_query("select * from filialc"); 
+				?>
+				<select size="1" name="filial">
+				<option value="999" align = "center"> - </option>
+				<?php
+					while ($dados_filial = mysql_fetch_array($busca_filial)){
+				?>
+					<option value="<?php echo $dados_filial[filial]?>"> <?php echo $dados_filial[filial]?></option>
+				<?php }?>	
+				</select> &nbsp; &nbsp;
+				-->
+				
 			<br> <br> <br>
 				<label> <font color="336699"> *Usuario: </label> &nbsp;
 				<label> <input name="user" readonly="false" value="<?php echo $_POST["username"]; ?>" type="text" size="15" maxlength="15" </label> &nbsp; &nbsp;

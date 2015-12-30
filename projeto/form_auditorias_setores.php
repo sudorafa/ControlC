@@ -32,8 +32,20 @@ session_start();
 	<td >
 	<br> <br>
 		&nbsp; &nbsp; &nbsp;
-		<label> <font color="336699"> Setores: </label> &nbsp;
-		<select size="1" name="usuario"> <option value="user"> TODOS </option>	</select> &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
+		
+		<label> <font color="336699">  Setor: </label> &nbsp;
+		<select size="1" name="setor">
+		<option value="*"> TODOS </option> 
+		<option value="-"> - </option> 
+		<?php
+			$setor= mysql_query("select * from setorc where codsetor < '8'"); 
+		?>
+		<?php
+			while ($setor_1 = mysql_fetch_array($setor)){
+		?>
+			<option value="<?php echo $setor_1[descsetor]?>"> <?php echo $setor_1[descsetor]?></option>
+		<?php }?>	
+		</select> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 		<label> <font color="336699">  Data Inicio: </label> &nbsp;
 		<input name="data_inicio" type="text"  value="<?php echo  date('d/m/Y')?>" size=10 maxlength="10" > &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
 		<label> <font color="336699">  Data Fim: </label> &nbsp;

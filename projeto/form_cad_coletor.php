@@ -3,6 +3,7 @@
 session_start();
 	$codusuario = $_SESSION["codusuario"];
 	$mensagem = $_SESSION["mensagem"];
+	$username = $_POST["username"];
 			
 	include('altoriza.php');
 	
@@ -25,53 +26,31 @@ include('conecta.php');
 </head>
 </head>
 <body onLoad="document.form_home.matricula.focus()"> 
+
 <!---------------------------------------------------------------------------------->
 <script language="javascript">
-<!-- chama a função (cadastro) -->
-function valida_dados (cadastro)
+<!-- chama a função (alterar) -->
+function valida_dados_alterar (cadastrar)
 {
-    if (cadastro.nomeusuaruio.value=="")
+    if (cadastrar.nserie.value=="")
     {
-        alert ("Por favor digite o nome do usuarios.");
-        return false;
-    }
-
-    if (cadastro.setor.selectedIndex ==0)
-    {
-        alert ("Por favor selecione o setor.");
-        return false;
-    }
-    
-    if (cadastro.user.value=="")
-    {
-        alert ("Por favor digite o usuario.");
-        return false;
-    }
-
-    /*if (cadastro.senha.value=="")
-    {
-        alert ("Por favor digite a senha.");
-        return false;
-    }*/
-
-	if (cadastro.bloqueio.selectedIndex ==0)
-    {
-        alert ("Por favor selecione o bloqueio.");
+        alert ("Por favor digite o nome de serie.");
         return false;
     }
 	
-    if (cadastro.matricula.value=="")
+	if (cadastrar.descricao.value=="")
     {
-        alert ("Por favor digite a matricula.");
+        alert ("Por favor digite a matricula do usuario.");
         return false;
     }
-    
+		
 return true;
 }
 </script>
-<!---------------------------------------------------------------------------------->
 
 <!---------------------------------------------------------------------------------->
+
+
 <SCRIPT language=javascript> 
 function Mascara (formato, keypress, objeto){ 
 campo = eval (objeto); 
@@ -128,55 +107,35 @@ campo.value = campo.value + separador;
 <table cellpadding="0" border="1" width="80%" align="center">
 
     <tr>
-	<form action="query_salvar_novo_usuario.php" method="post" name="cadastro" onSubmit="return valida_dados(this)">
-		<h2 align="center"> <font color="336699"> Cadastrar Novo Usuario </font></h2>	
+	<h2 align="center"> <font color="336699"> Cadastrar Novo Coletor </font></h2> 
+	<form action="query_salvar_novo_coletor.php" method="post" name="cadastrar" onSubmit="return valida_dados_alterar(this)">
+		
 		<tr> 
 			<td	align="center">
 			<br> <br>
-				<label> <font color="336699"> *Nome: </label> &nbsp;
-				<input name="nomeusuaruio" type="text" size="50" maxlength="50" > &nbsp; &nbsp; &nbsp;
+				<label> <font color="336699"> Numero de Serie: </label> &nbsp;
+				<label> <input name="nserie" type="text" size="20" maxlength="20" </label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 				
-				<label> <font color="336699">  *Setor: </label> &nbsp;
-				<?php
-					$setor= mysql_query("select * from setorc where codsetor < '7'"); 
-				?>
-				<select size="1" name="setor">
-				<option value="0"> --------------------------- </option>
-				<?php
-					while ($setor_1 = mysql_fetch_array($setor)){
-				?>
-					<option value="<?php echo $setor_1[descsetor]?>"> <?php echo $setor_1[descsetor]?></option>
-				<?php }?>	
-				</select> &nbsp; &nbsp;
-			<br> <br> <br>
-				<label> <font color="336699"> *Usuario: </label> &nbsp;
-				<label> <input name="user" readonly="false" value="<?php echo $_POST["username"]; ?>" type="text" size="15" maxlength="15" </label> &nbsp; &nbsp;
+				<br> <br>
 				
-				<label> <font color="336699">  *Data Cadastro: </label> &nbsp;
-				<input name="datacadastro" type="text" size="10" maxlength="10" readonly="false" value="<?php echo date('Y-m-d') ?>"> &nbsp; &nbsp; 
+				<label> <font color="336699">  Descricao: </label> &nbsp;
+				<label> <input name="descricao"  type="text" size="20" maxlength="20" </label> &nbsp; 
 				
-			<br> <br> <br>
-				<label> <font color="336699">  Senha (Acesso ao Portal): </label> &nbsp;
-				<input name="senha" type="password" size="10" maxlength="10" > &nbsp; &nbsp;
+				<br> <br> &nbsp; &nbsp; &nbsp; 
 				
-				<label> <font color="336699">  *Bloqueio: </label> &nbsp;
-				<select size="1" name="bloqueio">
-					<option> </option>
-					<option value="nao">nao</option>
-					<option value="sim">sim</option>
-				</select> &nbsp; &nbsp;
+				<label> <font color="336699"> Identificador: </label> &nbsp;
+				<label> <input name="identificador1" readonly="false" value="<?php echo $_POST["identificador"]; ?>" type="text" size="15" maxlength="15" </label> &nbsp; &nbsp;
 				
-				<label> <font color="336699">  *Matricula (Bipar o Cracha): </label> &nbsp;
-				<input name="matricula" type="text" size="10" maxlength="10" > &nbsp; &nbsp;
-			<br> <br> <br> <br>
-			
+				<br> <br> &nbsp; &nbsp; &nbsp; 
+				
 			<table cellpadding="0" border="0" width="20%" align="center">
 			<tr align="center">
 				<td align="center"> 
 					<input align="center" type="submit" name="salvar" value="salvar"> 
 				</td>
+				
 	</form>
-				<form action="form_usuarios.php" method="post" name="voltar" align="center">
+				<form action="form_coletores.php" method="post" name="voltar" align="center">
 				<td >	
 					<input align="center" type="submit" name="voltar" value="voltar">  
 				</td>
@@ -185,7 +144,8 @@ campo.value = campo.value + separador;
 			</table>
 			<br> <br>
 	</td>
-	</tr>
+	
+</tr>
 </table> 
 
 </body>
