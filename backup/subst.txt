@@ -1,3 +1,0 @@
-login_2 			-> query_login
-salvar_alteracao_usuario	-> query_salvar_alteracao_usuario
-deletar_usuario		-> query_deletar_usuario
