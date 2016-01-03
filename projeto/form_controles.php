@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-	$codusuario = $_SESSION["codusuario"];
+	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 				
 	include('altoriza.php');
@@ -14,8 +14,8 @@ session_start();
 		include("index.php");
 	}
 	
-	$codusuario = $_SESSION["codusuario"];
-	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+	$idusuario = $_SESSION["idusuario"];
+	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
 	$filial_usuario_logado = $dados_usuario_logado[filial];
 ?>
 						
@@ -85,25 +85,18 @@ function soma()
 			<form method="post" name="qtd" action="query_alteracao_qtdc.php">
 				
 			<?php 		
-				$qtd = mysql_query("select * from qtdc");
-				$dados_qtd = mysql_fetch_array($qtd)
-			?>
-			
-			<?php
-				$consulta_coletores = mysql_query("select * from coletores");
+				$qtd = mysql_query("select * from qtdc where filial = '$filial_usuario_logado'");
+				$dados_qtd = mysql_fetch_array($qtd);
+				
+				$consulta_coletores = mysql_query("select * from coletores where filial = '$filial_usuario_logado'");
 				$linha_coletores = mysql_num_rows($consulta_coletores);
 				
-			?>
-			
-			<?php
-				$consulta_conserto = mysql_query("select * from consertoc where situacao = 'filial'");
+				$consulta_conserto = mysql_query("select * from consertoc where situacao = 'filial' and filial = '$filial_usuario_logado'");
 				$linha_filial = mysql_num_rows($consulta_conserto);
 				
-				$result_qtd_conserto = $linha_coletores - $linha_filial
-			?>
+				$result_qtd_conserto = $linha_coletores - $linha_filial;
 			
-			<?php
-				$pesquisa = mysql_query("select sum(qtd_loja+qtd_prev+qtd_fcx+qtd_deposito+qtd_gerencia+qtd_frios+$result_qtd_conserto) as soma from qtdc where id = '1'");
+				$pesquisa = mysql_query("select sum(qtd_loja+qtd_prev+qtd_fcx+qtd_deposito+qtd_gerencia+qtd_frios+$result_qtd_conserto) as soma from qtdc where filial = '$filial_usuario_logado'");
 				$count = mysql_fetch_array($pesquisa);
 				
 				$total = $count[soma];
@@ -172,18 +165,19 @@ function soma()
 			<input align="center" type="submit" name="buscar" value="buscar"> <br> <br> <br>
 			
 			<?php 		
-				$coletor = mysql_query("select * from coletores where identificador = '$ident'");
-				$dados_coletor = mysql_fetch_array($coletor)
+				$coletor = mysql_query("select * from coletores where identificador = '$ident' and filial = '$filial_usuario_logado'");
+				$dados_coletor = mysql_fetch_array($coletor);
 			?>
 			
 			</form>      
-			<form method="post" name="conserto" action="query_alteracao_conserto.php" onSubmit="return valida_dados_salvar(this)">
+			
 		<table cellpadding="0" border="0" width="99%" height="100" align="center" >
-			<tr> 
+		<tr>
+			<form method="post" name="conserto" action="query_alteracao_conserto.php" onSubmit="return valida_dados_salvar(this)">
 			<td	align="center">
 			
 				<?php 		
-					$consertoc = mysql_query("select * from consertoc where identificador = '$ident' order by id desc limit 1");
+					$consertoc = mysql_query("select * from consertoc where identificador = '$ident' and filial = '$filial_usuario_logado' order by id desc limit 1");
 					$dados_consertoc = mysql_fetch_array($consertoc)
 				?>
 				 

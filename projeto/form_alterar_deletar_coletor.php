@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-	$codusuario = $_SESSION["codusuario"];
+	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 	$username = $_POST["username"];
 			
@@ -18,6 +18,10 @@ include('conecta.php');
 //include("index.php");
 	
 	}
+	
+	$idusuario = $_SESSION["idusuario"];
+	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
+	$filial_usuario_logado = $dados_usuario_logado[filial];
 ?>
 						
 <html>
@@ -125,7 +129,7 @@ campo.value = campo.value + separador;
 		<?php 
 		
 		
-			$coletor = mysql_query("select * from coletores where identificador = '$identificador'");
+			$coletor = mysql_query("select * from coletores where identificador = '$identificador' and filial = '$filial_usuario_logado'");
 			$dados_coletor = mysql_fetch_array($coletor)
 		
 		?>

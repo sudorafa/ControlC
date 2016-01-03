@@ -1,6 +1,6 @@
 <?php
 session_start();
-	$codusuario = $_SESSION["codusuario"];
+	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 			
 	include('altoriza.php');
@@ -24,8 +24,8 @@ session_start();
 <script language="javascript" src="script/fcampo.js"></script>
 
 <?php
-	$codusuario = $_SESSION["codusuario"];
-	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+	$idusuario = $_SESSION["idusuario"];
+	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
 	$filial_usuario_logado = $dados_usuario_logado[filial];
 
 	$dados_qtdc	= mysql_fetch_array(mysql_query("select * from qtdc where filial = '$filial_usuario_logado'"));

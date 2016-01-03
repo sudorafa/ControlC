@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-	$codusuario = $_SESSION["codusuario"];
+	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 	$filialusuario = $_SESSION["filial"];
 			
@@ -18,6 +18,10 @@ include('conecta.php');
 //include("index.php");
 	
 	}
+	
+	$idusuario = $_SESSION["idusuario"];
+	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
+	$filial_usuario_logado = $dados_usuario_logado[filial];
 ?>
 						
 <html>
@@ -139,7 +143,7 @@ campo.value = campo.value + separador;
 				
 				<label> <font color="336699">  *Setor: </label> &nbsp;
 				<?php
-					$setor= mysql_query("select * from setorc where codsetor < '7'"); 
+					$setor= mysql_query("select * from setorc where codsetor < '7'");
 				?>
 				<select size="1" name="setor">
 				<option value="0"> - </option>

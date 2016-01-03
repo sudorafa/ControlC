@@ -15,8 +15,8 @@ $data_almox1			= 	$_POST["data_almox"];
 $situacao_banco1		=	$_POST["situacao_banco"];
 $id1					=	$_POST["id"];
 
-$codusuario = $_SESSION["codusuario"];
-$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+$idusuario = $_SESSION["idusuario"];
+$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
 $filial_usuario_logado = $dados_usuario_logado[filial];
 
 
@@ -45,10 +45,7 @@ if($situacao1 == "filial")
 					}
 					$query1 = "update coletores set status = 'CPD' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
 				
-					if( mysql_query($query1))
-					{
-											
-					}
+					if( mysql_query($query1)){}
 					else
 					{
 							echo "<script>window.alert('Algo Errado no Query ! ')</script>";

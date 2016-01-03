@@ -6,8 +6,8 @@ $identificador = $_POST["identificador1"];
 
 session_start();
 
-$codusuario = $_SESSION["codusuario"];
-$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+$idusuario = $_SESSION["idusuario"];
+$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
 $filial_usuario_logado = $dados_usuario_logado[filial];
 
 
@@ -21,7 +21,7 @@ else
 	
 }
 
-$query2 = "delete from consertoc where identificador = '$identificador' and situacao = 'filial'"; 
+$query2 = "delete from consertoc where identificador = '$identificador' and situacao = 'filial' and filial = '$filial_usuario_logado'";
 if( mysql_query($query2)){}
 else
 {
@@ -30,7 +30,7 @@ else
 	
 }
 
-$query3 = "delete from mov_coletores where coletor = '$identificador' and movimento = 'LIVRE'"; 
+$query3 = "delete from mov_coletores where coletor = '$identificador' and movimento = 'LIVRE' and filial = '$filial_usuario_logado'";
 if( mysql_query($query3))
 {
 	echo "<script>window.alert('Deletado com Sucesso !')</script>";

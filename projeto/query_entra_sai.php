@@ -22,8 +22,8 @@ $obs_saida1		=	$_POST["obs_saida"];
 
 session_start();
 
-$codusuario = $_SESSION["codusuario"];
-$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+$idusuario = $_SESSION["idusuario"];
+$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
 $filial_usuario_logado = $dados_usuario_logado[filial];
 
 if ($movimento_user1 == "USO"){

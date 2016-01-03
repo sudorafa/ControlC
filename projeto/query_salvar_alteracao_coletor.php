@@ -9,8 +9,8 @@ $identificador		=	$_POST["identificador1"];
 
 session_start();
 
-$codusuario = $_SESSION["codusuario"];
-$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+$idusuario = $_SESSION["idusuario"];
+$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
 $filial_usuario_logado = $dados_usuario_logado[filial];
 
 $query = "update coletores set nserie = '$nserie1', descricao = '$descricao1',  status = '$status1' where identificador = '$identificador' and filial = '$filial_usuario_logado'";

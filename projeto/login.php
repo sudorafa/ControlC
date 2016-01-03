@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-//$codusuario = $_SESSION["codusuario"];
+//$idusuario = $_SESSION["idusuario"];
 
 
 ######################################

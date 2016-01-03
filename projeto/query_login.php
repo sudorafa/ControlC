@@ -1,6 +1,6 @@
 <?php
 session_start();
-//$codusuario = $_SESSION["codusuario"];
+//$idusuario = $_SESSION["idusuario"];
 ######################################
 //include("ip.php");
 include('conecta.php');
@@ -15,7 +15,7 @@ if ($user <> "" and  $passwd <> "" ){
 					$sql_2 = mysql_fetch_array(mysql_query($sql));
 			
 					if ($sql_2[descsetor] == "CPD"){
-								$_SESSION[codusuario] = $sql_2[codusuario];
+								$_SESSION[idusuario] = $sql_2[idusuario];
 								$_SESSION[altoriza] = "ok";
 								header("Location:form_home.php");
 

@@ -4,8 +4,8 @@ include('conecta.php');
 
 session_start();
 
-$codusuario = $_SESSION["codusuario"];
-$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+$idusuario = $_SESSION["idusuario"];
+$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
 $filial_usuario_logado = $dados_usuario_logado[filial];
 
 $query = "delete from usuariosc where matricula = '$matricula1' and filial = '$filial_usuario_logado'";

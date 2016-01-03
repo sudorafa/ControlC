@@ -1,6 +1,6 @@
 <?php
 session_start();
-	$codusuario = $_SESSION["codusuario"];
+	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 			
 	include('altoriza.php');
@@ -11,6 +11,12 @@ session_start();
 		include("index.php");
 	
 	}
+	
+	$idusuario = $_SESSION["idusuario"];
+	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
+	$filial_usuario_logado = $dados_usuario_logado[filial];
+	
+	$lista_mov_coletores = mysql_query("select * from mov_coletores where movimento = 'USO' and filial = '$filial_usuario_logado' order by coletor and setor_user");
 ?>
 						
 <html>
@@ -27,22 +33,27 @@ session_start();
 <h2 align="center"> <font color="336699"> Status dos Equipamentos Detalhado</font></h2> 
 <br>
 
-<table cellpadding="0" border="1" width="80%" height="60" align="center">
-<tr>
-	<td class="simples_2" width="100"> MATRICULA </td>
-	<td class="simples_2" width="600"> NOME </td>
-	<td class="simples_2" width="100"> SETOR </td>
-	<td class="simples_2" width="200"> COLT. </td>
-	<td class="simples_2" width="100"> DATA </td>
-	<td class="simples_2" width="100"> HORA </td>
-</tr>
-<tr>
-	<td color="336699" align="center" width="100"> 99473 </td>
-	<td color="336699" align="center" width="600"> Rafael Eduardo Lima dos Santos </td>
-	<td color="336699" align="center" width="100"> Informatica </td>
-	<td color="336699" align="center" width="200"> SB65 </td>
-	<td color="336699" align="center" width="100"> 2015-12-16 </td>
-	<td color="336699" align="center" width="100"> 15:20 </td>
+<table cellpadding="0" border="1" width="80%" height="26" align="center">
+<tr height="26">
+	<td class="simples_2" width="100" height="26"> MATRICULA </td>
+	<td class="simples_2" width="600" height="26"> NOME </td>
+	<td class="simples_2" width="100" height="26"> SETOR </td>
+	<td class="simples_2" width="200" height="26"> COLT. </td>
+	<td class="simples_2" width="100" height="26"> DATA </td>
+	<td class="simples_2" width="100" height="26"> HORA </td>
+</tr height="26">
+	<?php
+		while ($lista_mov_coletores2 = mysql_fetch_array($lista_mov_coletores)){
+	?>
+	<tr>
+		<td color="336699" align="center" width="100" height="26" > <?php echo $lista_mov_coletores2[matricula_user]?> </td>
+		<td color="336699" align="center" width="600" height="26" > <?php echo $lista_mov_coletores2[nome_user]?> </td>
+		<td color="336699" align="center" width="100" height="26" > <?php echo $lista_mov_coletores2[setor_user]?> </td>
+		<td color="336699" align="center" width="200" height="26" > <a href="query_baixa_por_identificador.php?coletor=<?php echo $lista_mov_coletores2[coletor] ?>&movimento=USO&tipo=lista"><?php echo Strtoupper($lista_mov_coletores2[coletor])?></a> </td>
+		<td color="336699" align="center" width="100" height="26" > <?php echo $lista_mov_coletores2[data_saida]?> </td>
+		<td color="336699" align="center" width="100" height="26" > <?php echo $lista_mov_coletores2[hora_saida]?> </td>
+	<?php };?>
+	</tr>
 </tr>
 <table/>
 

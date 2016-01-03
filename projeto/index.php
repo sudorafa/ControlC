@@ -7,8 +7,8 @@ include('conecta.php');
 include('altoriza.php');
 include("ip.php");
 
-$codusuario = $_SESSION["codusuario"];
-$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+$idusuario = $_SESSION["idusuario"];
+$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
 
 ////////////////////////////////////////////////////////
 ?>
@@ -77,8 +77,8 @@ year = year + 1900;
 		<td align="center" colspan="3" bgcolor="#ffcc99">
 		<font size="-1" color="#ffffff">
 		&nbsp; &nbsp;<b><a class="linkbanner" href="form_home.php">HOME</a>&nbsp; &nbsp; | 
-		&nbsp; &nbsp;<b><a class="linkbanner" href="form_coletores.php">COLETORES</a>&nbsp; &nbsp; | 
 		&nbsp; &nbsp;<b><a class="linkbanner" href="form_usuarios.php">USUARIOS</a>&nbsp; &nbsp;|
+		&nbsp; &nbsp;<b><a class="linkbanner" href="form_coletores.php">COLETORES</a>&nbsp; &nbsp; | 
 		&nbsp; &nbsp;<b><a class="linkbanner" href="form_auditorias.php">AUDITORIAS</a>&nbsp; &nbsp; |
 		&nbsp; &nbsp;<b><a class="linkbanner" href="form_controles.php">CONTROLES</a>&nbsp; &nbsp; |
 		&nbsp; &nbsp;<b><a class="linkbanner" href="form_status_detalhado.php"> STATUS DETALHADO </a>&nbsp; &nbsp;

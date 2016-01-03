@@ -1,6 +1,6 @@
 <?php
 session_start();
-	$codusuario = $_SESSION["codusuario"];
+	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 			
 	include('altoriza.php');
@@ -11,6 +11,10 @@ session_start();
 		include("index.php");
 	
 	}
+	
+	$idusuario = $_SESSION["idusuario"];
+	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
+	$filial_usuario_logado = $dados_usuario_logado[filial];
 ?>
 						
 <html>
@@ -53,7 +57,7 @@ return true;
 			</label> 
 			
 		<?php 
-				$consulta = mysql_query("select * from usuariosc where matricula = '$matricula'");
+				$consulta = mysql_query("select * from usuariosc where matricula = '$matricula' and filial = '$filial_usuario_logado'");
 				$linha = mysql_num_rows($consulta);
 				
 				$linha_mat = $linha
@@ -65,11 +69,11 @@ return true;
 	
 	</td>
 	
-	<td width="40%" height="100" align="center" > <h2> <font color="336699"> Baixa (por numero)</font></h2>
-	<form name="form_baixa" action="form_baixa.php"  method="post">
+	<td width="40%" height="100" align="center" > <h2> <font color="336699"> Baixa (por identificador)</font></h2>
+	<form name="form_baixa" action="query_baixa_por_identificador.php"  method="post">
 		<label> <font color="336699"> Coletor : &nbsp; </label> 		
 		<label>
-			<input name="coletor" type="text" size="2" maxlength="2" >
+			<input name="coletor" type="text" size="6" maxlength="6" >
 		</label> 
 		&nbsp; &nbsp; <input type="submit" name="ok" value="ok">
 	</form>

@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-	$codusuario = $_SESSION["codusuario"];
+	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 			
 	include('altoriza.php');
@@ -17,6 +17,10 @@ include('conecta.php');
 include("index.php");
 	
 	}
+	
+	$idusuario = $_SESSION["idusuario"];
+	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
+	$filial_usuario_logado = $dados_usuario_logado[filial];
 ?>
 						
 <html>
@@ -117,7 +121,7 @@ campo.value = campo.value + separador;
 		
 		$username = $_POST['username'];
  
-		$consulta = mysql_query("select * from usuariosc where user = '$username'");
+		$consulta = mysql_query("select * from usuariosc where user = '$username' and filial = '$filial_usuario_logado'");
 		$linha = mysql_num_rows($consulta);
  
 		if(($_POST[username]) or ($_POST[username] <> "") or ($_POST[username] <> 0)){

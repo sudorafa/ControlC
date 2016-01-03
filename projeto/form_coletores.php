@@ -1,6 +1,6 @@
 <?php
 session_start();
-	$codusuario = $_SESSION["codusuario"];
+	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 			
 	include('altoriza.php');
@@ -59,8 +59,8 @@ return true;
 	
 	<?php 
 	
-		$codusuario = $_SESSION["codusuario"];
-		$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+		$idusuario = $_SESSION["idusuario"];
+		$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
 		$filial_usuario_logado = $dados_usuario_logado[filial];
 		
 		$identificador = $_POST['identificador'];
@@ -72,7 +72,7 @@ return true;
 			
 			if($linha >= 1)
 			{
-				// o usuário existe;
+				// o coletor existe;
 				include("form_alterar_deletar_coletor.php");
 			}
 			else

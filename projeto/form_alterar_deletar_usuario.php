@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-	$codusuario = $_SESSION["codusuario"];
+	$idusuario = $_SESSION["idusuario"];
 	$filialusuario = $_SESSION["filial"];
 	$mensagem = $_SESSION["mensagem"];
 	$username = $_POST["username"];
@@ -19,6 +19,10 @@ include('conecta.php');
 //include("index.php");
 	
 	}
+	
+	$idusuario = $_SESSION["idusuario"];
+	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
+	$filial_usuario_logado = $dados_usuario_logado[filial];
 ?>
 						
 <html>
@@ -132,7 +136,7 @@ campo.value = campo.value + separador;
 		<?php 
 		
 		
-			$usuario = mysql_query("select * from usuariosc where user = '$username'");
+			$usuario = mysql_query("select * from usuariosc where user = '$username' and filial = '$filial_usuario_logado'");
 			$dados_usuario = mysql_fetch_array($usuario)
 		
 		?>
@@ -144,7 +148,7 @@ campo.value = campo.value + separador;
 				
 				<label> <font color="336699">  *Setor: </label> &nbsp;
 				<?php
-					$setor= mysql_query("select * from setorc where codsetor < '8'"); 
+					$setor= mysql_query("select * from setorc where codsetor < '8' where filial = '$filial_usuario_logado'");
 				?>
 				<select size="1" name="setor">
 				<option value="<?php echo $dados_usuario[descsetor]?>"> <?php echo $dados_usuario[descsetor]?></option>
