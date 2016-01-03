@@ -11,6 +11,7 @@ session_start();
 		include("index.php");
 	
 	}
+	
 ?>
 						
 <html>
@@ -57,15 +58,19 @@ return true;
 	</form>
 	
 	<?php 
+	
+		$codusuario = $_SESSION["codusuario"];
+		$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+		$filial_usuario_logado = $dados_usuario_logado[filial];
 		
 		$identificador = $_POST['identificador'];
  
-		$consulta = mysql_query("select * from coletores where identificador = '$identificador'");
+		$consulta = mysql_query("select * from coletores where identificador = '$identificador' and filial = '$filial_usuario_logado'");
 		$linha = mysql_num_rows($consulta);
  
 		if(($_POST[identificador]) or ($_POST[identificador] <> "") or ($_POST[identificador] <> 0)){
 			
-			if($linha == 1)
+			if($linha >= 1)
 			{
 				// o usuário existe;
 				include("form_alterar_deletar_coletor.php");

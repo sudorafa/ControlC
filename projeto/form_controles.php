@@ -13,6 +13,10 @@ session_start();
 		include('conecta.php');
 		include("index.php");
 	}
+	
+	$codusuario = $_SESSION["codusuario"];
+	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
+	$filial_usuario_logado = $dados_usuario_logado[filial];
 ?>
 						
 <html>

@@ -43,7 +43,7 @@ if($situacao1 == "filial")
 						include("form_controles.php"); 
 						
 					}
-					$query1 = "update coletores set status = 'NO CPD' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
+					$query1 = "update coletores set status = 'CPD' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
 				
 					if( mysql_query($query1))
 					{

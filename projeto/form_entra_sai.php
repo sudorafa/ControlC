@@ -27,9 +27,7 @@ session_start();
 	$codusuario = $_SESSION["codusuario"];
 	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
 	$filial_usuario_logado = $dados_usuario_logado[filial];
-?>
 
-<?php
 	$dados_qtdc	= mysql_fetch_array(mysql_query("select * from qtdc where filial = '$filial_usuario_logado'"));
 	
 	$qtd_loja 		= $dados_qtdc[qtd_loja];
@@ -38,46 +36,45 @@ session_start();
 	$qtd_deposito 	= $dados_qtdc[qtd_deposito];
 	$qtd_gerencia 	= $dados_qtdc[qtd_gerencia];
 	$qtd_frios 		= $dados_qtdc[qtd_frios];		
-?>
 
-<?php 
 	$usuario = mysql_query("select * from usuariosc where matricula = '$matricula' and filial = '$filial_usuario_logado'");
-	$dados_usuario = mysql_fetch_array($usuario)
-	
-?>
+	$dados_usuario = mysql_fetch_array($usuario);
 
-<?php	
 	$setor_user = $dados_usuario[descsetor];
-?>
 
-<?php 
+	$usuario_mov = mysql_query("select * from mov_coletores where matricula_user = '$matricula' and movimento = 'USO' and filial = '$filial_usuario_logado'");
+	$dados_usuario_mov = mysql_fetch_array($usuario_mov);
+	
+	$movimento_user = $dados_usuario_mov[movimento];
+	$coletor_user 	= $dados_usuario_mov[coletor];
+
 
 	$matricula = $_POST['matricula'];
 
 		$consulta = mysql_query("select * from usuariosc where matricula = '$matricula' and filial = '$filial_usuario_logado'");
 		$linha = mysql_num_rows($consulta);
 	
-		$setor_coletores_loja = mysql_query("select * from coletores where status = 'NA LOJA' and filial = '$filial_usuario_logado'");
+		$setor_coletores_loja = mysql_query("select * from coletores where status = 'LOJA' and filial = '$filial_usuario_logado'");
 		$linha_loja = mysql_num_rows($setor_coletores_loja);
 		$na_loja = $linha_loja;
 		
-		$setor_coletores_prev = mysql_query("select * from coletores where status = 'NA PREV' and filial = '$filial_usuario_logado'");
+		$setor_coletores_prev = mysql_query("select * from coletores where status = 'PREVENCAO' and filial = '$filial_usuario_logado'");
 		$linha_prev = mysql_num_rows($setor_coletores_prev);
 		$na_prev = $linha_prev;
 		
-		$setor_coletores_fcx = mysql_query("select * from coletores where status = 'NA FCX' and filial = '$filial_usuario_logado'");
+		$setor_coletores_fcx = mysql_query("select * from coletores where status = 'F. CAIXA' and filial = '$filial_usuario_logado'");
 		$linha_fcx = mysql_num_rows($setor_coletores_fcx);
 		$na_fcx = $linha_fcx;
 		
-		$setor_coletores_deposito = mysql_query("select * from coletores where status = 'NO DEPOSITO' and filial = '$filial_usuario_logado'");
+		$setor_coletores_deposito = mysql_query("select * from coletores where status = 'DEPOSITO' and filial = '$filial_usuario_logado'");
 		$linha_deposito = mysql_num_rows($setor_coletores_deposito);
 		$no_deposito = $linha_deposito;
 		
-		$setor_coletores_gerencia = mysql_query("select * from coletores where status = 'NA GERENCIA' and filial = '$filial_usuario_logado'");
+		$setor_coletores_gerencia = mysql_query("select * from coletores where status = 'GERENCIA' and filial = '$filial_usuario_logado'");
 		$linha_gerencia = mysql_num_rows($setor_coletores_gerencia);
 		$na_gerencia = $linha_gerencia;
 		
-		$setor_coletores_frios = mysql_query("select * from coletores where status = 'NO FRIOS' and filial = '$filial_usuario_logado'");
+		$setor_coletores_frios = mysql_query("select * from coletores where status = 'FRIOS' and filial = '$filial_usuario_logado'");
 		$linha_frios = mysql_num_rows($setor_coletores_frios);
 		$no_frios = $linha_frios;
 		
@@ -110,51 +107,61 @@ session_start();
 			
 			if($linha == 1)
 			{
-				
-				
-				
-				if ($qtd_loja == $na_loja){
+				if($setor_user == "CPD"){
 					echo 
-					"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
+					"<script>window.alert(' CPD ! ')
 						window.location.replace('form_home.php');
 					</script>";
 				}
+			
 				
-				if ($qtd_prev == $na_prev){
-					echo 
-					"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
-						window.location.replace('form_home.php');
-					</script>";
+				if ($movimento_user == "USO"){
+					echo "<script>window.alert(' Usuario falta entregar coletor $coletor_user !')</script>";
 				}
-				
-				if ($qtd_fcx == $na_fcx){
-					echo 
-					"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
-						window.location.replace('form_home.php');
-					</script>";
-				}
-				
-				if ($qtd_deposito == $no_deposito){
-					echo 
-					"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
-						window.location.replace('form_home.php');
-					</script>";
-				}
-				
-				if ($qtd_gerencia == $na_gerencia){
-					echo 
-					"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
-						window.location.replace('form_home.php');
-					</script>";
-				}
-				
-				if ($qtd_frios == $no_frios){
-					echo 
-					"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
-						window.location.replace('form_home.php');
-					</script>";
-				}
-				
+				else{
+					
+					if ($qtd_loja == $na_loja){
+						echo 
+						"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
+							window.location.replace('form_home.php');
+						</script>";
+					}
+					
+					if ($qtd_prev == $na_prev){
+						echo 
+						"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
+							window.location.replace('form_home.php');
+						</script>";
+					}
+					
+					if ($qtd_fcx == $na_fcx){
+						echo 
+						"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
+							window.location.replace('form_home.php');
+						</script>";
+					}
+					
+					if ($qtd_deposito == $no_deposito){
+						echo 
+						"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
+							window.location.replace('form_home.php');
+						</script>";
+					}
+					
+					if ($qtd_gerencia == $na_gerencia){
+						echo 
+						"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
+							window.location.replace('form_home.php');
+						</script>";
+					}
+					
+					if ($qtd_frios == $no_frios){
+						echo 
+						"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
+							window.location.replace('form_home.php');
+						</script>";
+					}
+				}	
 			}
 			else
 			{
@@ -179,7 +186,7 @@ session_start();
 		
 		<?php
 			
-			$coletores = mysql_query("select * from coletores where status = 'NO CPD' and filial = '$filial_usuario_logado' order by id limit 1");
+			$coletores = mysql_query("select * from coletores where status = 'CPD' and filial = '$filial_usuario_logado' order by id_mov desc limit 1");
 			$dados_coletores = mysql_fetch_array($coletores);
 		?>
 				
@@ -188,10 +195,15 @@ session_start();
 			&nbsp; &nbsp; &nbsp;
 			<label> <font color="336699"> Matricula: </label> &nbsp;
 			<label> <input name="matricula" type="text" size="10" maxlength="10" value="<?php echo $_POST[matricula]?>" readonly="false"></label> &nbsp; 
-			
+		
+		<?php if ($movimento_user == "USO"){ ?>
+			<label> <font color="336699"> Coletor: </label> &nbsp;
+			<label> <input name="coletor_uso" type="text" size="5" maxlength="3" value="<?php echo $dados_usuario_mov[coletor] ?>" readonly="false"> </label>&nbsp; &nbsp; &nbsp;
+		<?php } else { ?>
 			<label> <font color="336699"> Coletor: </label> &nbsp;
 			<label> <input name="coletor" type="text" size="5" maxlength="3" value="<?php echo $dados_coletores[identificador]?>" readonly="false"> </label>&nbsp; &nbsp; &nbsp;
-			
+		<?php } ?>
+		
 			<label> <font color="336699"> Restam para este setor: </label> &nbsp;
 			<label> <input name="setor" type="text" size="3" value="<?php echo $rest ?>" readonly="false"> </label> 
 		<br> <br>
@@ -201,15 +213,44 @@ session_start();
 			<label> <font color="336699"> Setor: </label> &nbsp; 		
 			<label> <input name="setor" type="text" size="20" value="<?php echo $dados_usuario[descsetor]?>" readonly="false"> </label>
 		<br> <br>
-			<label> Data entrada: </label> &nbsp; 
-			<input name="data_entrada" type="text" size="10" maxlength="10" readonly="false" value="<?php echo date('Y-m-d') ?>"> &nbsp; &nbsp; &nbsp;
+		
+		<?php if ($movimento_user == "USO"){ ?>
+		<label> Data Saida : </label> &nbsp; 
+			<input name="data_saida" value="<?php echo $dados_usuario_mov[data_saida] ?>" type="text" size="10" maxlength="10" readonly="false"> &nbsp; &nbsp; &nbsp;
 			
-			<label> Hora entrada: </label> &nbsp;
-			<input name="hora_entrada" type="text" size="10" maxlength="10" readonly="false" value="<?php echo date('H:i') ?>">
+			<label> Hora Saida : </label> &nbsp; 
+			<input name="hora_saida" value="<?php echo $dados_usuario_mov[hora_saida] ?>" type="text" size="10" maxlength="10" readonly="false">
+		<br> <br>	
+		
+			<label> Data Devol: </label> &nbsp; 
+			<input name="data_devolucao" value="<?php echo date('Y-m-d') ?>" type="text" size="10" maxlength="10" readonly="false"> &nbsp; &nbsp; &nbsp;
+			
+			<label> Hora Devol: </label> &nbsp;
+			<input name="hora_devolucao" value="<?php echo date('H:i') ?>" type="text" size="10" maxlength="10" readonly="false">
+		<?php } else { ?>
+			<label> Data Saida : </label> &nbsp; 
+			<input name="data_saida" type="text" size="10" maxlength="10" readonly="false" value="<?php echo date('Y-m-d')?>"> &nbsp; &nbsp; &nbsp;
+			
+			<label> Hora Saida : </label> &nbsp; 
+			<input name="hora_saida" type="text" size="10" maxlength="10" readonly="false" value="<?php echo date('H:i')?>">
+		<br> <br>	
+		<?php } ?>
+		
+		<?php if ($movimento_user == "USO"){ ?>
 		<br> <br>	
 			<label> OBS: </label> <br>
-			<textarea name="obs" cols="40" rows="4"></textarea> <br> <br>
+			<input name="obs_devolucao" align="center" size="70" maxlength="70" type="text" value="<?php echo $dados_usuario_mov[obs_saida] ?>" > <br> <br>
 			<input type="submit" name="cadastrar" value="CONFIRMA">
+		<?php } else { ?>
+		<br> <br>	
+			<label> OBS: </label> <br>
+			<input name="obs_saida" align="center" size="70" maxlength="70" type="text" > <br> <br>
+			<input type="submit" name="cadastrar" value="CONFIRMA">
+		<?php } ?>
+		
+		<input type="hidden" name="id" value="<?php echo $dados_usuario_mov[id]?>" >
+		<input type="hidden" name="movimento_post" value="<?php echo $dados_usuario_mov[movimento]?>" >
+					
 		<br> <br>
 		</td>
 		

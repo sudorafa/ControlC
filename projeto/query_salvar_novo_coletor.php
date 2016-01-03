@@ -12,18 +12,33 @@ $codusuario = $_SESSION["codusuario"];
 $dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where codusuario = '$codusuario'"));
 $filial_usuario_logado = $dados_usuario_logado[filial];
 
-$query = "insert into coletores (filial, nserie, descricao, identificador) values ('$filial_usuario_logado', '$nserie1', '$descricao1', '$identificador')";
-
-if( mysql_query($query))
+$query = "insert into coletores (filial, nserie, descricao, identificador, status, id_mov) values ('$filial_usuario_logado', '$nserie1', '$descricao1', '$identificador', 'CPD', '1')";
+if( mysql_query($query)){}
+else
 {
+	echo "<script>window.alert('Algo Errado no Query ! ')</script>";
+}
+
+$query1 = "insert into mov_coletores (coletor, movimento, filial) values ('$identificador', 'LIVRE', '$filial_usuario_logado')";
+if( mysql_query($query1)) {}
+else {
+	echo 
+	"<script>window.alert('Algo Errado no Query 1')
+		window.location.replace('form_coletores.php');
+	</script>";
+}
+
+$query2 = "insert into consertoc (identificador, situacao, filial) values ('$identificador', 'filial', '$filial_usuario_logado')";
+if( mysql_query($query2)) {
 	echo "<script>window.alert('Salvo com Sucesso !')</script>";
 	include("form_coletores.php"); 
-	
 }
 else
 {
-		echo "<script>window.alert('Algo Errado no Query ! ')</script>";
-		include("form_coletores.php"); 
+	echo 
+	"<script>window.alert('Algo Errado no Query 2')
+		window.location.replace('form_coletores.php');
+	</script>";
 	
 }
 
