@@ -3,11 +3,11 @@ session_start();
 	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 			
-	include('altoriza.php');
+	include('libera.php');
 	
 	include('conecta.php');
 	
-	if ( $_SESSION[altoriza] == "ok" ){
+	if ( $_SESSION[libera] == "ok" ){
 		include("index.php");
 	
 	}
@@ -50,7 +50,10 @@ session_start();
 
 
 	$matricula = $_POST['matricula'];
-
+	
+		$consulta1 = mysql_query("select * from coletores");
+		$linha1 = mysql_num_rows($consulta1);
+		
 		$consulta = mysql_query("select * from usuariosc where matricula = '$matricula' and filial = '$filial_usuario_logado'");
 		$linha = mysql_num_rows($consulta);
 	
@@ -103,6 +106,13 @@ session_start();
 			$rest = $qtd_frios - $no_frios;
 		}
 
+		if($linha1 == 0){
+			echo 
+			"<script>window.alert(' NENHUM COLETOR CADASTRADO ! ')
+				window.location.replace('form_home.php');
+			</script>";
+		}
+		
 		if(($_POST[matricula]) or ($_POST[matricula] <> "") or ($_POST[matricula] <> 0)){
 			
 			if($linha == 1)
@@ -113,7 +123,6 @@ session_start();
 						window.location.replace('form_home.php');
 					</script>";
 				}
-			
 				
 				if ($movimento_user == "USO"){
 					echo "<script>window.alert(' Usuario falta entregar coletor $coletor_user !')</script>";

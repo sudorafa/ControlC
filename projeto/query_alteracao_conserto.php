@@ -3,7 +3,7 @@
 session_start();
 
 include('conecta.php');
-include('altoriza.php');
+include('libera.php');
 
 $ident_post1			=	$_POST["ident_post"];
 $situacao1				= 	$_POST["situacao"];
@@ -31,24 +31,31 @@ if($situacao1 == "filial")
 				{
 					
 					$query = "insert into consertoc (identificador, situacao, filial) values ('$ident_post1', 'filial', '$filial_usuario_logado')";
-					if( mysql_query($query))
-					{
-						echo "<script>window.alert('Finalizado Atualizacao de Status nos Registros deste Conserto !')</script>";
-						include("form_controles.php"); 
-						
-					}
+					if( mysql_query($query)) {}
 					else
 					{
 						echo "<script>window.alert('Algo Errado no Query ! ')</script>";
 						include("form_controles.php"); 
 						
 					}
-					$query1 = "update coletores set status = 'CPD' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
-				
+					$query1 = "update consertoc set situacao = 'chegada', atualizacao = '$data_atualizacao1', rma = '$rma1',  nfe = '$nfe1',  defeito = '$defeito1', almox = '$data_almox1' where identificador = '$ident_post1' and situacao = 'conserto' and filial = '$filial_usuario_logado'"; 
 					if( mysql_query($query1)){}
 					else
 					{
-							echo "<script>window.alert('Algo Errado no Query ! ')</script>";
+							echo "<script>window.alert('Algo Errado no Query 1 ! ')</script>";
+							include("form_controles.php"); 
+						
+					}
+					
+					$query2 = "update coletores set status = 'CPD' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
+				
+					if( mysql_query($query2)){
+						echo "<script>window.alert('Finalizado Atualizacao de Status nos Registros deste Conserto !')</script>";
+						include("form_controles.php"); 
+					}
+					else
+					{
+							echo "<script>window.alert('Algo Errado no Query 2 ! ')</script>";
 							include("form_controles.php"); 
 						
 					}
@@ -71,7 +78,7 @@ if($situacao1 == "filial")
 					
 				}
 				
-				$query1 = "update coletores set status = 'NO CONSERTO' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
+				$query1 = "update coletores set status = 'CONSERTO' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
 				
 				if( mysql_query($query1))
 				{

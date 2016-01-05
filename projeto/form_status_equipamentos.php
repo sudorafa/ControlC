@@ -3,11 +3,11 @@ session_start();
 	$idusuario	= $_SESSION["idusuario"];
 	$mensagem 	= $_SESSION["mensagem"];
 			
-	include('altoriza.php');
+	include('libera.php');
 	
 	include('conecta.php');
 	
-	/*if ( $_SESSION[altoriza] == "ok" ){
+	/*if ( $_SESSION[libera] == "ok" ){
 		include("index.php");
 	
 	}*/
@@ -45,6 +45,10 @@ session_start();
 	$frios = mysql_query("select * from coletores where status = 'FRIOS' and filial = '$filial_usuario_logado'");
 	$dados_frios = mysql_num_rows($frios);
 	$uso_frios = $dados_frios;
+	
+	$conserto = mysql_query("select * from coletores where status = 'CONSERTO' and filial = '$filial_usuario_logado'");
+	$dados_conserto = mysql_num_rows($conserto);
+	$uso_conserto = $dados_conserto;
 	//------------------------------
 	
 	//dados dos coletores em movimento pelos setores
@@ -68,7 +72,7 @@ session_start();
 	
 	$lista_conserto = mysql_query("select * from consertoc where situacao = 'conserto' and filial = '$filial_usuario_logado' order by identificador");
 	
-	$lista_coletores = mysql_query("select * from coletores where status = 'NO CONSERTO' and filial = '$filial_usuario_logado' order by identificador");
+	$lista_coletores = mysql_query("select * from coletores where status = 'CONSERTO' and filial = '$filial_usuario_logado' order by identificador");
 ?>
 						
 <html>
@@ -100,9 +104,14 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SAIDAS DA MANHA (<?php echo $uso_loja_manha ?>)</td>
 		</tr>
 		<tr>
+			<?php if ($uso_loja_manha == 0) { ?>
+				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<?php }
+				else { ?>
 			<td class="simples_2" width="90" height="26"> DATA</td>
 			<td class="simples_2" width="300" height="26"> NOME </td>
 			<td class="simples_2" width="50" height="26"> COLT. </td>
+			<?php } ?>
 		</tr>
 		<?php
 			while ($lista_loja_manha2 = mysql_fetch_array($lista_loja_manha)){
@@ -120,9 +129,14 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SAIDAS DA TARDE / NOITE (<?php echo $uso_loja_tarde_noite ?>)</td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26" height="26" > DATA</td>
-			<td class="simples_2" width="300" height="26" > NOME </td>
-			<td class="simples_2" width="50" height="26" > COLT. </td>
+			<?php if ($uso_loja_tarde_noite == 0) { ?>
+				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<?php }
+				else { ?>
+			<td class="simples_2" width="90" height="26"> DATA</td>
+			<td class="simples_2" width="300" height="26"> NOME </td>
+			<td class="simples_2" width="50" height="26"> COLT. </td>
+			<?php } ?>
 		</tr>
 		<?php
 			while ($lista_loja_tarde_noite2 = mysql_fetch_array($lista_loja_tarde_noite)){
@@ -149,9 +163,14 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR PREVENCAO (<?php echo $uso_prevencao ?> / <?php echo $dados_qtd[qtd_prev] ?>) </td>
 		</tr>
 		<tr>
+			<?php if ($uso_prevencao == 0) { ?>
+				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<?php }
+				else { ?>
 			<td class="simples_2" width="90" height="26"> DATA</td>
 			<td class="simples_2" width="300" height="26"> NOME </td>
 			<td class="simples_2" width="50" height="26"> COLT. </td>
+			<?php } ?>
 		</tr>
 		<?php
 			while ($lista_prevencao2 = mysql_fetch_array($lista_prevencao)){
@@ -169,9 +188,14 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR F. CAIXA (<?php echo $uso_fcx ?> / <?php echo $dados_qtd[qtd_fcx] ?>) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26" > DATA</td>
-			<td class="simples_2" width="300" height="26" > NOME </td>
-			<td class="simples_2" width="50" height="26" > COLT. </td>
+			<?php if ($uso_fcx == 0) { ?>
+				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<?php }
+				else { ?>
+			<td class="simples_2" width="90" height="26"> DATA</td>
+			<td class="simples_2" width="300" height="26"> NOME </td>
+			<td class="simples_2" width="50" height="26"> COLT. </td>
+			<?php } ?>
 		</tr>
 		<?php
 			while ($lista_fcx2 = mysql_fetch_array($lista_fcx)){
@@ -198,9 +222,14 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR DEPOSITO (<?php echo $uso_deposito ?> / <?php echo $dados_qtd[qtd_deposito] ?>) </td>
 		</tr>
 		<tr>
+			<?php if ($uso_deposito == 0) { ?>
+				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<?php }
+				else { ?>
 			<td class="simples_2" width="90" height="26"> DATA</td>
 			<td class="simples_2" width="300" height="26"> NOME </td>
 			<td class="simples_2" width="50" height="26"> COLT. </td>
+			<?php } ?>
 		</tr>
 		<?php
 			while ($lista_deposito2 = mysql_fetch_array($lista_deposito)){
@@ -218,9 +247,14 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR FRIOS (<?php echo $uso_frios ?> / <?php echo $dados_qtd[qtd_frios] ?>) </td>
 		</tr>
 		<tr>
-			<td class="simples_2" width="90" height="26" > DATA</td>
-			<td class="simples_2" width="300" height="26" > NOME </td>
-			<td class="simples_2" width="50" height="26" > COLT. </td>
+			<?php if ($uso_frios == 0) { ?>
+				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<?php }
+				else { ?>
+			<td class="simples_2" width="90" height="26"> DATA</td>
+			<td class="simples_2" width="300" height="26"> NOME </td>
+			<td class="simples_2" width="50" height="26"> COLT. </td>
+			<?php } ?>
 		</tr>
 		<?php
 			while ($lista_frios2 = mysql_fetch_array($lista_frios)){
@@ -247,9 +281,14 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SETOR GERENCIA (<?php echo $uso_gerencia ?> / <?php echo $dados_qtd[qtd_gerencia] ?>) </td>
 		</tr>
 		<tr>
+			<?php if ($uso_gerencia == 0) { ?>
+				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<?php }
+			else { ?>
 			<td class="simples_2" width="90" height="26"> DATA</td>
 			<td class="simples_2" width="300" height="26"> NOME </td>
 			<td class="simples_2" width="50" height="26"> COLT. </td>
+			<?php } ?>
 		</tr>
 		<?php
 			while ($lista_gerencia2 = mysql_fetch_array($lista_gerencia)){
@@ -267,9 +306,15 @@ session_start();
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CONSERTO (<?php echo $dados_qtd[qtd_conserto] ?>) </td>
 		</tr>
 		<tr>
+		<?php 
+		if ($uso_conserto == 0) { ?>
+			<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+		<?php }
+		else { ?>
 			<td class="simples_2" width="90" height="26" > N. SERIE </td>
 			<td class="simples_2" width="300" height="26" > DEFEITO </td>
 			<td class="simples_2" width="50" height="26" > COLT. </td>
+		<?php } ?>
 		</tr>
 		<tr>
 		<?php

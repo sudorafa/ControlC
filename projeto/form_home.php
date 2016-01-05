@@ -3,11 +3,11 @@ session_start();
 	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 			
-	include('altoriza.php');
+	include('libera.php');
 	
 	include('conecta.php');
 	
-	if ( $_SESSION[altoriza] == "ok" ){
+	if ( $_SESSION[libera] == "ok" ){
 		include("index.php");
 	
 	}

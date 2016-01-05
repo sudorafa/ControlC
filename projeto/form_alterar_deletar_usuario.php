@@ -6,11 +6,11 @@ session_start();
 	$mensagem = $_SESSION["mensagem"];
 	$username = $_POST["username"];
 			
-	include('altoriza.php');
+	include('libera.php');
 	
 	include('conecta.php');
 	
-	if ( $_SESSION[altoriza] == "ok" ){
+	if ( $_SESSION[libera] == "ok" ){
 		
 /*if ( $_POST[salvar_novo] == "salvar novo" ){
 	header("Location:salvar_novo_usuario.php");
@@ -148,7 +148,7 @@ campo.value = campo.value + separador;
 				
 				<label> <font color="336699">  *Setor: </label> &nbsp;
 				<?php
-					$setor= mysql_query("select * from setorc where codsetor < '8' where filial = '$filial_usuario_logado'");
+					$setor= mysql_query("select * from setorc where codsetor < '8'");
 				?>
 				<select size="1" name="setor">
 				<option value="<?php echo $dados_usuario[descsetor]?>"> <?php echo $dados_usuario[descsetor]?></option>
@@ -203,7 +203,7 @@ campo.value = campo.value + separador;
 
 			<input type="hidden" name="user1" value="<?php echo $dados_usuario[user]?>" >
 			
-			<table cellpadding="0" border="0" width="30%" align="center">
+			<table cellpadding="0" border="0" width="20%" align="center">
 			<tr align="center">
 				<td align="center"> 
 					<input align="center" type="submit" name="salvar" value="salvar"> 
@@ -214,11 +214,6 @@ campo.value = campo.value + separador;
 				<td >
 					<input type="hidden" name="matricula1" value="<?php echo $dados_usuario[matricula]?>" >
 					<input align="center" type="submit" name="deletar" value="deletar">  
-				</td>
-				</form>
-				<form action="form_usuarios.php" method="post" name="voltar" align="center">
-				<td >	
-					<input align="center" type="submit" name="voltar" value="voltar">  
 				</td>
 				</form>
 			</tr>

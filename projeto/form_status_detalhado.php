@@ -3,11 +3,11 @@ session_start();
 	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 			
-	include('altoriza.php');
+	include('libera.php');
 	
 	include('conecta.php');
 	
-	if ( $_SESSION[altoriza] == "ok" ){
+	if ( $_SESSION[libera] == "ok" ){
 		include("index.php");
 	
 	}
@@ -17,6 +17,8 @@ session_start();
 	$filial_usuario_logado = $dados_usuario_logado[filial];
 	
 	$lista_mov_coletores = mysql_query("select * from mov_coletores where movimento = 'USO' and filial = '$filial_usuario_logado' order by coletor and setor_user");
+	$linhas_mov_coletores = mysql_num_rows($lista_mov_coletores);
+	$uso_mov = $linhas_mov_coletores;
 ?>
 						
 <html>
@@ -35,12 +37,18 @@ session_start();
 
 <table cellpadding="0" border="1" width="80%" height="26" align="center">
 <tr height="26">
+	<?php 
+	if ($uso_mov == 0) { ?>
+		<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+	<?php }
+	else { ?>
 	<td class="simples_2" width="100" height="26"> MATRICULA </td>
 	<td class="simples_2" width="600" height="26"> NOME </td>
 	<td class="simples_2" width="100" height="26"> SETOR </td>
 	<td class="simples_2" width="200" height="26"> COLT. </td>
 	<td class="simples_2" width="100" height="26"> DATA </td>
 	<td class="simples_2" width="100" height="26"> HORA </td>
+	<?php } ?>
 </tr height="26">
 	<?php
 		while ($lista_mov_coletores2 = mysql_fetch_array($lista_mov_coletores)){
@@ -55,7 +63,7 @@ session_start();
 	<?php };?>
 	</tr>
 </tr>
-<table/>
+</table>
 
 
 </body>

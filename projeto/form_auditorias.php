@@ -3,11 +3,11 @@ session_start();
 	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 			
-	include('altoriza.php');
+	include('libera.php');
 	
 	include('conecta.php');
 	
-	if ( $_SESSION[altoriza] == "ok" ){
+	if ( $_SESSION[libera] == "ok" ){
 		include("index.php");
 	
 	}
@@ -29,14 +29,9 @@ session_start();
 
 <table cellpadding="0" border="1" width="80%" align="center">
 <tr height="30">
-	<td class="simples_2" > ENTRADAS E SAIDAS DE COLETORES POR <a href="form_auditorias_usuarios.php"><u>USUARIOS</u> </a> ou <a href="form_auditorias_setores.php"><u>SETORES</u>  </a> (.pdf) </td>
+	<td class="simples_2" > <a href="form_auditorias_entradas_saidas.php"><u> ENTRADAS E SAIDAS DOS COLETORES </u> </a> </td>
 </tr>
-<tr height="30">
-	<td class="simples_2" > <a href="form_auditorias_status_info_coletores.php"><u>STATUS E INFORMACOES DOS COLETORES</u></a> </td>
-</tr>
-<tr height="30">
-	<td class="simples_2" > <a <u>USUARIOS CADASTRADOS (.pdf)</u> </a> </td>
-</tr>
+
 <tr height="30"> 
 	<td class="simples_2" > <a href="form_auditorias_coletores_conserto.php"><u>COLETORES NO CONSERTO</u></a> </td>
 </tr>

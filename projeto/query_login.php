@@ -16,7 +16,7 @@ if ($user <> "" and  $passwd <> "" ){
 			
 					if ($sql_2[descsetor] == "CPD"){
 								$_SESSION[idusuario] = $sql_2[idusuario];
-								$_SESSION[altoriza] = "ok";
+								$_SESSION[libera] = "ok";
 								header("Location:form_home.php");
 
 					}else{

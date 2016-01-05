@@ -3,11 +3,11 @@ session_start();
 	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 			
-	include('altoriza.php');
+	include('libera.php');
 	
 	include('conecta.php');
 	
-	if ( $_SESSION[altoriza] == "ok" ){
+	if ( $_SESSION[libera] == "ok" ){
 		include("index.php");
 	
 	}
@@ -55,6 +55,15 @@ return true;
 		
 		<br> <br>
 	</td>
+	</form>
+	
+	<form action="form_listar_coletores.php" method="post" name="listar_coletores" align="center">
+	<td	align="center"> 
+		<br>	
+			<class="simples_2" > <a href="form_listar_coletores.php"><u> LISTAR TODOS COLETORES DA FILIAL </u> </a>
+		<br> <br>
+	</td>
+	
 	</form>
 	
 	<?php 

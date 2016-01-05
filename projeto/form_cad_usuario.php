@@ -5,11 +5,11 @@ session_start();
 	$mensagem = $_SESSION["mensagem"];
 	$filialusuario = $_SESSION["filial"];
 			
-	include('altoriza.php');
+	include('libera.php');
 	
 	include('conecta.php');
 	
-	if ( $_SESSION[altoriza] == "ok" ){
+	if ( $_SESSION[libera] == "ok" ){
 		
 /*if ( $_POST[salvar_novo] == "salvar novo" ){
 	header("Location:salvar_novo_usuario.php");
@@ -197,11 +197,6 @@ campo.value = campo.value + separador;
 					<input align="center" type="submit" name="salvar" value="salvar"> 
 				</td>
 	</form>
-				<form action="form_usuarios.php" method="post" name="voltar" align="center">
-				<td >	
-					<input align="center" type="submit" name="voltar" value="voltar">  
-				</td>
-				</form>
 			</tr>
 			</table>
 			<br> <br>

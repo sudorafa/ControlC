@@ -4,11 +4,11 @@ session_start();
 	$idusuario = $_SESSION["idusuario"];
 	$mensagem = $_SESSION["mensagem"];
 			
-	include('altoriza.php');
+	include('libera.php');
 	
 	include('conecta.php');
 	
-	if ( $_SESSION[altoriza] == "ok" ){
+	if ( $_SESSION[libera] == "ok" ){
 		
 /*if ( $_POST[salvar_novo] == "salvar novo" ){
 	header("Location:salvar_novo_usuario.php");
@@ -100,7 +100,7 @@ campo.value = campo.value + separador;
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
 
-<h2 align="center"> <font color="336699"> Buscar Usuario </font></h2>	
+<h2 align="center"> <font color="336699"> Buscar Usuarios </font></h2>	
 
 <table cellpadding="0" border="1" width="80%" align="center">
 <tr>
@@ -115,12 +115,40 @@ campo.value = campo.value + separador;
 		
 		<br> <br>
 	</td>
+	
 	</form>
+	
+	<form action="form_listar_usuarios.php" method="post" name="listar_usuarios" align="center">
+	<td	align="center"> 
+		<br>	
+		
+		<label> <font color="336699">  Usuarios por Setor: </label> &nbsp;
+		<?php
+			$setor= mysql_query("select * from setorc where codsetor < '8'");
+		?>
+		<select size="1" name="setor">
+		<option value="TODOS">TODOS</option>
+		<?php
+			while ($setor_1 = mysql_fetch_array($setor)){
+		?>
+			<option value="<?php echo $setor_1[descsetor]?>"> <?php echo $setor_1[descsetor]?></option>
+		<?php } ?>	
+		</select> &nbsp; &nbsp;
+				
+		<input type="submit" name="listar" value="listar"> &nbsp; &nbsp; &nbsp;
+		
+		<br> <br>
+	</td>
+	
+	</form>
+	
+</tr>
+</table>
 	
 	<?php 
 		
-		$username = $_POST['username'];
- 
+		$username 	= $_POST['username'];
+		 
 		$consulta = mysql_query("select * from usuariosc where user = '$username' and filial = '$filial_usuario_logado'");
 		$linha = mysql_num_rows($consulta);
  
@@ -138,10 +166,12 @@ campo.value = campo.value + separador;
 				include("form_cad_usuario.php");
 			}
 		}
-		
-		?>
-</tr>
-</table>
+	
+
+	?>
+
+
+<br>
 
 </body>
 </html>

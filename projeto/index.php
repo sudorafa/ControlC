@@ -4,7 +4,7 @@
 //////////////////////////////////////////////////////
 session_start();
 include('conecta.php');
-include('altoriza.php');
+include('libera.php');
 include("ip.php");
 
 $idusuario = $_SESSION["idusuario"];
