@@ -128,10 +128,12 @@ campo.value = campo.value + separador;
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
 
+<h2 align="center"> <font color="336699"> Alterar / Excluir Usuarios </font> </h2> 
+
 <table cellpadding="0" border="1" width="80%" align="center">
 
     <tr>
-	<h2 align="center"> <font color="336699"> Alterar / Excluir Usuarios </font></h2> 
+	
 	<form action="query_salvar_alteracao_usuario.php" method="post" name="alterar" onSubmit="return valida_dados_alterar(this)">
 		<?php 
 		

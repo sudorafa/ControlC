@@ -2,7 +2,7 @@
 
 include('conecta.php');
 
-$nomeusuaruio1 	=	$_POST["nomeusuaruio"];
+$nomeusuaruio1 	=	$_POST["nome"];
 $datacadastro1 	=	$_POST["datacadastro"];  
 $matricula1 	=	$_POST["matricula"];  
 $senha1 		=	$_POST["senha"];  

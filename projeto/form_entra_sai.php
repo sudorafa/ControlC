@@ -41,6 +41,7 @@ session_start();
 	$dados_usuario = mysql_fetch_array($usuario);
 
 	$setor_user = $dados_usuario[descsetor];
+	$bloqueio	= $dados_usuario[bloqueio];
 
 	$usuario_mov = mysql_query("select * from mov_coletores where matricula_user = '$matricula' and movimento = 'USO' and filial = '$filial_usuario_logado'");
 	$dados_usuario_mov = mysql_fetch_array($usuario_mov);
@@ -120,6 +121,13 @@ session_start();
 				if($setor_user == "CPD"){
 					echo 
 					"<script>window.alert(' CPD ! ')
+						window.location.replace('form_home.php');
+					</script>";
+				}
+				
+				if($bloqueio == "sim"){
+					echo 
+					"<script>window.alert(' USUARIO BLOQUEADO ! ')
 						window.location.replace('form_home.php');
 					</script>";
 				}

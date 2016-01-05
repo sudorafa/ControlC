@@ -24,12 +24,16 @@ session_start();
 <script language="javascript" src="script/fcampo.js"></script>
 
 
-<h2 align="center"> <font color="336699"> Geracao de Relatorios para Auditoroas </font></h2> 
-<br>
+<h2 align="center"> <font color="336699"> Relatorios para Auditorias </font></h2> 
 
-<table cellpadding="0" border="1" width="80%" align="center">
+<table cellpadding="0" border="1" width="40%" align="center">
+
 <tr height="30">
-	<td class="simples_2" > <a href="form_auditorias_entradas_saidas.php"><u> ENTRADAS E SAIDAS DOS COLETORES </u> </a> </td>
+	<td class="simples_2" > <a href="form_auditorias_movimentacao_usuarios.php"><u> MOVIMENTACAO USUARIOS </u> </a> </td>
+</tr>
+
+<tr height="30">
+	<td class="simples_2" > <a href="form_auditorias_movimentacao_coletores.php"><u> MOVIMENTACAO COLETORES </u> </a> </td>
 </tr>
 
 <tr height="30"> 

@@ -35,15 +35,15 @@ include('conecta.php');
 <!-- chama a função (cadastro) -->
 function valida_dados (cadastro)
 {
-    if (cadastro.nomeusuaruio.value=="")
+    if (cadastro.nome.value=="")
     {
         alert ("Por favor digite o nome do usuarios.");
         return false;
     }
 	
-	if (cadastro.filial.selectedIndex ==0)
+	if (cadastro.setor.selectedIndex ==0)
     {
-        alert ("Por favor selecione a filial.");
+        alert ("Por favor selecione o setor.");
         return false;
     }
     
@@ -76,70 +76,22 @@ return true;
 </script>
 <!---------------------------------------------------------------------------------->
 
-<!---------------------------------------------------------------------------------->
-<SCRIPT language=javascript> 
-function Mascara (formato, keypress, objeto){ 
-campo = eval (objeto); 
-// CEP 
-if (formato=='CEP'){ 
-separador = '-'; 
-conjunto1 = 5; 
-if (campo.value.length == conjunto1){ 
-campo.value = campo.value + separador; 
-} 
-} 
-
-// HORA 
-if (formato=='novahora'){ 
-separador = ':'; 
-conjunto1 = 2; 
-if (campo.value.length == conjunto1){ 
-campo.value = campo.value + separador; 
-} 
-} 
-
-// DATA 
-if (formato=='novadata'){ 
-separador = '/'; 
-conjunto1 = 2; 
-conjunto2 = 5; 
-if (campo.value.length == conjunto2)
-{ 
-campo.value = campo.value + separador; 
-} 
-if ( campo.value.length == conjunto1)
-{ 
-campo.value = campo.value + separador; 
-}
-
-} 
-
-// TELEFONE 
-if (formato=='TELEFONE'){ 
-separador = '-'; 
-conjunto1 = 4; 
-if (campo.value.length == conjunto1){ 
-campo.value = campo.value + separador; 
-} 
-} 
-} 
-</SCRIPT> 
-
-<!------------------------------------------------------------------------------------------>
 <script language="javascript" src="script/ajax.js"></script> 
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
+
+<h2 align="center"> <font color="336699"> Cadastrar Novo Usuario </font></h2>	
 
 <table cellpadding="0" border="1" width="80%" align="center">
 
     <tr>
 	<form action="query_salvar_novo_usuario.php" method="post" name="cadastro" onSubmit="return valida_dados(this)">
-		<h2 align="center"> <font color="336699"> Cadastrar Novo Usuario </font></h2>	
+		
 		<tr> 
 			<td	align="center">
 			<br> <br>
 				<label> <font color="336699"> *Nome: </label> &nbsp;
-				<input name="nomeusuaruio" type="text" size="50" maxlength="50" > &nbsp; &nbsp; &nbsp;
+				<input name="nome" type="text" size="50" maxlength="50" > &nbsp; &nbsp; &nbsp;
 				
 				<label> <font color="336699">  *Setor: </label> &nbsp;
 				<?php

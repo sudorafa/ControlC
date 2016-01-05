@@ -35,7 +35,7 @@ session_start();
 <h2 align="center"> <font color="336699"> Status dos Equipamentos Detalhado</font></h2> 
 <br>
 
-<table cellpadding="0" border="1" width="80%" height="26" align="center">
+<table cellpadding="0" border="1" width="70%" height="26" align="center">
 <tr height="26">
 	<?php 
 	if ($uso_mov == 0) { ?>

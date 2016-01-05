@@ -79,7 +79,7 @@ function soma()
 		
 		<td width="30%" align="center" >
 		 
-			<table cellpadding="0" border="0" width="270" height="100" align="center" >
+			<table cellpadding="0" border="0" width="260" height="100" align="center" >
 			<tr >
 			
 			<form method="post" name="qtd" action="query_alteracao_qtdc.php">
@@ -91,10 +91,10 @@ function soma()
 				$consulta_coletores = mysql_query("select * from coletores where filial = '$filial_usuario_logado'");
 				$linha_coletores = mysql_num_rows($consulta_coletores);
 				
-				$consulta_conserto = mysql_query("select * from consertoc where situacao = 'filial' and filial = '$filial_usuario_logado'");
-				$linha_filial = mysql_num_rows($consulta_conserto);
+				$consulta_conserto = mysql_query("select * from consertoc where situacao = 'conserto' and filial = '$filial_usuario_logado'");
+				$linha_conserto = mysql_num_rows($consulta_conserto);
 				
-				$result_qtd_conserto = $linha_coletores - $linha_filial;
+				$result_qtd_conserto = $linha_conserto;
 			
 				$pesquisa = mysql_query("select sum(qtd_loja+qtd_prev+qtd_fcx+qtd_deposito+qtd_gerencia+qtd_frios+$result_qtd_conserto) as soma from qtdc where filial = '$filial_usuario_logado'");
 				$count = mysql_fetch_array($pesquisa);
@@ -167,6 +167,7 @@ function soma()
 			<?php 		
 				$coletor = mysql_query("select * from coletores where identificador = '$ident' and filial = '$filial_usuario_logado'");
 				$dados_coletor = mysql_fetch_array($coletor);
+				$linha1 = mysql_num_rows($coletor);
 			?>
 			
 			</form>      
@@ -183,7 +184,7 @@ function soma()
 				 
 				<input type="hidden" name="ident_post" type="text" size="4" maxlength="4" value="<?php echo $_POST["ident"]?>" > 
 				 
-				<label> <font color="336699"> Num Serie: </label> 
+				<label> <font color="336699"> Nm Serie: </label> 
 				<input name="nserie" value="<?php echo $dados_coletor[nserie] ?>" type="text" size="20" maxlength="20" readonly="false"> &nbsp; 
 				
 				<label> <font color="336699">  Descricao: </label> 
@@ -221,9 +222,8 @@ function soma()
 				
 				<label> <font color="336699">  Almox </label> &nbsp; 
 				<label> <input name="data_almox" value="<?php echo date('Y-m-d') ?>" type="text" size=10 maxlength="10" > </label> &nbsp;&nbsp; &nbsp;
-
 				
-			    <br> 
+				<br> 
 			</td> 
 				<tr>
 					<td	align="center"> <br> <br>
@@ -231,6 +231,14 @@ function soma()
 						     <br><br>
 					</td>
 				</tr>
+			<?php
+			if(($_POST[ident]) or ($_POST[ident] <> "") or ($_POST[ident] <> 0)){
+				if ($linha1 == 0){
+					echo 
+					"<script>window.alert('Coletor nao encontrado !') </script>";
+				}
+			}
+			?>
 			</form>
 		</tr>	
 		</table>

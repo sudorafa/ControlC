@@ -71,6 +71,8 @@ session_start();
 	$lista_frios = mysql_query("select * from mov_coletores where movimento = 'USO' and setor_user = 'FRIOS' and filial = '$filial_usuario_logado' order by coletor");
 	
 	$lista_conserto = mysql_query("select * from consertoc where situacao = 'conserto' and filial = '$filial_usuario_logado' order by identificador");
+	$linhas_conserto = mysql_num_rows($lista_conserto);
+	$uso_conserto = $linhas_conserto;
 	
 	$lista_coletores = mysql_query("select * from coletores where status = 'CONSERTO' and filial = '$filial_usuario_logado' order by identificador");
 ?>
@@ -303,7 +305,7 @@ session_start();
 		
 		<table cellpadding="0" border="1" width="49%" height="26" align="center">
 		<tr>
-			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CONSERTO (<?php echo $dados_qtd[qtd_conserto] ?>) </td>
+			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CONSERTO (<?php echo $uso_conserto ?>) </td>
 		</tr>
 		<tr>
 		<?php 
