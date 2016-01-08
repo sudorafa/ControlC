@@ -19,7 +19,7 @@ while ($i <= $ultimo_id){
 	$dados_busca = mysql_fetch_array($busca);
 	$id1 = $dados_busca[id];
 	
-	$query = "update coletores set id_mov = '$i' where id = '$id1' and filial = '$filial_usuario_logado'");
+	$query = "update coletores set id_mov = '$i' where id = '$id1' and filial = '$filial_usuario_logado'";
 	if( mysql_query($query)) {} 
 	else {
 		echo 
