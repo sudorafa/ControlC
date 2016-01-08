@@ -28,7 +28,7 @@ include("index.php");
 <link href="estilo.css" rel="stylesheet" type="text/css">
 </head>
 </head>
-<body onLoad="document.form_home.matricula.focus()"> 
+<body onLoad="document.buscar.username.focus()"> 
 
 <!---------------------------------------------------------------------------------->
 <script language="javascript">
