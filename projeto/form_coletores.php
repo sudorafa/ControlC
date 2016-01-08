@@ -19,7 +19,7 @@ session_start();
 <link href="estilo.css" rel="stylesheet" type="text/css">
 </head>
 </head>
-<body onLoad="document.form_home.matricula.focus()"> 
+<body onLoad="document.buscar.identificador.focus()"> 
 <script language="javascript" src="script/ajax.js"></script> 
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
