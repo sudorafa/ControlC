@@ -95,7 +95,7 @@ return true;
 				
 				<label> <font color="336699">  *Setor: </label> &nbsp;
 				<?php
-					$setor= mysql_query("select * from setorc where codsetor < '7'");
+					$setor= mysql_query("select * from setorc where codsetor < '8'");
 				?>
 				<select size="1" name="setor">
 				<option value="0"> - </option>

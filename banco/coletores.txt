@@ -2,11 +2,12 @@ mysql> desc coletores;
 +---------------+-------------+------+-----+---------+----------------+
 | Field         | Type        | Null | Key | Default | Extra          |
 +---------------+-------------+------+-----+---------+----------------+
-| id            | int(4)      | NO   | PRI | NULL    | auto_increment |
-| filial        | varchar(30) | NO   |     | NULL    |                |
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| filial        | varchar(30) | YES  |     | NULL    |                |
 | nserie        | varchar(20) | YES  |     | NULL    |                |
 | descricao     | varchar(20) | YES  |     | NULL    |                |
 | identificador | varchar(20) | YES  |     | NULL    |                |
 | status        | varchar(30) | YES  |     | NULL    |                |
+| id_mov        | int(11)     | YES  |     | NULL    |                |
 +---------------+-------------+------+-----+---------+----------------+
-6 rows in set (0.00 sec)
+7 rows in set (0.00 sec)

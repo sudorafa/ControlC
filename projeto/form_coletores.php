@@ -62,6 +62,8 @@ return true;
 		<br>	
 			<class="simples_2" > <a href="form_listar_coletores.php"><u> LISTAR TODOS COLETORES DA FILIAL </u> </a>
 		<br> <br>
+			<class="simples_2" > <a href="query_redefinir_sequencia.php"><u> REDEFINIR SEQUENCIA DE ENTREGAS </u> </a>
+		<br> <br>
 	</td>
 	
 	</form>

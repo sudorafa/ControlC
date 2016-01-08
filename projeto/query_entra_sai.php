@@ -49,10 +49,10 @@ if ($movimento_user1 == "USO"){
 	$busca = mysql_query("select * from mov_coletores where coletor = '$coletor_uso1' and movimento = 'LIVRE' and filial = '$filial_usuario_logado' order by id desc limit 1");
 	$dados_busca = mysql_fetch_array($busca);
 	// salva em id_mov o id buscado
-	$id1 = $dados_busca[id];
+	$id2 = $dados_busca[id];
 	
 	// Na tabela COLETORES atualiza o ID_MOV com o id buscado na tabela MOV
-	$query2 = "update coletores set id_mov = '$id1', status = 'CPD' where identificador = '$coletor_uso1' and filial = '$filial_usuario_logado'";
+	$query2 = "update coletores set id_mov = '$id2', status = 'CPD' where identificador = '$coletor_uso1' and filial = '$filial_usuario_logado'";
 	if( mysql_query($query2)) {
 		echo 
 		"<script>window.alert(' Devolucao Realizada com sucesso ! ')

@@ -16,7 +16,7 @@ session_start();
 	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
 	$filial_usuario_logado = $dados_usuario_logado[filial];
 	
-	$lista_mov_coletores = mysql_query("select * from mov_coletores where movimento = 'USO' and filial = '$filial_usuario_logado' order by coletor and setor_user");
+	$lista_mov_coletores = mysql_query("select * from mov_coletores where movimento = 'USO' and filial = '$filial_usuario_logado' order by coletor");
 	$linhas_mov_coletores = mysql_num_rows($lista_mov_coletores);
 	$uso_mov = $linhas_mov_coletores;
 ?>
@@ -39,27 +39,27 @@ session_start();
 <tr height="26">
 	<?php 
 	if ($uso_mov == 0) { ?>
-		<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+		<td class="simples_2" height="26"> NADA PARA EXIBIR </td>
 	<?php }
 	else { ?>
-	<td class="simples_2" width="100" height="26"> MATRICULA </td>
-	<td class="simples_2" width="600" height="26"> NOME </td>
-	<td class="simples_2" width="100" height="26"> SETOR </td>
-	<td class="simples_2" width="200" height="26"> COLT. </td>
-	<td class="simples_2" width="100" height="26"> DATA </td>
-	<td class="simples_2" width="100" height="26"> HORA </td>
+	<td class="simples_2" height="26"> MATRICULA </td>
+	<td class="simples_2" height="26"> NOME </td>
+	<td class="simples_2" height="26"> SETOR </td>
+	<td class="simples_2" height="26"> COLT. </td>
+	<td class="simples_2" height="26"> DATA </td>
+	<td class="simples_2" height="26"> HORA </td>
 	<?php } ?>
 </tr height="26">
 	<?php
 		while ($lista_mov_coletores2 = mysql_fetch_array($lista_mov_coletores)){
 	?>
 	<tr>
-		<td color="336699" align="center" width="100" height="26" > <?php echo $lista_mov_coletores2[matricula_user]?> </td>
-		<td color="336699" align="center" width="600" height="26" > <?php echo $lista_mov_coletores2[nome_user]?> </td>
-		<td color="336699" align="center" width="100" height="26" > <?php echo $lista_mov_coletores2[setor_user]?> </td>
-		<td color="336699" align="center" width="200" height="26" > <a href="query_baixa_por_identificador.php?coletor=<?php echo $lista_mov_coletores2[coletor] ?>&movimento=USO&tipo=lista"><?php echo Strtoupper($lista_mov_coletores2[coletor])?></a> </td>
-		<td color="336699" align="center" width="100" height="26" > <?php echo $lista_mov_coletores2[data_saida]?> </td>
-		<td color="336699" align="center" width="100" height="26" > <?php echo $lista_mov_coletores2[hora_saida]?> </td>
+		<td color="336699" align="center" height="26" > <?php echo $lista_mov_coletores2[matricula_user]?> </td>
+		<td color="336699" align="center" height="26" > <?php echo $lista_mov_coletores2[nome_user]?> </td>
+		<td color="336699" align="center" height="26" > <?php echo $lista_mov_coletores2[setor_user]?> </td>
+		<td color="336699" align="center" height="26" > <a href="query_baixa_por_identificador.php?coletor=<?php echo $lista_mov_coletores2[coletor] ?>&movimento=USO&tipo=lista"><?php echo Strtoupper($lista_mov_coletores2[coletor])?></a> </td>
+		<td color="336699" align="center" height="26" > <?php echo $lista_mov_coletores2[data_saida]?> </td>
+		<td color="336699" align="center" height="26" > <?php echo $lista_mov_coletores2[hora_saida]?> </td>
 	<?php };?>
 	</tr>
 </tr>

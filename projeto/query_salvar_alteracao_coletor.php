@@ -17,15 +17,17 @@ $query = "update coletores set nserie = '$nserie1', descricao = '$descricao1',  
 
 if( mysql_query($query))
 {
-	echo "<script>window.alert('Salvo com Sucesso !')</script>";
-	include("form_coletores.php"); 
-	
+	echo 
+	"<script>window.alert('Salvo com Sucesso !')
+		window.location.replace('form_coletores.php');
+	</script>";	
 }
 else
 {
-		echo "<script>window.alert('Algo Errado no Query ! ')</script>";
-		include("form_coletores.php"); 
-	
+	echo 
+	"<script>window.alert('Algo Errado no Query !')
+		window.location.replace('form_coletores.php');
+	</script>";	
 }
 
 ?>

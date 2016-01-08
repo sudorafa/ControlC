@@ -16,7 +16,10 @@ $query = "insert into coletores (filial, nserie, descricao, identificador, statu
 if( mysql_query($query)){}
 else
 {
-	echo "<script>window.alert('Algo Errado no Query ! ')</script>";
+	echo 
+	"<script>window.alert('Algo Errado no Query !')
+		window.location.replace('form_coletores.php');
+	</script>";
 }
 
 $query1 = "insert into mov_coletores (coletor, movimento, filial) values ('$identificador', 'LIVRE', '$filial_usuario_logado')";
@@ -30,8 +33,10 @@ else {
 
 $query2 = "insert into consertoc (identificador, situacao, filial) values ('$identificador', 'filial', '$filial_usuario_logado')";
 if( mysql_query($query2)) {
-	echo "<script>window.alert('Salvo com Sucesso !')</script>";
-	include("form_coletores.php"); 
+	echo 
+	"<script>window.alert('Salvo com Sucesso !')
+		window.location.replace('form_coletores.php');
+	</script>";
 }
 else
 {

@@ -2,7 +2,7 @@ mysql> desc consertoc;
 +---------------+-------------+------+-----+---------+----------------+
 | Field         | Type        | Null | Key | Default | Extra          |
 +---------------+-------------+------+-----+---------+----------------+
-| identificador | varchar(4)  | NO   |     | NULL    |                |
+| identificador | varchar(5)  | YES  |     | NULL    |                |
 | id            | int(11)     | NO   | PRI | NULL    | auto_increment |
 | filial        | varchar(30) | NO   |     | NULL    |                |
 | situacao      | varchar(11) | YES  |     | NULL    |                |

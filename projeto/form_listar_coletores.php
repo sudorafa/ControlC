@@ -7,10 +7,10 @@ session_start();
 	
 	include('conecta.php');
 	
-	if ( $_SESSION[libera] == "ok" ){
+	/*if ( $_SESSION[libera] == "ok" ){
 		include("index.php");
 	
-	}
+	}*/
 ?>
 						
 <html>
@@ -21,6 +21,16 @@ session_start();
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
 
+<table align = "center">
+<tr>
+	<form action="form_coletores.php">
+	<td align = "center">
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		<input align = "center" type="submit" name="voltar" value="voltar">
+	</td>
+	</form>
+</tr>
+</table>
 
 <h2 align="center"> <font color="336699"> Status e Informacoes dos Coletores </font></h2> 
 
@@ -42,35 +52,24 @@ session_start();
 					<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
 				<?php }
 				else { ?>
-					<td class="simples_2" width="100" height="26"> DESCRICAO </td>
-					<td class="simples_2" width="100" height="26"> IDENTIFICADOR </td>
-					<td class="simples_2" width="100" height="26"> NUM SERIE </td>
-					<td class="simples_2" width="100" height="26"> STATUS </td>
+					<td class="simples_2" height="26"> DESCRICAO </td>
+					<td class="simples_2" height="26"> IDENTIFICADOR </td>
+					<td class="simples_2" height="26"> NUM SERIE </td>
+					<td class="simples_2" height="26"> STATUS </td>
 					</tr>
 				<?php }
 					while ($dados_coletores = mysql_fetch_array($coletores)){
 				?>
 				<tr>
-					<td color="336699" align="center" width="100" height="26" > <?php echo $dados_coletores[descricao]?> </td>
-					<td color="336699" align="center" width="100" height="26" > <?php echo $dados_coletores[identificador]?></a> </td>
-					<td color="336699" align="center" width="100" height="26" > <?php echo $dados_coletores[nserie]?> </td>
-					<td color="336699" align="center" width="100" height="26" > <?php echo $dados_coletores[status]?> </td>
+					<td color="336699" align="center" height="26" > <?php echo $dados_coletores[descricao]?> </td>
+					<td color="336699" align="center" height="26" > <?php echo $dados_coletores[identificador]?></a> </td>
+					<td color="336699" align="center" height="26" > <?php echo $dados_coletores[nserie]?> </td>
+					<td color="336699" align="center" height="26" > <?php echo $dados_coletores[status]?> </td>
 				<?php };?>
 				</tr>
 			
 			</table>
 <br>
-
-<table align = "center">
-<tr>
-	<form action="form_usuarios.php">
-	<td align = "center">
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-		<input align = "center" type="submit" name="voltar" value="voltar">
-	</td>
-	</form>
-</tr>
-</table>
 
 </body>
 </head>

@@ -75,6 +75,7 @@ session_start();
 	$uso_conserto = $linhas_conserto;
 	
 	$lista_coletores = mysql_query("select * from coletores where status = 'CONSERTO' and filial = '$filial_usuario_logado' order by identificador");
+	
 ?>
 						
 <html>
@@ -105,9 +106,9 @@ session_start();
 		<tr height="26">
 			<td align="center" colspan="3" height="26" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SAIDAS DA MANHA (<?php echo $uso_loja_manha ?>)</td>
 		</tr>
-		<tr>
+		<tr align = "center">
 			<?php if ($uso_loja_manha == 0) { ?>
-				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+				<td align = "center" class="simples_2" height="26"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NADA PARA EXIBIR </td>
 			<?php }
 				else { ?>
 			<td class="simples_2" width="90" height="26"> DATA</td>
@@ -132,7 +133,7 @@ session_start();
 		</tr>
 		<tr>
 			<?php if ($uso_loja_tarde_noite == 0) { ?>
-				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+				<td class="simples_2" height="26"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NADA PARA EXIBIR </td>
 			<?php }
 				else { ?>
 			<td class="simples_2" width="90" height="26"> DATA</td>
@@ -166,7 +167,7 @@ session_start();
 		</tr>
 		<tr>
 			<?php if ($uso_prevencao == 0) { ?>
-				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+				<td class="simples_2" height="26"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NADA PARA EXIBIR </td>
 			<?php }
 				else { ?>
 			<td class="simples_2" width="90" height="26"> DATA</td>
@@ -191,7 +192,7 @@ session_start();
 		</tr>
 		<tr>
 			<?php if ($uso_fcx == 0) { ?>
-				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+				<td class="simples_2" height="26"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NADA PARA EXIBIR </td>
 			<?php }
 				else { ?>
 			<td class="simples_2" width="90" height="26"> DATA</td>
@@ -225,7 +226,7 @@ session_start();
 		</tr>
 		<tr>
 			<?php if ($uso_deposito == 0) { ?>
-				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+				<td class="simples_2" height="26"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NADA PARA EXIBIR </td>
 			<?php }
 				else { ?>
 			<td class="simples_2" width="90" height="26"> DATA</td>
@@ -250,7 +251,7 @@ session_start();
 		</tr>
 		<tr>
 			<?php if ($uso_frios == 0) { ?>
-				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+				<td class="simples_2" height="26"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NADA PARA EXIBIR </td>
 			<?php }
 				else { ?>
 			<td class="simples_2" width="90" height="26"> DATA</td>
@@ -284,7 +285,7 @@ session_start();
 		</tr>
 		<tr>
 			<?php if ($uso_gerencia == 0) { ?>
-				<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+				<td class="simples_2" height="26"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NADA PARA EXIBIR </td>
 			<?php }
 			else { ?>
 			<td class="simples_2" width="90" height="26"> DATA</td>
@@ -310,7 +311,7 @@ session_start();
 		<tr>
 		<?php 
 		if ($uso_conserto == 0) { ?>
-			<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<td class="simples_2" height="26"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NADA PARA EXIBIR </td>
 		<?php }
 		else { ?>
 			<td class="simples_2" width="90" height="26" > N. SERIE </td>
@@ -320,16 +321,14 @@ session_start();
 		</tr>
 		<tr>
 		<?php
-			while ($lista_coletores2 = mysql_fetch_array($lista_coletores)){
-			while ($lista_conserto2 = mysql_fetch_array($lista_conserto)){
+			while ($lista_conserto2 = mysql_fetch_array($lista_conserto) and $lista_coletores2 = mysql_fetch_array($lista_coletores)){
 		?>
 		<tr>
 			<td color="336699" align="center" width="100" height="26"><?php echo $lista_coletores2[nserie]?></td>
 			<td color="336699" align="center" width="400" height="26"><?php echo $lista_conserto2[defeito]?></td>
-			<td color="336699" align="center" width="40" height="26"><?php echo Strtoupper($lista_conserto2[identificador])?></td>
+			<td color="336699" align="center" width="40" height="26"><?php echo Strtoupper($lista_coletores2[identificador])?></td>
 		</tr>
-		<?php };?>
-		<?php };?>
+			<?php } ;?>
 		</tr>
 		</table>
 		<br>

@@ -24,8 +24,10 @@ if($situacao1 == "filial")
 			{
 				if($situacao1 == $situacao_banco1)
 				{
-					echo "<script>window.alert('Status do Coletor ( filial ) Nada Salvo !')</script>";
-					include("form_controles.php"); 
+					echo 
+					"<script>window.alert('Status do Coletor ( filial ) Nada Salvo ! !')
+						window.location.replace('form_controles.php');
+					</script>";	
 				}
 				else
 				{
@@ -34,30 +36,35 @@ if($situacao1 == "filial")
 					if( mysql_query($query)) {}
 					else
 					{
-						echo "<script>window.alert('Algo Errado no Query ! ')</script>";
-						include("form_controles.php"); 
-						
+						echo 
+						"<script>window.alert('Algo Errado no Query ! !')
+							window.location.replace('form_controles.php');
+						</script>";	
 					}
 					$query1 = "update consertoc set situacao = 'chegada', atualizacao = '$data_atualizacao1', rma = '$rma1',  nfe = '$nfe1',  defeito = '$defeito1', almox = '$data_almox1' where identificador = '$ident_post1' and situacao = 'conserto' and filial = '$filial_usuario_logado'"; 
 					if( mysql_query($query1)){}
 					else
 					{
-							echo "<script>window.alert('Algo Errado no Query 1 ! ')</script>";
-							include("form_controles.php"); 
-						
+						echo 
+						"<script>window.alert('Algo Errado no Query 1 ! !')
+							window.location.replace('form_controles.php');
+						</script>";	
 					}
 					
 					$query2 = "update coletores set status = 'CPD' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
 				
 					if( mysql_query($query2)){
-						echo "<script>window.alert('Finalizado Atualizacao de Status nos Registros deste Conserto !')</script>";
-						include("form_controles.php"); 
+						echo 
+						"<script>window.alert('Finalizado Atualizacao de Status nos Registros deste Conserto !')
+							window.location.replace('form_controles.php');
+						</script>";	
 					}
 					else
 					{
-							echo "<script>window.alert('Algo Errado no Query 2 ! ')</script>";
-							include("form_controles.php"); 
-						
+						echo 
+						"<script>window.alert('Algo Errado no Query 2 !')
+							window.location.replace('form_controles.php');
+						</script>";
 					}
 				}
 			}
@@ -67,28 +74,28 @@ if($situacao1 == "filial")
 				
 				if( mysql_query($query))
 				{
-					echo "<script>window.alert('Status Conserto Atualizados com Sucesso !')</script>";
-					include("form_controles.php"); 
-					
+					echo 
+					"<script>window.alert('Status Conserto Atualizados com Sucesso !')
+						window.location.replace('form_controles.php');
+					</script>";
 				}
 				else
 				{
-						echo "<script>window.alert('Algo Errado no Query ! ')</script>";
-						include("form_controles.php"); 
-					
+					echo 
+					"<script>window.alert('Algo Errado no Query !')
+						window.location.replace('form_controles.php');
+					</script>";	
 				}
 				
 				$query1 = "update coletores set status = 'CONSERTO' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
 				
-				if( mysql_query($query1))
-				{
-										
-				}
+				if( mysql_query($query1)){}
 				else
 				{
-						echo "<script>window.alert('Algo Errado no Query ! ')</script>";
-						include("form_controles.php"); 
-					
+					echo 
+					"<script>window.alert('Algo Errado no Query 1 !!')
+						window.location.replace('form_controles.php');
+					</script>";	
 				}
 			}
 

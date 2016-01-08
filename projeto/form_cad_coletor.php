@@ -107,6 +107,7 @@ campo.value = campo.value + separador;
 <table cellpadding="0" border="1" width="80%" align="center">
 
     <tr>
+	<br>
 	<h2 align="center"> <font color="336699"> Cadastrar Novo Coletor </font></h2> 
 	<form action="query_salvar_novo_coletor.php" method="post" name="cadastrar" onSubmit="return valida_dados_alterar(this)">
 		

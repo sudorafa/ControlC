@@ -73,18 +73,20 @@ session_start();
 		
 	?>
 	
+	<?php if ($setor1 == "TODOS" or $setor1 == "LOJA") { ?>
 	<table cellpadding="0" border="1" width="90%" align="center">
-	
-	<?php if ($setor1 == "TODOS" or $setor1 == "LOJA") {
+	<?php
 		if ($uso_loja == 0) { ?>
 		<tr>
 		<?php if ($setor1 == "TODOS") { ?>
+			<br>
 			<h3 align="center"> <font color="336699"> LOJA </font></h3> 
 		<?php } else {} ?>
-			<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<td class="simples_2" height="26"> NADA PARA EXIBIR </td>
 		<?php }
 		else { ?>
 			<?php if ($setor1 == "TODOS") { ?>
+				<br>
 				<h3 align="center"> <font color="336699"> LOJA </font></h3> 
 			<?php } else {} ?>
 			<td class="simples_2" width="100" height="26"> MAT </td>
@@ -92,9 +94,9 @@ session_start();
 			<td class="simples_2" width="50" height="26"> COL </td>
 			<td class="simples_2" width="100" height="26"> DATA SAIDA </td>
 			<td class="simples_2" width="50" height="26"> HORA SAIDA </td>
+			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="100" height="26"> DATA DEVOL </td>
 			<td class="simples_2" width="50" height="26"> HORA DEVOL </td>
-			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="300" height="26"> OBS DEVOLUCAO </td>
 	</tr>
 		<?php }
@@ -106,28 +108,30 @@ session_start();
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_loja[coletor]?> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios_loja[data_saida]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_loja[hora_saida]?> </td>
+			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_loja[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios_loja[data_devolucao]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_loja[hora_devolucao]?> </td>
-			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_loja[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_loja[obs_devolucao]?></a> </td>
+	<?php };?>
 	</tr>
-	
-	<?php } };?>
+	<?php };?>
 	
 	</table>
 
+	<?php if ($setor1 == "TODOS" or $setor1 == "PREVENCAO") { ?>
 	<table cellpadding="0" border="1" width="90%" align="center">
-	
-	<?php if ($setor1 == "TODOS" or $setor1 == "PREVENCAO") {
+	<?php 
 		if ($uso_prevencao == 0) { ?>
 		<tr>
 		<?php if ($setor1 == "TODOS") { ?>
+			<br>
 			<h3 align="center"> <font color="336699"> PREVENCAO </font></h3> 
 		<?php } else {} ?>
-			<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<td class="simples_2" height="26"> NADA PARA EXIBIR </td>
 		<?php }
 		else { ?>
 			<?php if ($setor1 == "TODOS") { ?>
+				<br>
 				<h3 align="center"> <font color="336699"> PREVENCAO </font></h3> 
 			<?php } else {} ?>
 			<td class="simples_2" width="100" height="26"> MAT </td>
@@ -135,9 +139,9 @@ session_start();
 			<td class="simples_2" width="50" height="26"> COL </td>
 			<td class="simples_2" width="100" height="26"> DATA SAIDA </td>
 			<td class="simples_2" width="50" height="26"> HORA SAIDA </td>
+			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="100" height="26"> DATA DEVOL </td>
 			<td class="simples_2" width="50" height="26"> HORA DEVOL </td>
-			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="300" height="26"> OBS DEVOLUCAO </td>
 	</tr>
 		<?php }
@@ -149,28 +153,31 @@ session_start();
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_prevencao[coletor]?> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios_prevencao[data_saida]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_prevencao[hora_saida]?> </td>
+			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_prevencao[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios_prevencao[data_devolucao]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_prevencao[hora_devolucao]?> </td>
-			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_prevencao[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_prevencao[obs_devolucao]?></a> </td>
 	</tr>
 	
-	<?php } };?>
-	
+	<?php };?>
 	</table>
+	<?php };?>
 
+	<?php if ($setor1 == "TODOS" or $setor1 == "F. CAIXA") { ?>
 	<table cellpadding="0" border="1" width="90%" align="center">
 	
-	<?php if ($setor1 == "TODOS" or $setor1 == "F. CAIXA") {
+	<?php
 		if ($uso_fcx == 0) { ?>
 		<tr>
 			<?php if ($setor1 == "TODOS") { ?>
+				<br>
 				<h3 align="center"> <font color="336699"> F. CAIXA </font></h3> 
 			<?php } else {} ?>
-			<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<td class="simples_2" height="26"> NADA PARA EXIBIR </td>
 		<?php }
 		else { ?>
 			<?php if ($setor1 == "TODOS") { ?>
+				<br>
 				<h3 align="center"> <font color="336699"> F. CAIXA </font></h3> 
 			<?php } else {} ?>
 			<td class="simples_2" width="100" height="26"> MAT </td>
@@ -178,9 +185,9 @@ session_start();
 			<td class="simples_2" width="50" height="26"> COL </td>
 			<td class="simples_2" width="100" height="26"> DATA SAIDA </td>
 			<td class="simples_2" width="50" height="26"> HORA SAIDA </td>
+			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="100" height="26"> DATA DEVOL </td>
 			<td class="simples_2" width="50" height="26"> HORA DEVOL </td>
-			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="300" height="26"> OBS DEVOLUCAO </td>
 	</tr>
 	
@@ -193,28 +200,30 @@ session_start();
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_fcx[coletor]?> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios_fcx[data_saida]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_fcx[hora_saida]?> </td>
+			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_fcx[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios_fcx[data_devolucao]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_fcx[hora_devolucao]?> </td>
-			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_fcx[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_fcx[obs_devolucao]?></a> </td>
 	</tr>
 	
-	<?php } };?>
-	
+	<?php };?>
 	</table>
+	<?php };?>
 
+	<?php if ($setor1 == "TODOS" or $setor1 == "DEPOSITO") { ?>
 	<table cellpadding="0" border="1" width="90%" align="center">
-	
-	<?php if ($setor1 == "TODOS" or $setor1 == "DEPOSITO") {
+	<?php 
 		if ($uso_deposito == 0) { ?>
 		<tr>
 			<?php if ($setor1 == "TODOS") { ?>
+				<br>
 				<h3 align="center"> <font color="336699"> DEPOSITO </font></h3> 
 			<?php } else {} ?>
-			<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<td class="simples_2" height="26"> NADA PARA EXIBIR </td>
 		<?php }
 		else { ?>
 			<?php if ($setor1 == "TODOS") { ?>
+				<br>
 				<h3 align="center"> <font color="336699"> DEPOSITO </font></h3> 
 			<?php } else {} ?>
 			<td class="simples_2" width="100" height="26"> MAT </td>
@@ -222,9 +231,9 @@ session_start();
 			<td class="simples_2" width="50" height="26"> COL </td>
 			<td class="simples_2" width="100" height="26"> DATA SAIDA </td>
 			<td class="simples_2" width="50" height="26"> HORA SAIDA </td>
+			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="100" height="26"> DATA DEVOL </td>
 			<td class="simples_2" width="50" height="26"> HORA DEVOL </td>
-			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="300" height="26"> OBS DEVOLUCAO </td>
 			
 	</tr>
@@ -237,28 +246,29 @@ session_start();
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_deposito[coletor]?> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios_deposito[data_saida]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_deposito[hora_saida]?> </td>
+			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_deposito[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios_deposito[data_devolucao]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_deposito[hora_devolucao]?> </td>
-			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_deposito[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_deposito[obs_devolucao]?></a> </td>
 	</tr>
-	
-	<?php } };?>
-	
+	<?php };?>
 	</table>
-
-	<table cellpadding="0" border="1" width="90%" align="center">
+	<?php };?>
 	
-	<?php if ($setor1 == "TODOS" or $setor1 == "GERENCIA") {
+	<?php if ($setor1 == "TODOS" or $setor1 == "GERENCIA") { ?>
+	<table cellpadding="0" border="1" width="90%" align="center">
+	<?php
 		if ($uso_gerencia == 0) { ?>
 		<tr>
 			<?php if ($setor1 == "TODOS") { ?>
+				<br>
 				<h3 align="center"> <font color="336699"> GERENCIA </font></h3> 
 			<?php } else {} ?>
-			<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<td class="simples_2" height="26"> NADA PARA EXIBIR </td>
 		<?php }
 		else { ?>
 			<?php if ($setor1 == "TODOS") { ?>
+				<br>
 				<h3 align="center"> <font color="336699"> GERENCIA </font></h3> 
 			<?php } else {} ?>
 			<td class="simples_2" width="100" height="26"> MAT </td>
@@ -266,9 +276,9 @@ session_start();
 			<td class="simples_2" width="50" height="26"> COL </td>
 			<td class="simples_2" width="100" height="26"> DATA SAIDA </td>
 			<td class="simples_2" width="50" height="26"> HORA SAIDA </td>
+			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="100" height="26"> DATA DEVOL </td>
 			<td class="simples_2" width="50" height="26"> HORA DEVOL </td>
-			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="300" height="26"> OBS DEVOLUCAO </td>
 	</tr>
 		<?php }
@@ -280,28 +290,29 @@ session_start();
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_gerencia[coletor]?> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios_gerencia[data_saida]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_gerencia[hora_saida]?> </td>
+			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_gerencia[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios_gerencia[data_devolucao]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_gerencia[hora_devolucao]?> </td>
-			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_gerencia[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_gerencia[obs_devolucao]?></a> </td>
 	</tr>
-	
-	<?php } };?>
-	
+	<?php };?>
 	</table>
+	<?php };?>
 
+	<?php if ($setor1 == "TODOS" or $setor1 == "FRIOS") { ?>
 	<table cellpadding="0" border="1" width="90%" align="center">
-	
-	<?php if ($setor1 == "TODOS" or $setor1 == "FRIOS") {
+	<?php
 		if ($uso_frios == 0) { ?>
 		<tr>
 			<?php if ($setor1 == "TODOS") { ?>
+				<br>
 				<h3 align="center"> <font color="336699"> FRIOS </font></h3> 
 			<?php } else {} ?>
-			<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<td class="simples_2" height="26"> NADA PARA EXIBIR </td>
 		<?php }
 		else { ?>
 			<?php if ($setor1 == "TODOS") { ?>
+				<br>
 				<h3 align="center"> <font color="336699"> FRIOS </font></h3> 
 			<?php } else {} ?>
 			<td class="simples_2" width="100" height="26"> MAT </td>
@@ -309,9 +320,9 @@ session_start();
 			<td class="simples_2" width="50" height="26"> COL </td>
 			<td class="simples_2" width="100" height="26"> DATA SAIDA </td>
 			<td class="simples_2" width="50" height="26"> HORA SAIDA </td>
+			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="100" height="26"> DATA DEVOL </td>
 			<td class="simples_2" width="50" height="26"> HORA DEVOL </td>
-			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="300" height="26"> OBS DEVOLUCAO </td>
 	</tr>
 		<?php }
@@ -323,15 +334,15 @@ session_start();
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_frios[coletor]?> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios_frios[data_saida]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_frios[hora_saida]?> </td>
+			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_frios[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios_frios[data_devolucao]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios_frios[hora_devolucao]?> </td>
-			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_frios[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios_frios[obs_devolucao]?></a> </td>
 	</tr>
 	
-	<?php } };?>
-	
+	<?php } ;?>
 	</table>
+	<?php } ;?>
 	
 	<br>  <br> 
 

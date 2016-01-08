@@ -137,42 +137,42 @@ session_start();
 				}
 				else{
 					
-					if ($qtd_loja == $na_loja){
+					if ($qtd_loja == $na_loja and $setor_user == "LOJA"){
 						echo 
 						"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
 							window.location.replace('form_home.php');
 						</script>";
 					}
 					
-					if ($qtd_prev == $na_prev){
+					if ($qtd_prev == $na_prev and $setor_user == "PREVENCAO"){
 						echo 
 						"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
 							window.location.replace('form_home.php');
 						</script>";
 					}
 					
-					if ($qtd_fcx == $na_fcx){
+					if ($qtd_fcx == $na_fcx and $setor_user == "F. CAIXA"){
 						echo 
 						"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
 							window.location.replace('form_home.php');
 						</script>";
 					}
 					
-					if ($qtd_deposito == $no_deposito){
+					if ($qtd_deposito == $no_deposito and $setor_user == "DEPOSITO"){
 						echo 
 						"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
 							window.location.replace('form_home.php');
 						</script>";
 					}
 					
-					if ($qtd_gerencia == $na_gerencia){
+					if ($qtd_gerencia == $na_gerencia and $setor_user == "GERENCIA"){
 						echo 
 						"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
 							window.location.replace('form_home.php');
 						</script>";
 					}
 					
-					if ($qtd_frios == $no_frios){
+					if ($qtd_frios == $no_frios and $setor_user == "FRIOS"){
 						echo 
 						"<script>window.alert(' Sem equipamento disponivel para este setor ! ')
 							window.location.replace('form_home.php');
@@ -203,7 +203,7 @@ session_start();
 		
 		<?php
 			
-			$coletores = mysql_query("select * from coletores where status = 'CPD' and filial = '$filial_usuario_logado' order by id_mov desc limit 1");
+			$coletores = mysql_query("select * from coletores where status = 'CPD' and filial = '$filial_usuario_logado' order by id_mov limit 1");
 			$dados_coletores = mysql_fetch_array($coletores);
 		?>
 				
@@ -261,7 +261,7 @@ session_start();
 		<?php } else { ?>
 		<br> <br>	
 			<label> OBS: </label> <br>
-			<input name="obs_saida" align="center" size="70" maxlength="70" type="text" > <br> <br>
+			<input name="obs_saida" value="-" align="center" size="70" maxlength="70" type="text" > <br> <br>
 			<input type="submit" name="cadastrar" value="CONFIRMA">
 		<?php } ?>
 		

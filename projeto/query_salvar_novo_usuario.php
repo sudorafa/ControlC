@@ -20,14 +20,17 @@ $query = "insert into usuariosc (filial, nomusuario, datacadastro, matricula, us
 
 if( mysql_query($query))
 {
-	echo "<script>window.alert('Salvo com Sucesso !')</script>";
-	include("form_usuarios.php"); 
-	
+	echo 
+	"<script>window.alert('Salvo com Sucesso !')
+		window.location.replace('form_usuarios.php');
+	</script>";	
 }
 else
 {
-		echo "<script>window.alert('Algo Errado no Query ! ')</script>";
-		include("form_usuarios.php"); 
+	echo 
+	"<script>window.alert('Algo Errado no Query !')
+		window.location.replace('form_usuarios.php');
+	</script>";	
 	
 }
 

@@ -52,7 +52,8 @@ session_start();
 	if ($uso == 0) { ?>
 	<table cellpadding="0" border="1" width="50%" align="center">
 	<tr>
-		<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR PARA O USUARIO <?php echo $usuario1 ?> </td>
+		<td class="simples_2" height="26"> NADA PARA EXIBIR PARA O USUARIO <?php echo $usuario1 ?> </td>
+		<br>
 		<h5 align="center"> <font color="336699"> Data Inicio : <?php echo $data_inicio1 ?> Fim : <?php echo $data_fim1 ?> </font>
 	</tr>
 	</table>
@@ -67,15 +68,15 @@ session_start();
 	<?php 
 		if ($uso == 0) { ?>
 		<tr>
-			<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<td class="simples_2" height="26"> NADA PARA EXIBIR </td>
 		<?php }
 		else { ?>
 			<td class="simples_2" width="50" height="26"> COL </td>
 			<td class="simples_2" width="100" height="26"> DATA SAIDA </td>
 			<td class="simples_2" width="50" height="26"> HORA SAIDA </td>
+			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="100" height="26"> DATA DEVOL </td>
 			<td class="simples_2" width="50" height="26"> HORA DEVOL </td>
-			<td class="simples_2" width="300" height="26"> OBS SAIDA </td>
 			<td class="simples_2" width="300" height="26"> OBS DEVOLUCAO </td>
 	</tr>
 		<?php }
@@ -85,9 +86,9 @@ session_start();
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios[coletor]?> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios[data_saida]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios[hora_saida]?> </td>
+			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="100" height="26" > <?php echo $dados_usuarios[data_devolucao]?></a> </td>
 			<td color="336699" align="center" width="50" height="26" > <?php echo $dados_usuarios[hora_devolucao]?> </td>
-			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios[obs_saida]?></a> </td>
 			<td color="336699" align="center" width="300" height="26" > <?php echo $dados_usuarios[obs_devolucao]?></a> </td>
 	</tr>
 	

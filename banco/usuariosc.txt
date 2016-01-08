@@ -2,14 +2,14 @@ mysql> desc usuariosc;
 +--------------+-------------+------+-----+---------+----------------+
 | Field        | Type        | Null | Key | Default | Extra          |
 +--------------+-------------+------+-----+---------+----------------+
-| codusuario   | int(11)     | NO   | PRI | NULL    | auto_increment |
-| filial       | varchar(30) | NO   |     | NULL    |                |
+| idusuario    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| filial       | varchar(30) | YES  |     | NULL    |                |
 | nomusuario   | varchar(50) | YES  |     | NULL    |                |
-| datacadastro | date        | NO   |     | NULL    |                |
-| matricula    | varchar(30) | NO   |     | NULL    |                |
+| datacadastro | date        | YES  |     | NULL    |                |
+| matricula    | varchar(30) | YES  |     | NULL    |                |
 | user         | varchar(20) | YES  |     | NULL    |                |
-| senha        | varchar(10) | NO   |     | NULL    |                |
+| senha        | varchar(20) | YES  |     | NULL    |                |
 | bloqueio     | varchar(3)  | YES  |     | NULL    |                |
-| descsetor    | varchar(30) | NO   |     | NULL    |                |
+| descsetor    | varchar(30) | YES  |     | NULL    |                |
 +--------------+-------------+------+-----+---------+----------------+
 9 rows in set (0.00 sec)

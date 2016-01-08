@@ -1,0 +1,19 @@
+mysql> desc mov_coletores;
++----------------+--------------+------+-----+---------+----------------+
+| Field          | Type         | Null | Key | Default | Extra          |
++----------------+--------------+------+-----+---------+----------------+
+| id             | int(11)      | NO   | PRI | NULL    | auto_increment |
+| matricula_user | varchar(30)  | YES  |     | NULL    |                |
+| coletor        | varchar(5)   | YES  |     | NULL    |                |
+| nome_user      | varchar(30)  | YES  |     | NULL    |                |
+| setor_user     | varchar(20)  | YES  |     | NULL    |                |
+| data_saida     | date         | YES  |     | NULL    |                |
+| hora_saida     | varchar(5)   | YES  |     | NULL    |                |
+| data_devolucao | date         | YES  |     | NULL    |                |
+| hora_devolucao | varchar(5)   | YES  |     | NULL    |                |
+| obs_saida      | varchar(200) | YES  |     | NULL    |                |
+| obs_devolucao  | varchar(200) | YES  |     | NULL    |                |
+| movimento      | varchar(10)  | YES  |     | NULL    |                |
+| filial         | varchar(30)  | YES  |     | NULL    |                |
++----------------+--------------+------+-----+---------+----------------+
+13 rows in set (0.00 sec)

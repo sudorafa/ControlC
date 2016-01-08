@@ -43,6 +43,7 @@ session_start();
 		&nbsp; &nbsp; &nbsp;
 		<label> <font color="336699"> Coletores: </label> &nbsp;
 		<select size="1" name="coletor">
+			<option value="TODOS"> TODOS </option>
 			<?php
 				while ($dados_coletor = mysql_fetch_array($coletor)){
 			?>

@@ -20,15 +20,18 @@ $query = "update qtdc set qtd_loja = '$qtd_loja_atual1',  qtd_prev = '$qtd_prev_
 
 if( mysql_query($query))
 {
-	echo "<script>window.alert('Quantidades salvas com Sucesso !')</script>";
-	include("form_controles.php"); 
+	echo 
+	"<script>window.alert('Quantidades salvas com Sucesso !')
+		window.location.replace('form_controles.php');
+	</script>";	
 	
 }
 else
 {
-		echo "<script>window.alert('Algo Errado no Query ! ')</script>";
-		include("form_controles.php"); 
-	
+	echo 
+	"<script>window.alert('Algo Errado no Query !')
+		window.location.replace('form_controles.php');
+	</script>";	
 }
 
 ?>

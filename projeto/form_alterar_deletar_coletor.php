@@ -121,39 +121,40 @@ campo.value = campo.value + separador;
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
 
+
+
 <table cellpadding="0" border="1" width="80%" align="center">
 
-    <tr>
-	<h2 align="center"> <font color="336699"> Alterar / Excluir Coletor </font></h2> 
+<br>
+<h2 align="center"> <font color="336699"> Alterar / Excluir Coletor </font></h2> 
+
+<tr>
 	<form action="query_salvar_alteracao_coletor.php" method="post" name="alterar" onSubmit="return valida_dados_alterar(this)">
 		<?php 
-		
-		
 			$coletor = mysql_query("select * from coletores where identificador = '$identificador' and filial = '$filial_usuario_logado'");
 			$dados_coletor = mysql_fetch_array($coletor)
-		
 		?>
-		<tr> 
-			<td	align="center">
+	
+		<td	align="center">
+		<br> <br>
+			<label> <font color="336699"> *Numero de Serie: </label> &nbsp;
+			<label> <input name="nserie" value="<?php echo $dados_coletor[nserie]?>" type="text" size="20" maxlength="20" </label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; 
 			<br> <br>
-				<label> <font color="336699"> *Numero de Serie: </label> &nbsp;
-				<label> <input name="nserie" value="<?php echo $dados_coletor[nserie]?>" type="text" size="20" maxlength="20" </label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-				<br> <br>
-				<label> <font color="336699">  *Descricao: </label> &nbsp;
-				<label> <input name="descricao" value="<?php echo $dados_coletor[descricao]?>" type="text" size="20" maxlength="20" </label> &nbsp; 
-				<br> <br> &nbsp; &nbsp; &nbsp; 
-				<label> <font color="336699">  Status: </label> &nbsp;
-				<label> <input name="status" value="<?php echo $dados_coletor[status]?>" type="text" size="20" maxlength="20" readonly="false" </label> &nbsp; 
-				<br> <br>
+			<label> <font color="336699">  *Descricao: </label> &nbsp;
+			<label> <input name="descricao" value="<?php echo $dados_coletor[descricao]?>" type="text" size="20" maxlength="20" </label> &nbsp;  &nbsp; 
+			<br> <br> &nbsp; &nbsp; &nbsp; 
+			<label> <font color="336699">  Status: </label> &nbsp;
+			<label> <input name="status" value="<?php echo $dados_coletor[status]?>" type="text" size="20" maxlength="20" readonly="false" </label> &nbsp; 
+			<br> <br>
 
-			<input type="hidden" name="identificador1" value="<?php echo $dados_coletor[identificador]?>" >
+		<input type="hidden" name="identificador1" value="<?php echo $dados_coletor[identificador]?>" >
+		
+		<table cellpadding="0" border="0" width="20%" align="center">
+		<tr align="center">
+			<td align="center"> 
+				<input align="center" type="submit" name="salvar" value="salvar"> 
+			</td>
 			
-			<table cellpadding="0" border="0" width="20%" align="center">
-			<tr align="center">
-				<td align="center"> 
-					<input align="center" type="submit" name="salvar" value="salvar"> 
-				</td>
-				
 	</form>
 				<form action="query_deletar_coletor.php" method="post" name="deletar" align="center" onSubmit="return valida_dados_deletar(this)">
 				<td >

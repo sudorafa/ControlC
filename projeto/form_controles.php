@@ -187,7 +187,7 @@ function soma()
 				<label> <font color="336699"> Nm Serie: </label> 
 				<input name="nserie" value="<?php echo $dados_coletor[nserie] ?>" type="text" size="20" maxlength="20" readonly="false"> &nbsp; 
 				
-				<label> <font color="336699">  Descricao: </label> 
+				<label> <font color="336699">  Desc: </label> 
 				<label> <input name="descricao" value="<?php echo $dados_coletor[descricao]?>" type="text" size="6" maxlength="6" readonly="false"> </label> &nbsp; 
 				<label> <font color="336699">  Situacao: </label> 
 				<select size="1" name="situacao">
@@ -196,7 +196,8 @@ function soma()
 					<option value="conserto">conserto</option>
 					<option value="filial">filial</option>
 				</select> &nbsp; &nbsp; &nbsp; 
-			   <br>  
+			   
+			   <br> <br>
 			
 				<label> <font color="336699">  Atualizacao: </label> &nbsp;
 				<input name="data_banco" type="text" size="10" maxlength="10" readonly="false" value="<?php echo $dados_consertoc[atualizacao] ?>"> &nbsp; &nbsp; 
@@ -221,7 +222,7 @@ function soma()
 				<label> <input name="defeito" value="<?php echo $dados_consertoc[defeito]?>" type="text" size="25" maxlength="25" </label> &nbsp;&nbsp; &nbsp; 
 				
 				<label> <font color="336699">  Almox </label> &nbsp; 
-				<label> <input name="data_almox" value="<?php echo date('Y-m-d') ?>" type="text" size=10 maxlength="10" > </label> &nbsp;&nbsp; &nbsp;
+				<label> <input name="data_almox" value="<?php echo $dados_consertoc[almox]?>" type="text" size=10 maxlength="10" > </label> &nbsp;&nbsp; &nbsp;
 				
 				<br> 
 			</td> 
