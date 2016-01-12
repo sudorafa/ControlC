@@ -58,7 +58,7 @@ if ($coletor1 == "TODOS") { ?>
 	if ($uso_todos == 0) { ?>
 	<table cellpadding="0" border="1" width="50%" align="center">
 	<tr>
-		<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR PARA O COLETOR <?php echo $coletor1 ?> </td>
+		<td class="simples_2" height="26"> NADA PARA EXIBIR PARA O COLETOR <?php echo $coletor1 ?> </td>
 		<h5 align="center"> <font color="336699"> Data Inicio : <?php echo $data_inicio1 ?> Fim : <?php echo $data_fim1 ?> </font>
 	</tr>
 	</table>
@@ -73,7 +73,7 @@ if ($coletor1 == "TODOS") { ?>
 	<?php 
 		if ($uso_todos == 0) { ?>
 		<tr>
-			<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+			<td class="simples_2" height="26"> NADA PARA EXIBIR </td>
 		<?php }
 		else { ?>
 			<td class="simples_2" width="100" height="26"> COL. </td>
@@ -131,7 +131,7 @@ if ($coletor1 == "TODOS") { ?>
 	if ($uso == 0) { ?>
 	<table cellpadding="0" border="1" width="50%" align="center">
 	<tr>
-		<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR PARA O COLETOR <?php echo $coletor1 ?> </td>
+		<td class="simples_2" height="26"> NADA PARA EXIBIR PARA O COLETOR <?php echo $coletor1 ?> </td>
 		<h5 align="center"> <font color="336699"> Data Inicio : <?php echo $data_inicio1 ?> Fim : <?php echo $data_fim1 ?> </font>
 	</tr>
 	</table>

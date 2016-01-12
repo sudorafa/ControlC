@@ -49,7 +49,7 @@ session_start();
 				<tr>
 				<?php 
 				if ($uso == 0) { ?>
-					<td class="simples_2" width="100" height="26"> NADA PARA EXIBIR </td>
+					<td class="simples_2" height="26"> NADA PARA EXIBIR </td>
 				<?php }
 				else { ?>
 					<td class="simples_2" height="26"> DESCRICAO </td>

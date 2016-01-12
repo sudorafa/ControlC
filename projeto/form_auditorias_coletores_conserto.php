@@ -11,6 +11,10 @@ session_start();
 		include("index.php");
 	
 	}
+	
+	$idusuario = $_SESSION["idusuario"];
+	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
+	$filial_usuario_logado = $dados_usuario_logado[filial];
 ?>
 						
 <html>
@@ -23,56 +27,37 @@ session_start();
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
 
-<?php
 
-	$idusuario = $_SESSION["idusuario"];
-	$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
-	$filial_usuario_logado = $dados_usuario_logado[filial];
-	
-	$conserto = mysql_query("select * from coletores where status = 'CONSERTO' and filial = '$filial_usuario_logado'");
-	$dados_conserto = mysql_num_rows($conserto);
-	$uso_conserto = $dados_conserto;
-	
-	$lista_conserto = mysql_query("select * from consertoc where situacao = 'conserto' and filial = '$filial_usuario_logado' order by identificador");
-	$linhas_conserto = mysql_num_rows($lista_conserto);
-	$uso_conserto = $linhas_conserto;
-	
-	$lista_coletores = mysql_query("select * from coletores where status = 'CONSERTO' and filial = '$filial_usuario_logado' order by identificador");
+<h2 align="center"> <font color="336699"> Coletores Conserto </font></h2> 
 
-?>
-
-<h2 align="center"> <font color="336699"> Coletores no Conserto</font></h2> 
-<br>
-<table cellpadding="0" border="1" width="70%" height="26" align="center">
-	<tr align="center">
+<table cellpadding="0" border="1" width="40%" align="center">
+<tr align="center">
+	<form action="form_auditorias_lista_coletores_conserto.php" method="post" name="form_auditorias_lista_coletores_conserto" align="center" onSubmit="return valida_dados(this)">
+	<td >
+	<br> <br>
+	
 	<?php 
-	if ($uso_conserto == 0) { ?>
-		<td class="simples_2" height="26"> NADA PARA EXIBIR </td>
-	<?php }
-	else { ?>
-		<td class="simples_2" align="center" width="50"> DESCRICAO </td>
-		<td class="simples_2" align="center" width="50"> IDENT. </td>
-		<td class="simples_2" align="center" width="50"> NUM SERIE </td>
-		<td class="simples_2" align="center" width="50"> RMA </td>
-		<td class="simples_2" align="center" width="50"> NFE </td>
-		<td class="simples_2" align="center" width="200"> DEFEITO </td>
-		<td class="simples_2" align="center" width="70"> ALMOX. </td>
-	<?php } ?>
-	</tr>
-	<?php
-		while ($lista_conserto2 = mysql_fetch_array($lista_conserto) and $lista_coletores2 = mysql_fetch_array($lista_coletores)){
+		$coletor = mysql_query("select * from coletores where filial = '$filial_usuario_logado' order by identificador");
 	?>
-	<tr>
-		<td color="336699" align="center" height="26"><?php echo $lista_coletores2[descricao]?></td>
-		<td color="336699" align="center" height="26"><?php echo $lista_coletores2[identificador]?></td>
-		<td color="336699" align="center" height="26"><?php echo $lista_coletores2[nserie]?></td>
-		<td color="336699" align="center" height="26"><?php echo $lista_conserto2[rma]?></td>
-		<td color="336699" align="center" height="26"><?php echo $lista_conserto2[nfe]?></td>
-		<td color="336699" align="center" height="26"><?php echo $lista_conserto2[defeito]?></td>
-		<td color="336699" align="center" height="26"><?php echo $lista_conserto2[almox]?></td>
-	</tr>
-		<?php };?>
-	</table>
+		
+		&nbsp; &nbsp; &nbsp;
+		<label> <font color="336699"> Coletores: </label> &nbsp;
+		<select size="1" name="coletor">
+			<option value="TODOS"> TODOS </option>
+			<?php
+				while ($dados_coletor = mysql_fetch_array($coletor)){
+			?>
+				<option value="<?php echo $dados_coletor[identificador]?>"> <?php echo $dados_coletor[identificador]?></option>
+			<?php }?>
+		</select> &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
+		<br> <br> <br> 
+	<center><input type="submit" value="gerar relatorio" name="gerar_relatorio"><center>
+	<br> <br>	
+	</td>
+	</form>
+	
+</tr>
+</table>
 
 <br>
 
@@ -80,8 +65,7 @@ session_start();
 <tr>
 	<form action="form_auditorias.php">
 	<td align = "center">
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-		<input align = "v" type="submit" name="voltar" value="voltar">
+		<input align = "center" type="submit" name="voltar" value="voltar">
 	</td>
 	</form>
 </tr>

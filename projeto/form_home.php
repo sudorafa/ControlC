@@ -48,7 +48,7 @@ return true;
 <table border ="1" width="80%" height="100" align="center" cellpadding="0" cellspacing="0">
 	<tr>
 	
-	<td	width="40%" height="100" align="center" > 
+	<td	width="40%" align="center" > 
 		<h2> <font color="336699"> Entrada / Saida (por matricula) </font></h2> 
 		<form name="entra_sai" action="form_entra_sai.php" method="post" onSubmit="return valida_dados(this)">
 			<label> <font color="336699"> Matricula : &nbsp; </label> 		
@@ -69,7 +69,7 @@ return true;
 	
 	</td>
 	
-	<td width="40%" height="100" align="center" > <h2> <font color="336699"> Baixa (por identificador)</font></h2>
+	<td width="40%" align="center" > <h2> <font color="336699"> Baixa (por identificador)</font></h2>
 	<form name="form_baixa" action="query_baixa_por_identificador.php"  method="post">
 		<label> <font color="336699"> Coletor : &nbsp; </label> 		
 		<label>

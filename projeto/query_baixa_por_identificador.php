@@ -31,7 +31,7 @@ $ncoletor	= $dados_busca[coletor];
 
 if ($movimento == "USO"){
 		
-	$query = "update mov_coletores set data_devolucao = '$data', hora_devolucao = '$hora', obs_devolucao = '-', movimento = 'ENTREGUE' where coletor = '$coletor1' and filial = '$filial_usuario_logado'";
+	$query = "update mov_coletores set data_devolucao = '$data', hora_devolucao = '$hora', obs_devolucao = '-', movimento = 'ENTREGUE' where coletor = '$coletor1' and movimento = 'USO' and filial = '$filial_usuario_logado'"; 
 	if( mysql_query($query)) {} 
 	else {
 		echo 

@@ -28,7 +28,7 @@ $filial_usuario_logado = $dados_usuario_logado[filial];
 
 if ($movimento_user1 == "USO"){
 
-	$query = "update mov_coletores set data_devolucao = '$data_devolucao1', hora_devolucao = '$hora_devolucao1', obs_devolucao = '$obs_devolucao1', movimento = 'ENTREGUE' where id = '$id1' and filial = '$filial_usuario_logado'";
+	$query = "update mov_coletores set data_devolucao = '$data_devolucao1', hora_devolucao = '$hora_devolucao1', obs_devolucao = '$obs_devolucao1', movimento = 'ENTREGUE' where movimento = 'USO' and coletor = 'coletor_uso1' and filial = '$filial_usuario_logado'";
 	if( mysql_query($query)) {} 
 	else {
 		echo 
