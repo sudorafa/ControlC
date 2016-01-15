@@ -3,12 +3,17 @@
 include('conecta.php');
 
 $tipo1		= $_GET[tipo];
-if ($tipo == "lista"){
+
+
+if ($tipo1 == "lista"){
 	$movimento	= $_GET[movimento];
-	$coletor1	= $_GET[coletor];
+	
+	$coletorM = strtoupper($_GET[coletor]);
+	$coletor1	= $coletorM;
 }
 else{
-	$coletor1 	= $_POST["coletor"];
+	$coletorM = strtoupper($_POST[coletor]);
+	$coletor1 	= $coletorM;
 }
 
 

@@ -2,11 +2,8 @@
 
 include('conecta.php');
 
-
 //uso/devolucao
 $movimento_user1	= 	$_POST["movimento_post"];
-$data_devolucao1	=   $_POST["data_devolucao"];
-$hora_devolucao1	=   $_POST["hora_devolucao"];
 $obs_devolucao1		=   $_POST["obs_devolucao"];
 $id1				=	$_POST["id"];
 $coletor_uso1		=	$_POST["coletor_uso"];
@@ -20,6 +17,9 @@ $data_saida1	=	$_POST["data_saida"];
 $hora_saida1	=	$_POST["hora_saida"];
 $obs_saida1		=	$_POST["obs_saida"];
 
+$data = date('Y/m/d');
+$hora = date('H:i');
+
 session_start();
 
 $idusuario = $_SESSION["idusuario"];
@@ -28,7 +28,7 @@ $filial_usuario_logado = $dados_usuario_logado[filial];
 
 if ($movimento_user1 == "USO"){
 
-	$query = "update mov_coletores set data_devolucao = '$data_devolucao1', hora_devolucao = '$hora_devolucao1', obs_devolucao = '$obs_devolucao1', movimento = 'ENTREGUE' where movimento = 'USO' and coletor = 'coletor_uso1' and filial = '$filial_usuario_logado'";
+	$query = "update mov_coletores set data_devolucao = '$data', hora_devolucao = '$hora', obs_devolucao = '$obs_devolucao1', movimento = 'ENTREGUE' where coletor = '$coletor_uso1' and movimento = 'USO' and filial = '$filial_usuario_logado'"; 
 	if( mysql_query($query)) {} 
 	else {
 		echo 

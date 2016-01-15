@@ -2,9 +2,11 @@
 
 include('conecta.php');
 
+$coletorM = strtoupper($_POST["identificador1"]);
+
 $nserie1 		=	$_POST["nserie"];
 $descricao1 	=	$_POST["descricao"];  
-$identificador	=	$_POST["identificador1"];
+$identificador	=	$coletorM;
 
 session_start();
 

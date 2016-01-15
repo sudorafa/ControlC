@@ -5,7 +5,9 @@ session_start();
 include('conecta.php');
 include('libera.php');
 
-$ident_post1			=	$_POST["ident_post"];
+$coletorM = strtoupper($_POST["ident_post"]);
+
+$ident_post1			=	$coletorM
 $situacao1				= 	$_POST["situacao"];
 $data_atualizacao1		= 	$_POST["data_atualizacao"];
 $rma1					= 	$_POST["rma"];
