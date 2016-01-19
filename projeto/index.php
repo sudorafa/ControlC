@@ -1,93 +1,87 @@
-<?php
-///////////////////////////////////////////////////////
-//////////////  validando acesso de usuário
-//////////////////////////////////////////////////////
-session_start();
-include('conecta.php');
-include('libera.php');
-include("ip.php");
-
-$idusuario = $_SESSION["idusuario"];
-$dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
-
-////////////////////////////////////////////////////////
-?>
-
 <html>
-<head>
-<link href="estilo.css" rel="stylesheet" type="text/css">
-<title></title>
-</head>
-<body>
-<table border="0"  width="800" align="center">
-	<tr>
-		<td rowspan="2">
-		
-		</td>
-		</tr>
-		<td width="60%" align="right" valign="baseline" >
-		<font color="#006600" size="+3"> CONTROLE DE COLETORES </font><br>
-		<font color="#006600" size="-1"> <b> Informatica Atacadao Filial <?php echo Strtoupper($dados_usuario_logado[filial]) ?> <br>
-		<font color="#006600"> <B> Bem Vindo: <font color="#006600"> <u> <?php echo Strtoupper($dados_usuario_logado[nomusuario]) ?>  </font> | <a href="logout.php"> SAIR </a>	<br>
-	
-		<script language="JavaScript">
-
- // -- made by A1javascripts.com, please keep these credits when using this script
-    days = new Array(7)
-    days[1] = "Domingo";
-    days[2] = "Segunda-feira";
-    days[3] = "Terca-feira"; 
-    days[4] = "Quarta-feira";
-    days[5] = "Quinta-feira";
-    days[6] = "Sexta-feira";
-    days[7] = "Sabado";
-    months = new Array(12)
-    months[1] = "Janeiro";
-    months[2] = "Fevereiro";
-    months[3] = "Março";
-    months[4] = "Abril";
-    months[5] = "Maio";
-    months[6] = "Junho";
-    months[7] = "Julho";
-    months[8] = "Agosto";
-    months[9] = "Setembro";
-    months[10] = "Outubro"; 
-    months[11] = "Novembro";
-    months[12] = "Dezembro";
-    today = new Date(); day = days[today.getDay() + 1]
-    month = months[today.getMonth() + 1]
-    date = today.getDate()
-    year=today.getYear(); 
-if (year < 2005)
-year = year + 1900;
-    document.write ("<font size=-1 color=ff6600> "+ day +
-    ", " + date + " " + month + ", " + year + "</font>")
-    // -- end hiding 
-    	
-	</script>
-	
-	<br>
-		
-	</td>
-	</tr>
-	
-	<table border ="5" width="80%" height="40" align="center" cellpadding="0" cellspacing="0">
-	<tr>
-		<br>
-		<td align="center" colspan="3" bgcolor="#ffcc99">
-		<font size="-1" color="#ffffff">
-		&nbsp; &nbsp;<b><a class="linkbanner" href="form_home.php">HOME</a>&nbsp; &nbsp; | 
-		&nbsp; &nbsp;<b><a class="linkbanner" href="form_usuarios.php">USUARIOS</a>&nbsp; &nbsp;|
-		&nbsp; &nbsp;<b><a class="linkbanner" href="form_coletores.php">COLETORES</a>&nbsp; &nbsp; | 
-		&nbsp; &nbsp;<b><a class="linkbanner" href="form_auditorias.php">AUDITORIAS</a>&nbsp; &nbsp; |
-		&nbsp; &nbsp;<b><a class="linkbanner" href="form_controles.php">CONTROLES</a>&nbsp; &nbsp; |
-		&nbsp; &nbsp;<b><a class="linkbanner" href="form_status_detalhado.php"> STATUS DETALHADO </a>&nbsp; &nbsp;
-		</td>
-	</tr>	
-	</table>
-	<br>
-
-</table>
-
-</body>
+    <head>
+        <title></title>
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0"/>
+        <meta name = "description" content = "Inserir uma descrição para esta página"/>
+        <meta name = "keywords" content = "Palavras,chaves,separadas,por,vírgulas"/>
+        <meta charset = "UTF-8"/>
+        <link type="text/css" rel="stylesheet" href="_css/style.css"/>
+    </head>
+    <body>
+        <div id="interface">
+            <?php
+                ///////////////////////////////////////////////////////
+                //////////////  validando acesso de usuário
+                //////////////////////////////////////////////////////
+                session_start();
+                include('conecta.php');
+                include('libera.php');
+                include("ip.php");
+                $idusuario = $_SESSION["idusuario"];
+                $dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc where idusuario = '$idusuario'"));
+                ////////////////////////////////////////////////////////
+            ?>
+            <header id="cabecalho">
+                <a id="logoHeaderAtacadao" href="http://www.atacadao.com.br" target="_blank">
+                    <image title="Logo do Controle de Coletores" alt="Logo Atacadão." src="_imagens/logo.png"/>
+                </a>
+                <section id="textoCabecalho">
+                    <h1>
+                        CONTROLE DE COLETORES
+                    </h1>
+                    <h2>
+                        Informática - Filial Atacadão: <span><?php echo Strtoupper($dados_usuario_logado[filial]) ?></span>
+                    </h2>
+                    <h2>Bem Vindo(a): <span><?php echo Strtoupper($dados_usuario_logado[nomusuario]) ?></span> | <a href="logout.php"> SAIR </a></h2>
+                    <h3>
+                        <script language="JavaScript">
+                            days = new Array("Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira",
+                                                "Sexta-feira","Sábado");
+                            months = new Array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho",
+                                                "Agosto","Setembro","Outubro","Novembro","Dezembro");
+                            today = new Date();
+                            day = days[today.getDay()];
+                            month = months[today.getMonth()];
+                            date = today.getDate();
+                            year = today.getYear() + 1900;
+                            document.write (day + ", " + date + " de " + month + " de " + year + ".");
+                        </script>
+                    </h3>
+                </section> <!-- /textoCabecalho -->
+                <div id="clear"></div> <!-- /clear -->
+            </header>
+            <section id="menu">
+                <ul>
+                    <li><a href="form_home.php" title="Controle de Coletores | Home">HOME</a></li>
+                    <li><a href="form_usuarios.php" title="Controle de Coletores | Usuários">USUÁRIOS</a></li>
+                    <li><a href="form_coletores.php" title="Controle de Coletores | Coletores">COLETORES</a></li>
+                    <li><a href="form_auditorias.php" title="Controle de Coletores | Auditorias">AUDITORIAS</a></li>
+                    <li><a href="form_controles.php" title="Controle de Coletores | Controles">CONTROLES</a></li>
+                    <li><a href="form_status_detalhado.php" title="Controle de Coletores | Status Detalhado">STATUS DETALHADO </a></li>
+                </ul>
+            </section> <!-- /menu -->
+            <div id="conteudo">
+                <br/><br/><br/>
+                Ponha todo o conteúdo das respectivas páginas aqui!
+                <!-- pode apagar tudo o que estiver dentro da DIV "conteudo". Pois escrevi os brs apenas apra ter uma noção 
+                mesmo
+                -->
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>                
+            </div> <!-- /conteudo -->
+            <footer id="rodape">
+                <a href="http://www.carrefour.com/content/group" target="_blank">
+                    <image id="logoFooterCarrefour" title="Logo Carrefour do Controle de Coletores" alt="Logo Carrefour."
+                           src="_imagens/carrefour_footer.png"/>
+                </a>
+                <a href="http://www.atacadao.com.br" target="_blank">
+                    <image id="logoFooterAtacadao" title="Logo Atacadão do Controle de Coletores" alt="Logo Atacadão."
+                           src="_imagens/atacadao_footer.png"/>
+                </a>
+                <span>&copy; COPYRIGHT ATACADÃO
+                    <script language="JavaScript">document.write (year + ".");</script>
+                    TODOS OS DIREITOS RESERVADOS.
+                </span>
+            </footer>
+        </div> <!--/interface -->
+    </body>
 </html>
