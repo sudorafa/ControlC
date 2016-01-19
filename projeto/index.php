@@ -15,8 +15,9 @@ $dados_usuario_logado = mysql_fetch_array(mysql_query("select * from usuariosc w
 
 <html>
 <head>
+<link rel="icon" href="imagem/favicon1.ico" type="image/x-icon" />
 <link href="estilo.css" rel="stylesheet" type="text/css">
-<title></title>
+<title>ControlC <?php echo $dados_usuario_logado[filial] ?> </title>
 </head>
 <body>
 <table border="0"  width="800" align="center">

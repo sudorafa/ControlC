@@ -13,7 +13,10 @@ include('conecta.php');
 
 <html>
 <head>
+<link rel="icon" href="imagem/favicon1.ico" type="image/x-icon" />
 <link href="estilo.css" rel="stylesheet" type="text/css">
+<title>Login ControlC </title>
+
 <title></title>
 </head>
 <body>

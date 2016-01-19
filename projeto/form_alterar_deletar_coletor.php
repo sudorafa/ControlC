@@ -68,60 +68,11 @@ return true;
 }
 </script>
 
-<SCRIPT language=javascript> 
-function Mascara (formato, keypress, objeto){ 
-campo = eval (objeto); 
-// CEP 
-if (formato=='CEP'){ 
-separador = '-'; 
-conjunto1 = 5; 
-if (campo.value.length == conjunto1){ 
-campo.value = campo.value + separador; 
-} 
-} 
-
-// HORA 
-if (formato=='novahora'){ 
-separador = ':'; 
-conjunto1 = 2; 
-if (campo.value.length == conjunto1){ 
-campo.value = campo.value + separador; 
-} 
-} 
-
-// DATA 
-if (formato=='novadata'){ 
-separador = '/'; 
-conjunto1 = 2; 
-conjunto2 = 5; 
-if (campo.value.length == conjunto2)
-{ 
-campo.value = campo.value + separador; 
-} 
-if ( campo.value.length == conjunto1)
-{ 
-campo.value = campo.value + separador; 
-}
-
-} 
-
-// TELEFONE 
-if (formato=='TELEFONE'){ 
-separador = '-'; 
-conjunto1 = 4; 
-if (campo.value.length == conjunto1){ 
-campo.value = campo.value + separador; 
-} 
-} 
-} 
-</SCRIPT> 
-
 <!------------------------------------------------------------------------------------------>
+
 <script language="javascript" src="script/ajax.js"></script> 
 <script language="javascript" src="script/fmenu.js"></script>
 <script language="javascript" src="script/fcampo.js"></script>
-
-
 
 <table cellpadding="0" border="1" width="80%" align="center">
 

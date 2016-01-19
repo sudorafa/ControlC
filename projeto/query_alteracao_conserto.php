@@ -7,7 +7,7 @@ include('libera.php');
 
 $coletorM = strtoupper($_POST["ident_post"]);
 
-$ident_post1			=	$coletorM
+$ident_post1			=	$coletorM;
 $situacao1				= 	$_POST["situacao"];
 $data_atualizacao1		= 	$_POST["data_atualizacao"];
 $rma1					= 	$_POST["rma"];
@@ -72,7 +72,7 @@ if($situacao1 == "filial")
 			}
 			else
 			{
-				$query = "update consertoc set situacao = '$situacao1',  atualizacao = '$data_atualizacao1', rma = '$rma1',  nfe = '$nfe1',  defeito = '$defeito1', almox = '$data_almox1' where identificador = '$ident_post1' and filial = '$filial_usuario_logado'"; 
+				$query = "update consertoc set  atualizacao = '$data_atualizacao1', rma = '$rma1',  nfe = '$nfe1',  defeito = '$defeito1', almox = '$data_almox1' where identificador = '$ident_post1' and filial = '$filial_usuario_logado' and situacao = 'conserto'";
 				
 				if( mysql_query($query))
 				{
