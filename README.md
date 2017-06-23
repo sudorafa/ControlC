@@ -1,9 +1,13 @@
-# o controlc
-controle de coletores:
-- Portal criado para controlar entrada e saÌda de coletores;
-- Controle onde temos funcion·rios como usu·rios
+# Sistema de Controle de Coletores
 
-# a programaÁ„o
+# O controlc
+Controle de Coletores:
+- Portal criado para controlar entrada e sa√≠da de coletores;
+- Controle onde temos funcion√°rios como usu√°rios
+
+# a programa√ß√£o
 - PHP usada para suas devidas regras;
 - MySql para fluxo de bando de dados;
-- Html para exibiÁıes e aÁıes nos navegadores
+- Html para exibi√ß√µes e a√ß√µes nos navegadores
+
+‚Ä¢	Este sistema √© colocado no local raiz da Intranet, para ter controle de acesso e navega√ß√µes com outros. (Intranet citado no reposit√≥rio sudorafa/IntranetSys).
